@@ -1,6 +1,16 @@
 @import "tailwindcss";
 
 /* -------------------------------------------------------------------------- */
+/*  Self-hosted variable fonts (Fontsource).                                  */
+/*  Fraunces ships its full-axes variable file (opsz, wght, SOFT, WONK).      */
+/*  Manrope ships its weight-axis variable file (200..800).                   */
+/*  Bundled at build time → zero external requests, full GDPR compliance.     */
+/* -------------------------------------------------------------------------- */
+@import "@fontsource-variable/fraunces/full.css";
+@import "@fontsource-variable/fraunces/full-italic.css";
+@import "@fontsource-variable/manrope/index.css";
+
+/* -------------------------------------------------------------------------- */
 /*  Design tokens — VirtusWay                                                 */
 /*  A calm, editorial palette inspired by the brand mark:                     */
 /*  ocean depth → celeste sky, with a single living teal accent.              */
@@ -22,9 +32,10 @@
   --color-leaf: #2eb39b;
   --color-leaf-deep: #1a8a76;
 
-  --font-display: "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
-  --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-    Roboto, sans-serif;
+  --font-display: "Fraunces Variable", "Fraunces", ui-serif, Georgia,
+    "Times New Roman", serif;
+  --font-sans: "Manrope Variable", "Manrope", ui-sans-serif, system-ui,
+    -apple-system, "Segoe UI", Roboto, sans-serif;
 
   --tracking-eyebrow: 0.22em;
   --tracking-tight: -0.025em;
