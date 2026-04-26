@@ -3,7 +3,7 @@ import LeafMark from "./LeafMark.astro";
 ---
 
 <section id="guia" class="relative">
-  <div class="max-w-[1240px] mx-auto px-6 md:px-10 py-20 md:py-28">
+  <div class="max-w-310 mx-auto px-6 md:px-10 py-20 md:py-28">
     <div
       class="relative overflow-hidden rounded-[36px] reveal"
       style="background: linear-gradient(160deg, #0a3a52 0%, #0c2e44 70%, #061f30 100%);"
@@ -11,13 +11,13 @@ import LeafMark from "./LeafMark.astro";
       <!-- Decorative atmosphere -->
       <div
         aria-hidden="true"
-        class="absolute -top-32 -right-24 w-[460px] h-[460px] rounded-full opacity-50 blur-3xl"
+        class="absolute -top-32 -right-24 w-115 h-115 rounded-full opacity-50 blur-3xl"
         style="background: radial-gradient(circle, rgba(46,179,155,0.55), transparent 70%);"
       >
       </div>
       <div
         aria-hidden="true"
-        class="absolute -bottom-32 -left-24 w-[460px] h-[460px] rounded-full opacity-30 blur-3xl"
+        class="absolute -bottom-32 -left-24 w-115 h-115 rounded-full opacity-30 blur-3xl"
         style="background: radial-gradient(circle, rgba(143,198,223,0.45), transparent 70%);"
       >
       </div>
@@ -30,14 +30,11 @@ import LeafMark from "./LeafMark.astro";
       </div>
 
       <div
-        class="relative grid grid-cols-12 gap-10 p-8 md:p-14 lg:p-20 text-[color:var(--color-paper)]"
+        class="relative grid grid-cols-12 gap-10 p-8 md:p-14 lg:p-20 text-paper"
       >
         <!-- Copy column -->
         <div class="col-span-12 lg:col-span-7">
-          <p
-            class="eyebrow flex items-center gap-3"
-            style="color:#7adcc6;"
-          >
+          <p class="eyebrow flex items-center gap-3" style="color:#7adcc6;">
             <span class="w-8 h-px" style="background:#7adcc6;"></span>
             Guía gratuita · PDF
           </p>
@@ -47,18 +44,20 @@ import LeafMark from "./LeafMark.astro";
             style="font-variation-settings: 'opsz' 144, 'SOFT' 50;"
           >
             5 preguntas para conectar con tus
-            <span class="font-display-italic" style="color:#7adcc6;">valores</span>
+            <span class="font-display-italic" style="color:#7adcc6;"
+              >valores</span
+            >
             <span class="block">y tomar decisiones con claridad.</span>
           </h2>
 
           <p
-            class="mt-7 text-[1.05rem] leading-[1.7] max-w-[34rem]"
+            class="mt-7 text-[1.05rem] leading-[1.7] max-w-136"
             style="color:#cbdce5;"
           >
             Inspirada en la psicología humanista, el coaching de valores y la
-            filosofía práctica. Una guía breve y honesta para distinguir lo
-            que <em class="font-display-italic">realmente importa</em> de lo
-            que crees que debería importarte.
+            filosofía práctica. Una guía breve y honesta para distinguir lo que <em
+              class="font-display-italic">realmente importa</em
+            > de lo que crees que debería importarte.
           </p>
 
           <ul
@@ -91,7 +90,7 @@ import LeafMark from "./LeafMark.astro";
         <!-- Form column -->
         <div class="col-span-12 lg:col-span-5">
           <form
-            class="rounded-[24px] p-7 md:p-8 border"
+            class="rounded-3xl p-7 md:p-8 border"
             style="background: rgba(255,255,255,0.06); border-color: rgba(203,220,229,0.2); backdrop-filter: blur(6px);"
             onsubmit="event.preventDefault(); this.querySelector('button').textContent = '✓ ¡A tu correo!';"
           >
@@ -137,7 +136,10 @@ import LeafMark from "./LeafMark.astro";
               </button>
             </div>
 
-            <p class="mt-5 text-[0.78rem] leading-relaxed" style="color:#9eb6c2;">
+            <p
+              class="mt-5 text-[0.78rem] leading-relaxed"
+              style="color:#9eb6c2;"
+            >
               Recibirás la guía y, ocasionalmente, reflexiones sobre coaching y
               liderazgo coherente. Puedes darte de baja en un clic.
             </p>

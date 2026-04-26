@@ -1,19 +1,15 @@
----
-import LeafMark from "./LeafMark.astro";
----
-
 <section id="sobre" class="relative">
-  <div class="max-w-[1240px] mx-auto px-6 md:px-10 py-20 md:py-28">
+  <div class="max-w-310 mx-auto px-6 md:px-10 py-20 md:py-28">
     <div class="grid grid-cols-12 gap-12 items-start">
       <!-- Portrait card -->
       <div class="col-span-12 lg:col-span-5 reveal">
         <div
-          class="relative rounded-[32px] p-8 md:p-10 overflow-hidden border border-[color:var(--color-rule)]"
+          class="relative rounded-4xl p-8 md:p-10 overflow-hidden border border-rule"
           style="background: linear-gradient(160deg, #ffffff 0%, #eaf3f7 100%);"
         >
           <div
             aria-hidden="true"
-            class="absolute -top-12 -right-12 w-[260px] h-[260px] rounded-full opacity-40 blur-3xl"
+            class="absolute -top-12 -right-12 w-65 h-65 rounded-full opacity-40 blur-3xl"
             style="background: radial-gradient(circle, rgba(46,179,155,0.45), transparent 70%);"
           >
           </div>
@@ -21,7 +17,7 @@ import LeafMark from "./LeafMark.astro";
           <!-- Portrait placeholder: a soft, calm initial monogram -->
           <div class="relative">
             <div
-              class="w-[180px] h-[180px] mx-auto rounded-full flex items-center justify-center"
+              class="w-45 h-45 mx-auto rounded-full flex items-center justify-center"
               style="background: radial-gradient(circle at 35% 30%, #ffffff 0%, #cfe3ee 35%, #2c7aa3 100%);"
             >
               <span
@@ -33,7 +29,7 @@ import LeafMark from "./LeafMark.astro";
             </div>
             <div class="mt-6 text-center">
               <p
-                class="font-display text-[1.45rem] text-[color:var(--color-ink)]"
+                class="font-display text-[1.45rem] text-ink"
                 style="font-variation-settings: 'opsz' 24, 'SOFT' 70;"
               >
                 Mauricio Magni Manchón
@@ -48,7 +44,7 @@ import LeafMark from "./LeafMark.astro";
             <div>
               <dt class="eyebrow">Años en TIC</dt>
               <dd
-                class="mt-1 font-display text-[1.6rem] text-[color:var(--color-deep)]"
+                class="mt-1 font-display text-[1.6rem] text-deep"
                 style="font-variation-settings: 'opsz' 144, 'SOFT' 60;"
               >
                 35
@@ -57,7 +53,7 @@ import LeafMark from "./LeafMark.astro";
             <div>
               <dt class="eyebrow">Práctica</dt>
               <dd
-                class="mt-1 font-display text-[1.6rem] text-[color:var(--color-deep)]"
+                class="mt-1 font-display text-[1.6rem] text-deep"
                 style="font-variation-settings: 'opsz' 144, 'SOFT' 60;"
               >
                 200<span class="text-[1rem] align-top">+ h</span>
@@ -66,7 +62,7 @@ import LeafMark from "./LeafMark.astro";
             <div>
               <dt class="eyebrow">Idiomas</dt>
               <dd
-                class="mt-1 font-display text-[1.6rem] text-[color:var(--color-deep)]"
+                class="mt-1 font-display text-[1.6rem] text-deep"
                 style="font-variation-settings: 'opsz' 144, 'SOFT' 60;"
               >
                 ES · EN
@@ -77,42 +73,44 @@ import LeafMark from "./LeafMark.astro";
       </div>
 
       <!-- Bio column -->
-      <div class="col-span-12 lg:col-span-7 reveal" style="transition-delay: 100ms;">
+      <div
+        class="col-span-12 lg:col-span-7 reveal"
+        style="transition-delay: 100ms;"
+      >
         <p class="eyebrow flex items-center gap-3">
-          <span class="w-8 h-px bg-[color:var(--color-leaf-deep)]"></span> Sobre mí
+          <span class="w-8 h-px bg-leaf-deep"></span> Sobre mí
         </p>
 
         <h2
-          class="mt-4 font-display text-[2rem] md:text-[2.8rem] leading-[1.08] tracking-[-0.03em] text-[color:var(--color-ink)]"
+          class="mt-4 font-display text-[2rem] md:text-[2.8rem] leading-[1.08] tracking-[-0.03em] text-ink"
           style="font-variation-settings: 'opsz' 144, 'SOFT' 40;"
         >
           De la
-          <span class="font-display-italic text-[color:var(--color-deep)]">tecnología</span>
+          <span class="font-display-italic text-deep">tecnología</span>
           a las personas. Del código a la
-          <span class="font-display-italic text-[color:var(--color-leaf-deep)]"
-            >coherencia.</span
-          >
+          <span class="font-display-italic text-leaf-deep">coherencia.</span>
         </h2>
 
-        <div class="mt-8 space-y-5 text-[1.02rem] leading-[1.7] text-[color:var(--color-ink-muted)] max-w-[42rem]">
+        <div
+          class="mt-8 space-y-5 text-[1.02rem] leading-[1.7] text-ink-muted max-w-2xl"
+        >
           <p>
             Durante 35 años he habitado el mundo del software: como
-            desarrollador, liderando equipos, gestionando personas y
-            traduciendo entre tecnología y negocio. Conozco la presión, la
-            fricción y la sensación de que algo importante queda fuera del
-            sprint.
+            desarrollador, liderando equipos, gestionando personas y traduciendo
+            entre tecnología y negocio. Conozco la presión, la fricción y la
+            sensación de que algo importante queda fuera del sprint.
           </p>
           <p>
             Cuando un proyecto se torció, busqué un puente. En
-            <span class="text-[color:var(--color-ink)]">Fundares</span>
-            completé el itinerario en coaching —Neurocoaching, Life Coaching de
-            Identidad y Liderazgo & Business Coaching— y ahora curso un
+            <span class="text-ink">Fundares</span>
+            completé el itinerario en coaching —Neurocoaching, Life Coaching de Identidad
+            y Liderazgo & Business Coaching— y ahora curso un
             <em class="font-display-italic"
               >Máster en Coaching y Neurociencia para el Desarrollo Humano</em
             >. Más de 200 horas de práctica acompañando a personas como tú.
           </p>
           <p>
-            <span class="text-[color:var(--color-ink)]"
+            <span class="text-ink"
               >No he venido a aprender una profesión desde cero;</span
             > he venido a dar estructura y profundidad a lo que ya sabía que podía
             aportar.
@@ -121,36 +119,29 @@ import LeafMark from "./LeafMark.astro";
 
         <!-- Credentials row -->
         <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div
-            class="rounded-2xl border border-[color:var(--color-rule)] bg-white/60 p-5"
-          >
+          <div class="rounded-2xl border border-rule bg-white/60 p-5">
             <p class="eyebrow">Formación</p>
-            <p class="mt-2 text-[0.96rem] text-[color:var(--color-ink)] leading-snug">
+            <p class="mt-2 text-[0.96rem] text-ink leading-snug">
               Itinerario completo en coaching · Fundares / Universidad de
               Vic-UCC
             </p>
           </div>
-          <div
-            class="rounded-2xl border border-[color:var(--color-rule)] bg-white/60 p-5"
-          >
+          <div class="rounded-2xl border border-rule bg-white/60 p-5">
             <p class="eyebrow">En curso</p>
-            <p class="mt-2 text-[0.96rem] text-[color:var(--color-ink)] leading-snug">
-              Máster en Coaching y Neurociencia · Carpe Vitae / U. Vitoria-Gasteiz
+            <p class="mt-2 text-[0.96rem] text-ink leading-snug">
+              Máster en Coaching y Neurociencia · Carpe Vitae / U.
+              Vitoria-Gasteiz
             </p>
           </div>
-          <div
-            class="rounded-2xl border border-[color:var(--color-rule)] bg-white/60 p-5"
-          >
+          <div class="rounded-2xl border border-rule bg-white/60 p-5">
             <p class="eyebrow">Ética</p>
-            <p class="mt-2 text-[0.96rem] text-[color:var(--color-ink)] leading-snug">
+            <p class="mt-2 text-[0.96rem] text-ink leading-snug">
               Adherido al Código Global de Ética EMCC
             </p>
           </div>
-          <div
-            class="rounded-2xl border border-[color:var(--color-rule)] bg-white/60 p-5"
-          >
+          <div class="rounded-2xl border border-rule bg-white/60 p-5">
             <p class="eyebrow">Enfoque</p>
-            <p class="mt-2 text-[0.96rem] text-[color:var(--color-ink)] leading-snug">
+            <p class="mt-2 text-[0.96rem] text-ink leading-snug">
               Psicología humanista · Coaching de valores · Neurociencia
             </p>
           </div>

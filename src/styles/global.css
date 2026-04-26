@@ -32,10 +32,11 @@
   --color-leaf: #2eb39b;
   --color-leaf-deep: #1a8a76;
 
-  --font-display: "Fraunces Variable", "Fraunces", ui-serif, Georgia,
-    "Times New Roman", serif;
-  --font-sans: "Manrope Variable", "Manrope", ui-sans-serif, system-ui,
-    -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display:
+    "Fraunces Variable", "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
+  --font-sans:
+    "Manrope Variable", "Manrope", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, sans-serif;
 
   --tracking-eyebrow: 0.22em;
   --tracking-tight: -0.025em;
@@ -80,14 +81,18 @@ body {
 .font-display {
   font-family: var(--font-display);
   font-optical-sizing: auto;
-  font-variation-settings: "SOFT" 50, "WONK" 0;
+  font-variation-settings:
+    "SOFT" 50,
+    "WONK" 0;
   letter-spacing: var(--tracking-tight);
 }
 
 .font-display-italic {
   font-family: var(--font-display);
   font-style: italic;
-  font-variation-settings: "SOFT" 100, "WONK" 1;
+  font-variation-settings:
+    "SOFT" 100,
+    "WONK" 1;
 }
 
 .eyebrow {
@@ -133,7 +138,8 @@ body {
 .btn-primary {
   background: var(--color-deep);
   color: var(--color-paper);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset,
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.4) inset,
     0 14px 30px -18px rgba(10, 58, 82, 0.6);
 }
 .btn-primary:hover {
@@ -260,7 +266,10 @@ body {
   font-family: var(--font-sans);
   font-size: 1rem;
   color: var(--color-ink);
-  transition: border-color 200ms, background 200ms, box-shadow 200ms;
+  transition:
+    border-color 200ms,
+    background 200ms,
+    box-shadow 200ms;
 }
 .field::placeholder {
   color: var(--color-ink-soft);
@@ -277,10 +286,10 @@ body {
 /* -------------------------------------------------------------------------- */
 .contour {
   background-image: radial-gradient(
-      circle at 50% 50%,
-      rgba(10, 58, 82, 0.06) 1px,
-      transparent 1.4px
-    );
+    circle at 50% 50%,
+    rgba(10, 58, 82, 0.06) 1px,
+    transparent 1.4px
+  );
   background-size: 22px 22px;
 }
 
@@ -305,7 +314,9 @@ body {
 :where(.prose-legal) > h2,
 :where(.prose-legal) h2:not(.no-rule) {
   font-family: var(--font-display);
-  font-variation-settings: "opsz" 144, "SOFT" 50;
+  font-variation-settings:
+    "opsz" 144,
+    "SOFT" 50;
   letter-spacing: -0.022em;
   font-size: clamp(1.55rem, 2.2vw, 1.9rem);
   line-height: 1.18;
@@ -325,7 +336,10 @@ body {
 :where(.prose-legal) h2 > .num {
   font-family: var(--font-display);
   font-style: italic;
-  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  font-variation-settings:
+    "opsz" 144,
+    "SOFT" 100,
+    "WONK" 1;
   font-feature-settings: "lnum", "ss01";
   color: var(--color-leaf-deep);
   font-size: 1.05rem;
@@ -357,7 +371,9 @@ body {
 :where(.prose-legal) h3 > .num {
   font-family: var(--font-display);
   font-style: italic;
-  font-variation-settings: "SOFT" 100, "WONK" 1;
+  font-variation-settings:
+    "SOFT" 100,
+    "WONK" 1;
   font-feature-settings: "lnum";
   color: var(--color-leaf-deep);
   font-size: 0.95rem;
@@ -380,7 +396,9 @@ body {
 :where(.prose-legal) > ol em {
   font-family: var(--font-display);
   font-style: italic;
-  font-variation-settings: "SOFT" 100, "WONK" 1;
+  font-variation-settings:
+    "SOFT" 100,
+    "WONK" 1;
   color: var(--color-deep);
   font-weight: inherit;
 }
@@ -396,7 +414,9 @@ body {
     rgba(46, 179, 155, 0.25) 90%,
     transparent 90%
   );
-  transition: background-image 220ms ease, color 220ms ease;
+  transition:
+    background-image 220ms ease,
+    color 220ms ease;
   word-break: break-word;
 }
 :where(.prose-legal) > p a:hover,

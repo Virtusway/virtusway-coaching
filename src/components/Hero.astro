@@ -4,26 +4,23 @@ import LeafMark from "./LeafMark.astro";
 
 <section class="relative overflow-hidden">
   <!-- Atmospheric background washes -->
-  <div
-    aria-hidden="true"
-    class="absolute inset-0 -z-10 pointer-events-none"
-  >
+  <div aria-hidden="true" class="absolute inset-0 -z-10 pointer-events-none">
     <div
-      class="absolute -top-32 -right-24 w-[640px] h-[640px] rounded-full opacity-40 blur-3xl drift"
+      class="absolute -top-32 -right-24 w-160 h-160 rounded-full opacity-40 blur-3xl drift"
       style="background: radial-gradient(circle at 50% 50%, rgba(143,198,223,0.55), transparent 60%);"
     >
     </div>
     <div
-      class="absolute top-[35%] -left-40 w-[520px] h-[520px] rounded-full opacity-30 blur-3xl"
+      class="absolute top-[35%] -left-40 w-130 h-130 rounded-full opacity-30 blur-3xl"
       style="background: radial-gradient(circle at 50% 50%, rgba(46,179,155,0.35), transparent 60%);"
     >
     </div>
   </div>
 
-  <div class="max-w-[1240px] mx-auto px-6 md:px-10 pt-16 md:pt-24 pb-20 md:pb-32">
+  <div class="max-w-310 mx-auto px-6 md:px-10 pt-16 md:pt-24 pb-20 md:pb-32">
     <!-- Eyebrow -->
     <div class="flex items-center gap-3 rise" style="animation-delay: 60ms;">
-      <span class="w-8 h-px bg-[color:var(--color-leaf-deep)]"></span>
+      <span class="w-8 h-px bg-leaf-deep"></span>
       <span class="eyebrow">Valencia · Online · ES / EN</span>
     </div>
 
@@ -32,18 +29,18 @@ import LeafMark from "./LeafMark.astro";
       <!-- Headline column -->
       <div class="col-span-12 lg:col-span-8">
         <h1
-          class="font-display text-[2.6rem] sm:text-[3.4rem] md:text-[4.6rem] lg:text-[5.6rem] leading-[0.96] tracking-[-0.035em] text-[color:var(--color-ink)] rise"
+          class="font-display text-[2.6rem] sm:text-[3.4rem] md:text-[4.6rem] lg:text-[5.6rem] leading-[0.96] tracking-[-0.035em] text-ink rise"
           style="font-variation-settings: 'opsz' 144, 'SOFT' 30, 'wght' 400; animation-delay: 140ms;"
         >
           Liderar con
           <span class="block">
             <span
-              class="font-display-italic text-[color:var(--color-deep)]"
+              class="font-display-italic text-deep"
               style="font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1, 'wght' 380;"
             >
               coherencia
             </span>
-            <span class="inline-block translate-y-[-0.05em] mx-1 text-[color:var(--color-leaf)]"
+            <span class="inline-block translate-y-[-0.05em] mx-1 text-leaf"
               >·</span
             >
             claridad.
@@ -51,19 +48,22 @@ import LeafMark from "./LeafMark.astro";
         </h1>
 
         <p
-          class="mt-8 max-w-[42rem] text-[1.08rem] md:text-[1.18rem] leading-[1.65] text-[color:var(--color-ink-muted)] rise"
+          class="mt-8 max-w-2xl text-[1.08rem] md:text-[1.18rem] leading-[1.65] text-ink-muted rise"
           style="animation-delay: 280ms;"
         >
           Coaching integrativo para
-          <span class="text-[color:var(--color-ink)]">mujeres profesionales</span>
-          y <span class="text-[color:var(--color-ink)]">equipos TIC</span> que quieren
-          tomar decisiones alineadas con sus valores —
-          <em class="font-display-italic text-[color:var(--color-deep)]"
+          <span class="text-ink">mujeres profesionales</span>
+          y <span class="text-ink">equipos TIC</span> que quieren tomar decisiones
+          alineadas con sus valores —
+          <em class="font-display-italic text-deep"
             >sin culpa, sin ruido, sin perderse en el camino</em
           >.
         </p>
 
-        <div class="mt-10 flex flex-wrap items-center gap-4 rise" style="animation-delay: 420ms;">
+        <div
+          class="mt-10 flex flex-wrap items-center gap-4 rise"
+          style="animation-delay: 420ms;"
+        >
           <a href="#guia" class="btn btn-primary">
             Descargar la guía gratuita
             <span class="arrow" aria-hidden="true">→</span>
@@ -75,7 +75,7 @@ import LeafMark from "./LeafMark.astro";
 
         <!-- Tiny meta line under CTAs -->
         <div
-          class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-[0.82rem] text-[color:var(--color-ink-soft)] rise"
+          class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-[0.82rem] text-ink-soft rise"
           style="animation-delay: 540ms;"
         >
           <span class="tick">Sin compromiso</span>
@@ -86,7 +86,7 @@ import LeafMark from "./LeafMark.astro";
 
       <!-- Sidebar editorial card -->
       <aside
-        class="col-span-12 lg:col-span-4 lg:pl-6 lg:border-l lg:border-[color:var(--color-rule)] rise"
+        class="col-span-12 lg:col-span-4 lg:pl-6 lg:border-l lg:border-rule rise"
         style="animation-delay: 360ms;"
       >
         <div class="flex items-start gap-4">
@@ -94,13 +94,12 @@ import LeafMark from "./LeafMark.astro";
           <div>
             <p class="eyebrow">Una nota</p>
             <p
-              class="mt-3 font-display text-[1.35rem] leading-[1.35] text-[color:var(--color-ink)]"
+              class="mt-3 font-display text-[1.35rem] leading-[1.35] text-ink"
               style="font-variation-settings: 'opsz' 24, 'SOFT' 60;"
             >
-              <span class="font-display-italic">"</span>De la tecnología a las personas.
-              Del código a la
-              <span class="font-display-italic text-[color:var(--color-leaf-deep)]"
-                >coherencia.</span
+              <span class="font-display-italic">"</span>De la tecnología a las
+              personas. Del código a la
+              <span class="font-display-italic text-leaf-deep">coherencia.</span
               >
               <span class="font-display-italic">"</span>
             </p>
@@ -110,7 +109,7 @@ import LeafMark from "./LeafMark.astro";
 
         <div class="hairline mt-8"></div>
 
-        <ul class="mt-6 space-y-3 text-[0.95rem] text-[color:var(--color-ink-muted)]">
+        <ul class="mt-6 space-y-3 text-[0.95rem] text-ink-muted">
           <li class="flex items-baseline gap-3">
             <span class="numeral text-[1.05rem]">01</span>
             <span>35 años en tecnología y liderazgo de equipos</span>
@@ -130,9 +129,7 @@ import LeafMark from "./LeafMark.astro";
     <!-- Bottom marker line -->
     <div class="mt-20 md:mt-28 flex items-end justify-between gap-6 reveal">
       <div class="flex items-baseline gap-4">
-        <span
-          class="font-display-italic text-[color:var(--color-leaf-deep)] text-[1.1rem]"
-        >
+        <span class="font-display-italic text-leaf-deep text-[1.1rem]">
           Empezar
         </span>
         <span class="hairline w-32 md:w-64 mb-1.5"></span>

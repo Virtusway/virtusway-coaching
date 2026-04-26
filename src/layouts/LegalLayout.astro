@@ -1,7 +1,7 @@
 ---
-import Layout from "./Layout.astro";
-import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Layout from "./Layout.astro";
 
 interface Props {
   title: string;
@@ -52,16 +52,18 @@ const isSplit = typeof parts !== "string";
         class="absolute inset-0 -z-10 pointer-events-none"
       >
         <div
-          class="absolute -top-32 -right-24 w-[520px] h-[520px] rounded-full opacity-30 blur-3xl"
+          class="absolute -top-32 -right-24 w-130 h-130 rounded-full opacity-30 blur-3xl"
           style="background: radial-gradient(circle at 50% 50%, rgba(143,198,223,0.5), transparent 60%);"
         >
         </div>
       </div>
 
-      <div class="max-w-[1100px] mx-auto px-6 md:px-10 pt-12 md:pt-16 pb-10 md:pb-14">
+      <div
+        class="max-w-275 mx-auto px-6 md:px-10 pt-12 md:pt-16 pb-10 md:pb-14"
+      >
         <a
           href="/"
-          class="inline-flex items-center gap-2 eyebrow hover:text-[color:var(--color-deep)] transition-colors"
+          class="inline-flex items-center gap-2 eyebrow hover:text-deep transition-colors"
         >
           <span aria-hidden="true">←</span>
           Volver a VirtusWay
@@ -70,12 +72,12 @@ const isSplit = typeof parts !== "string";
         <div class="mt-10 grid grid-cols-12 gap-8 items-end">
           <div class="col-span-12 lg:col-span-9">
             <p class="eyebrow flex items-center gap-3">
-              <span class="w-8 h-px bg-[color:var(--color-leaf-deep)]"></span>
+              <span class="w-8 h-px bg-leaf-deep"></span>
               {eyebrow}
             </p>
 
             <h1
-              class="mt-5 font-display text-[2.4rem] md:text-[3.6rem] leading-[1.04] tracking-[-0.035em] text-[color:var(--color-ink)] rise"
+              class="mt-5 font-display text-[2.4rem] md:text-[3.6rem] leading-[1.04] tracking-[-0.035em] text-ink rise"
               style="font-variation-settings: 'opsz' 144, 'SOFT' 40;"
             >
               {
@@ -83,7 +85,7 @@ const isSplit = typeof parts !== "string";
                   <>
                     {parts.before}
                     <span
-                      class="font-display-italic text-[color:var(--color-deep)]"
+                      class="font-display-italic text-deep"
                       style="font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;"
                     >
                       {parts.accent}
@@ -98,7 +100,7 @@ const isSplit = typeof parts !== "string";
 
             {
               lead && (
-                <p class="mt-6 max-w-[42rem] text-[1.05rem] md:text-[1.12rem] leading-[1.65] text-[color:var(--color-ink-muted)]">
+                <p class="mt-6 max-w-2xl text-[1.05rem] md:text-[1.12rem] leading-[1.65] text-ink-muted">
                   {lead}
                 </p>
               )
@@ -107,9 +109,7 @@ const isSplit = typeof parts !== "string";
 
           <div class="col-span-12 lg:col-span-3 lg:text-right">
             <p class="eyebrow">Última actualización</p>
-            <p
-              class="mt-2 font-display-italic text-[color:var(--color-leaf-deep)] text-[1.05rem]"
-            >
+            <p class="mt-2 font-display-italic text-leaf-deep text-[1.05rem]">
               {lastUpdated}
             </p>
           </div>
@@ -121,7 +121,7 @@ const isSplit = typeof parts !== "string";
 
     <!-- Document body -->
     <section class="relative">
-      <div class="max-w-[1100px] mx-auto px-6 md:px-10 pb-20 md:pb-28">
+      <div class="max-w-275 mx-auto px-6 md:px-10 pb-20 md:pb-28">
         <article class="grid grid-cols-12 gap-10">
           <div class="hidden lg:block lg:col-span-1">
             <!-- left margin gutter for breathing room / future TOC -->
@@ -138,13 +138,11 @@ const isSplit = typeof parts !== "string";
             class="mt-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6"
           >
             <p
-              class="font-display text-[1.35rem] md:text-[1.55rem] leading-snug text-[color:var(--color-ink)] max-w-2xl"
+              class="font-display text-[1.35rem] md:text-[1.55rem] leading-snug text-ink max-w-2xl"
               style="font-variation-settings: 'opsz' 24, 'SOFT' 70;"
             >
               ¿Tienes alguna duda?
-              <span class="font-display-italic text-[color:var(--color-deep)]">
-                Escríbeme.
-              </span>
+              <span class="font-display-italic text-deep"> Escríbeme. </span>
             </p>
             <div class="flex flex-wrap items-center gap-4">
               <a href="mailto:coach@virtusway.com" class="btn btn-ghost">
@@ -158,34 +156,43 @@ const isSplit = typeof parts !== "string";
           </div>
 
           <!-- Cross-links -->
-          <nav class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 text-[0.9rem]">
+          <nav
+            class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 text-[0.9rem]"
+          >
             <a
               href="/legal/aviso-legal"
-              class="block rounded-2xl border border-[color:var(--color-rule)] px-5 py-4 hover:border-[color:var(--color-deep)] transition-colors"
+              class="block rounded-2xl border border-rule px-5 py-4 hover:border-deep transition-colors"
             >
               <span class="eyebrow">01</span>
-              <span class="block mt-2 font-display text-[1.05rem]">Aviso legal</span>
+              <span class="block mt-2 font-display text-[1.05rem]"
+                >Aviso legal</span
+              >
             </a>
             <a
               href="/legal/politica-privacidad"
-              class="block rounded-2xl border border-[color:var(--color-rule)] px-5 py-4 hover:border-[color:var(--color-deep)] transition-colors"
+              class="block rounded-2xl border border-rule px-5 py-4 hover:border-deep transition-colors"
             >
               <span class="eyebrow">02</span>
-              <span class="block mt-2 font-display text-[1.05rem]">Privacidad</span>
+              <span class="block mt-2 font-display text-[1.05rem]"
+                >Privacidad</span
+              >
             </a>
             <a
               href="/legal/politica-cookies"
-              class="block rounded-2xl border border-[color:var(--color-rule)] px-5 py-4 hover:border-[color:var(--color-deep)] transition-colors"
+              class="block rounded-2xl border border-rule px-5 py-4 hover:border-deep transition-colors"
             >
               <span class="eyebrow">03</span>
-              <span class="block mt-2 font-display text-[1.05rem]">Cookies</span>
+              <span class="block mt-2 font-display text-[1.05rem]">Cookies</span
+              >
             </a>
             <a
               href="/legal/compromiso-etico"
-              class="block rounded-2xl border border-[color:var(--color-rule)] px-5 py-4 hover:border-[color:var(--color-deep)] transition-colors"
+              class="block rounded-2xl border border-rule px-5 py-4 hover:border-deep transition-colors"
             >
               <span class="eyebrow">04</span>
-              <span class="block mt-2 font-display text-[1.05rem]">Ética · EMCC</span>
+              <span class="block mt-2 font-display text-[1.05rem]"
+                >Ética · EMCC</span
+              >
             </a>
           </nav>
         </div>
