@@ -1,0 +1,50 @@
+---
+interface Props {
+  size?: number;
+  class?: string;
+  /** When true, fills with brand colors. Otherwise uses currentColor. */
+  brand?: boolean;
+}
+
+const { size = 28, class: className = "", brand = true } = Astro.props;
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width={size}
+  height={size}
+  viewBox="0 0 64 64"
+  fill="none"
+  aria-hidden="true"
+  class={className}
+>
+  <!--
+    A two-leaf sprout: outer leaves drawn in deep ocean blue,
+    inner sprout in living teal. Echoes the brand mark.
+  -->
+  <defs>
+    <linearGradient id="leafLeft" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color={brand ? "#8fc6df" : "currentColor"} />
+      <stop offset="100%" stop-color={brand ? "#0a3a52" : "currentColor"} />
+    </linearGradient>
+    <linearGradient id="leafRight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color={brand ? "#2c7aa3" : "currentColor"} />
+      <stop offset="100%" stop-color={brand ? "#0a3a52" : "currentColor"} />
+    </linearGradient>
+  </defs>
+
+  <path
+    d="M32 60 C 8 50, 8 22, 18 6 C 28 18, 32 34, 32 60 Z"
+    fill="url(#leafLeft)"
+    opacity="0.95"
+  />
+  <path
+    d="M32 60 C 56 50, 56 22, 46 6 C 36 18, 32 34, 32 60 Z"
+    fill="url(#leafRight)"
+    opacity="0.95"
+  />
+  <path
+    d="M32 60 C 32 38, 30 22, 26 12 C 32 16, 38 16, 38 8 C 38 22, 34 38, 32 60 Z"
+    fill={brand ? "#2eb39b" : "currentColor"}
+  />
+</svg>

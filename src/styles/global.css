@@ -1,1 +1,483 @@
 @import "tailwindcss";
+
+/* -------------------------------------------------------------------------- */
+/*  Design tokens — VirtusWay                                                 */
+/*  A calm, editorial palette inspired by the brand mark:                     */
+/*  ocean depth → celeste sky, with a single living teal accent.              */
+/* -------------------------------------------------------------------------- */
+@theme {
+  --color-paper: #f4f7f9;
+  --color-paper-warm: #f8f5ee;
+  --color-mist: #e2eef4;
+  --color-mist-soft: #eef5f9;
+
+  --color-ink: #0c1e29;
+  --color-ink-muted: #5a6f7a;
+  --color-ink-soft: #8a9ba4;
+  --color-rule: #d8e3ea;
+
+  --color-deep: #0a3a52;
+  --color-tide: #2c7aa3;
+  --color-sky: #8fc6df;
+  --color-leaf: #2eb39b;
+  --color-leaf-deep: #1a8a76;
+
+  --font-display: "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, sans-serif;
+
+  --tracking-eyebrow: 0.22em;
+  --tracking-tight: -0.025em;
+  --tracking-tighter: -0.04em;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Base                                                                      */
+/* -------------------------------------------------------------------------- */
+html {
+  font-family: var(--font-sans);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-feature-settings: "ss01", "ss02", "cv11";
+  background:
+    radial-gradient(
+      1100px 600px at 88% -10%,
+      rgba(143, 198, 223, 0.18),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 500px at -10% 30%,
+      rgba(46, 179, 155, 0.08),
+      transparent 60%
+    ),
+    var(--color-paper);
+}
+
+::selection {
+  background: var(--color-deep);
+  color: var(--color-paper);
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Typography helpers                                                        */
+/* -------------------------------------------------------------------------- */
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-variation-settings: "SOFT" 50, "WONK" 0;
+  letter-spacing: var(--tracking-tight);
+}
+
+.font-display-italic {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.numeral {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-variation-settings: "SOFT" 100;
+  font-feature-settings: "lnum", "ss01";
+  color: var(--color-leaf-deep);
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Buttons                                                                   */
+/* -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.6rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 999px;
+  text-decoration: none;
+  line-height: 1;
+  transition:
+    transform 280ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    background 280ms ease,
+    color 280ms ease,
+    border-color 280ms ease,
+    box-shadow 280ms ease;
+  will-change: transform;
+}
+
+.btn-primary {
+  background: var(--color-deep);
+  color: var(--color-paper);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset,
+    0 14px 30px -18px rgba(10, 58, 82, 0.6);
+}
+.btn-primary:hover {
+  background: var(--color-ink);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  color: var(--color-ink);
+  border: 1px solid var(--color-rule);
+  background: transparent;
+}
+.btn-ghost:hover {
+  border-color: var(--color-deep);
+  color: var(--color-deep);
+}
+
+.btn .arrow {
+  display: inline-block;
+  transition: transform 280ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.btn:hover .arrow {
+  transform: translateX(3px);
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Decorative rules                                                          */
+/* -------------------------------------------------------------------------- */
+.hairline {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-rule) 14%,
+    var(--color-rule) 86%,
+    transparent
+  );
+}
+
+.tick {
+  position: relative;
+  padding-left: 1.4rem;
+}
+.tick::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.78em;
+  width: 0.7rem;
+  height: 1px;
+  background: var(--color-leaf-deep);
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Reveal animation                                                          */
+/* -------------------------------------------------------------------------- */
+@keyframes rise {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.rise {
+  opacity: 0;
+  animation: rise 1100ms cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -6px, 0) rotate(0.6deg);
+  }
+}
+
+.drift {
+  animation: drift 9s ease-in-out infinite;
+}
+
+/* Reveal-on-scroll (toggled by JS) */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 900ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 900ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respect reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .rise,
+  .drift,
+  .reveal {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Forms                                                                     */
+/* -------------------------------------------------------------------------- */
+.field {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--color-rule);
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--color-ink);
+  transition: border-color 200ms, background 200ms, box-shadow 200ms;
+}
+.field::placeholder {
+  color: var(--color-ink-soft);
+}
+.field:focus {
+  outline: none;
+  border-color: var(--color-deep);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(46, 179, 155, 0.15);
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Pattern: faint contour topography for atmosphere                          */
+/* -------------------------------------------------------------------------- */
+.contour {
+  background-image: radial-gradient(
+      circle at 50% 50%,
+      rgba(10, 58, 82, 0.06) 1px,
+      transparent 1.4px
+    );
+  background-size: 22px 22px;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Editorial prose for legal / long-form documents                           */
+/*                                                                            */
+/*  All selectors are wrapped in :where() so they have ZERO specificity.     */
+/*  This means utility classes (Tailwind) and inline styles inside the prose */
+/*  region — e.g. an opt-out highlight block — always win without !important. */
+/*  Direct descendants only (`> *`) so nested utility wrappers are excluded. */
+/* -------------------------------------------------------------------------- */
+:where(.prose-legal) {
+  color: var(--color-ink-muted);
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
+
+:where(.prose-legal) > * + * {
+  margin-top: 1.05rem;
+}
+
+:where(.prose-legal) > h2,
+:where(.prose-legal) h2:not(.no-rule) {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+  letter-spacing: -0.022em;
+  font-size: clamp(1.55rem, 2.2vw, 1.9rem);
+  line-height: 1.18;
+  color: var(--color-ink);
+  margin-top: 3.6rem;
+  margin-bottom: 1.1rem;
+  position: relative;
+  padding-top: 2rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.95rem;
+  align-items: baseline;
+  border-top: 1px solid var(--color-rule);
+}
+
+:where(.prose-legal) > h2 > .num,
+:where(.prose-legal) h2 > .num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  font-feature-settings: "lnum", "ss01";
+  color: var(--color-leaf-deep);
+  font-size: 1.05rem;
+  letter-spacing: 0;
+  line-height: 1;
+  align-self: baseline;
+}
+
+:where(.prose-legal) > h2:first-child {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+:where(.prose-legal) > h3,
+:where(.prose-legal) h3:not(.no-rule) {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.005em;
+  color: var(--color-deep);
+  margin-top: 1.9rem;
+  margin-bottom: 0.55rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+}
+
+:where(.prose-legal) h3 > .num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+  font-feature-settings: "lnum";
+  color: var(--color-leaf-deep);
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+:where(.prose-legal) > p {
+  color: var(--color-ink-muted);
+}
+
+:where(.prose-legal) > p strong,
+:where(.prose-legal) > ul strong,
+:where(.prose-legal) > ol strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+:where(.prose-legal) > p em,
+:where(.prose-legal) > ul em,
+:where(.prose-legal) > ol em {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+  color: var(--color-deep);
+  font-weight: inherit;
+}
+
+:where(.prose-legal) > p a,
+:where(.prose-legal) > ul a,
+:where(.prose-legal) > ol a {
+  color: var(--color-deep);
+  text-decoration: none;
+  background-image: linear-gradient(
+    transparent 60%,
+    rgba(46, 179, 155, 0.25) 60%,
+    rgba(46, 179, 155, 0.25) 90%,
+    transparent 90%
+  );
+  transition: background-image 220ms ease, color 220ms ease;
+  word-break: break-word;
+}
+:where(.prose-legal) > p a:hover,
+:where(.prose-legal) > ul a:hover,
+:where(.prose-legal) > ol a:hover {
+  color: var(--color-leaf-deep);
+  background-image: linear-gradient(
+    transparent 0%,
+    transparent 60%,
+    rgba(46, 179, 155, 0.45) 60%,
+    rgba(46, 179, 155, 0.45) 100%
+  );
+}
+
+:where(.prose-legal) > ul,
+:where(.prose-legal) > ol {
+  margin-top: 0.9rem;
+  margin-bottom: 0.6rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+:where(.prose-legal) > ul > li,
+:where(.prose-legal) > ol > li {
+  position: relative;
+  padding-left: 1.6rem;
+  margin-top: 0.55rem;
+  color: var(--color-ink-muted);
+}
+:where(.prose-legal) > ul > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.85em;
+  width: 0.8rem;
+  height: 1px;
+  background: var(--color-leaf-deep);
+}
+
+:where(.prose-legal) > ol {
+  counter-reset: legal-ol;
+}
+:where(.prose-legal) > ol > li {
+  counter-increment: legal-ol;
+  padding-left: 2.3rem;
+}
+:where(.prose-legal) > ol > li::before {
+  content: counter(legal-ol, decimal-leading-zero);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-variation-settings: "SOFT" 100;
+  position: absolute;
+  left: 0;
+  top: 0.05em;
+  color: var(--color-leaf-deep);
+  font-size: 0.9rem;
+}
+
+:where(.prose-legal) > blockquote {
+  margin: 1.6rem 0;
+  padding: 1rem 1.4rem;
+  border-left: 2px solid var(--color-leaf);
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-variation-settings: "SOFT" 80;
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+
+:where(.prose-legal) code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.86em;
+  background: rgba(10, 58, 82, 0.06);
+  padding: 0.12em 0.45em;
+  border-radius: 0.35em;
+  color: var(--color-deep);
+}
+
+/* A pill badge used in the Compromiso Ético highlight block */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  background: rgba(46, 179, 155, 0.15);
+  color: var(--color-leaf-deep);
+  border: 1px solid rgba(46, 179, 155, 0.35);
+}

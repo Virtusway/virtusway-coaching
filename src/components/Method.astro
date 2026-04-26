@@ -1,0 +1,120 @@
+---
+const pillars = [
+  {
+    n: "01",
+    title: "Conectar ideas",
+    italic: "claridad",
+    body: "Ordenamos la complejidad mental para ganar visión estratégica y decidir sin segundas dudas.",
+    glyph: "M8 32 C 16 18, 24 46, 32 32 S 48 18, 56 32",
+  },
+  {
+    n: "02",
+    title: "Superar limitaciones",
+    italic: "ligereza",
+    body: "Identificamos los guiones internos —el deber, el miedo, la culpa— que frenan tu potencial.",
+    glyph: "M14 50 L 32 14 L 50 50 M22 38 H 42",
+  },
+  {
+    n: "03",
+    title: "Actuar con coherencia",
+    italic: "presencia",
+    body: "Alineamos tus decisiones diarias con tus valores más profundos, para que lideres desde la calma.",
+    glyph: "M12 32 H 32 V 12 M32 32 L 52 52 M32 32 V 52",
+  },
+];
+---
+
+<section id="metodo" class="relative">
+  <!-- Subtle paper-warm band -->
+  <div class="absolute inset-0 -z-10 pointer-events-none">
+    <div
+      class="absolute inset-x-0 top-0 bottom-0"
+      style="background: linear-gradient(180deg, transparent 0%, rgba(248,245,238,0.55) 22%, rgba(248,245,238,0.55) 78%, transparent 100%);"
+    >
+    </div>
+  </div>
+
+  <div class="max-w-[1240px] mx-auto px-6 md:px-10 py-20 md:py-28">
+    <!-- Heading -->
+    <div class="grid grid-cols-12 gap-8 items-end reveal">
+      <div class="col-span-12 lg:col-span-7">
+        <p class="eyebrow flex items-center gap-3">
+          <span class="w-8 h-px bg-[color:var(--color-leaf-deep)]"></span> Método
+        </p>
+        <h2
+          class="mt-4 font-display text-[2.2rem] md:text-[3.1rem] leading-[1.05] tracking-[-0.03em] text-[color:var(--color-ink)]"
+          style="font-variation-settings: 'opsz' 144, 'SOFT' 40;"
+        >
+          Tres ejes del coaching
+          <span class="font-display-italic text-[color:var(--color-deep)]">
+            integrativo
+          </span>
+        </h2>
+      </div>
+      <p
+        class="col-span-12 lg:col-span-5 text-[1.02rem] text-[color:var(--color-ink-muted)] leading-relaxed"
+      >
+        Una conversación estructurada que combina psicología humanista,
+        coaching de valores y aportes de la neurociencia. Sin recetas: tu
+        proceso, tu ritmo, tus decisiones.
+      </p>
+    </div>
+
+    <!-- Pillars grid -->
+    <div class="mt-16 md:mt-20 grid grid-cols-12 gap-px bg-[color:var(--color-rule)] border border-[color:var(--color-rule)] rounded-[28px] overflow-hidden">
+      {
+        pillars.map((p, i) => (
+          <article
+            class="col-span-12 md:col-span-4 bg-[color:var(--color-paper)] p-8 md:p-10 min-h-[360px] flex flex-col reveal hover:bg-[color:var(--color-mist-soft)] transition-colors duration-500"
+            style={`transition-delay: ${i * 80}ms;`}
+          >
+            <div class="flex items-center justify-between">
+              <span class="numeral text-[1.8rem]">{p.n}</span>
+              <svg
+                width="48"
+                height="32"
+                viewBox="0 0 64 64"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="text-[color:var(--color-tide)] opacity-70"
+                aria-hidden="true"
+              >
+                <path d={p.glyph} />
+              </svg>
+            </div>
+
+            <h3
+              class="mt-12 md:mt-16 font-display text-[1.65rem] md:text-[1.85rem] leading-[1.1] tracking-[-0.02em] text-[color:var(--color-ink)]"
+              style="font-variation-settings: 'opsz' 144, 'SOFT' 60;"
+            >
+              {p.title}
+              <span class="block font-display-italic text-[color:var(--color-leaf-deep)] text-[1.05rem] mt-2 tracking-normal">
+                — hacia la {p.italic}
+              </span>
+            </h3>
+
+            <p class="mt-5 text-[0.98rem] leading-[1.65] text-[color:var(--color-ink-muted)]">
+              {p.body}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+
+    <!-- Quiet quote strip -->
+    <div class="mt-16 md:mt-20 max-w-3xl mx-auto text-center reveal">
+      <p
+        class="font-display text-[1.4rem] md:text-[1.7rem] leading-[1.45] tracking-[-0.015em] text-[color:var(--color-ink)]"
+        style="font-variation-settings: 'opsz' 24, 'SOFT' 80;"
+      >
+        <span class="font-display-italic text-[color:var(--color-leaf-deep)]"
+          >"</span>Los valores son los criterios con los que ponemos en
+        marcha el motor de nuestra vida.<span
+          class="font-display-italic text-[color:var(--color-leaf-deep)]">"</span>
+      </p>
+    </div>
+  </div>
+</section>
