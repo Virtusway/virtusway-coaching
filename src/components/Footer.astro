@@ -1,6 +1,4 @@
 ---
-import LeafMark from "./LeafMark.astro";
-
 const year = new Date().getFullYear();
 ---
 
@@ -13,18 +11,21 @@ const year = new Date().getFullYear();
       <div class="grid grid-cols-12 gap-10">
         <!-- Brand -->
         <div class="col-span-12 md:col-span-5">
-          <a href="/" class="flex items-center gap-3">
-            <LeafMark size={32} />
-            <span
-              class="font-display text-[1.6rem] tracking-[-0.02em] text-ink"
-              style="font-variation-settings: 'opsz' 144, 'SOFT' 50;"
-            >
-              Virtus<span class="font-display-italic text-deep">way</span>
-            </span>
+          <a href="/" class="flex items-center gap-3 group">
+            <img
+              src="/brand/WEB/Virtusway_Brand_H.svg"
+              alt="VirtusWay"
+              width="201"
+              height="33"
+              class="h-9 w-auto opacity-95 group-hover:opacity-100 transition-opacity"
+              loading="lazy"
+              decoding="async"
+            />
           </a>
           <p class="mt-5 max-w-md text-[0.96rem] leading-[1.65] text-ink-muted">
-            Coaching integrativo para liderar con coherencia y claridad. Trabajo
-            online desde Valencia con personas y equipos en
+            Voz de marca: clara, honesta, profunda. Coaching integrativo para
+            liderar con coherencia y con los pies en el suelo. Online desde
+            Valencia, en
             <em class="font-display-italic">español e inglés</em>.
           </p>
         </div>
@@ -35,23 +36,28 @@ const year = new Date().getFullYear();
           <ul class="mt-4 space-y-2.5 text-[0.95rem]">
             <li>
               <a href="#audiencia" class="hover:text-deep transition-colors"
-                >Acompañamiento</a>
+                >Acompañamiento</a
+              >
             </li>
             <li>
               <a href="#metodo" class="hover:text-deep transition-colors"
-                >Método</a>
+                >Método</a
+              >
             </li>
             <li>
               <a href="#sobre" class="hover:text-deep transition-colors"
-                >Sobre mí</a>
+                >Sobre mí</a
+              >
             </li>
             <li>
               <a href="#guia" class="hover:text-deep transition-colors"
-                >Guía gratuita</a>
+                >Guía gratuita</a
+              >
             </li>
             <li>
               <a href="#contacto" class="hover:text-deep transition-colors"
-                >Contacto</a>
+                >Contacto</a
+              >
             </li>
           </ul>
         </div>
@@ -63,25 +69,28 @@ const year = new Date().getFullYear();
             <li>
               <a
                 href="/legal/aviso-legal"
-                class="hover:text-deep transition-colors">Aviso legal</a>
+                class="hover:text-deep transition-colors">Aviso legal</a
+              >
             </li>
             <li>
               <a
                 href="/legal/politica-privacidad"
                 class="hover:text-deep transition-colors"
-                >Política de privacidad</a>
+                >Política de privacidad</a
+              >
             </li>
             <li>
               <a
                 href="/legal/politica-cookies"
-                class="hover:text-deep transition-colors"
-                >Política de cookies</a>
+                class="hover:text-deep transition-colors">Política de cookies</a
+              >
             </li>
             <li>
               <a
                 href="/legal/compromiso-etico"
                 class="hover:text-deep transition-colors"
-                >Compromiso ético · EMCC</a>
+                >Compromiso ético · EMCC</a
+              >
             </li>
           </ul>
           <p class="mt-6 text-[0.85rem] text-ink-soft">

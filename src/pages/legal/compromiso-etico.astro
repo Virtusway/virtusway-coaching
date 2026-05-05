@@ -1,5 +1,4 @@
 ---
-import LeafMark from "../../components/LeafMark.astro";
 import LegalLayout from "../../layouts/LegalLayout.astro";
 ---
 
@@ -31,7 +30,16 @@ import LegalLayout from "../../layouts/LegalLayout.astro";
 
     <div class="relative">
       <div class="flex items-center gap-3">
-        <LeafMark size={26} brand={false} class="text-[#7adcc6]" />
+        <img
+          src="/brand/ISO/Web/Virtusway_ISO.svg"
+          alt=""
+          width="28"
+          height="27"
+          class="h-6.5 w-auto shrink-0"
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+        />
         <span
           class="badge"
           style="background: rgba(122,220,198,0.12); color: #7adcc6; border-color: rgba(122,220,198,0.35);"
@@ -42,7 +50,6 @@ import LegalLayout from "../../layouts/LegalLayout.astro";
 
       <p
         class="mt-7 font-display text-[1.5rem] md:text-[1.95rem] leading-tight text-white"
-        style="font-variation-settings: 'opsz' 144, 'SOFT' 60;"
       >
         Mi práctica como coach se guía por los más altos
         <span class="font-display-italic" style="color: #7adcc6;"

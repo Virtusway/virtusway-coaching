@@ -1,42 +1,57 @@
 @import "tailwindcss";
 
 /* -------------------------------------------------------------------------- */
-/*  Self-hosted variable fonts (Fontsource).                                  */
-/*  Fraunces ships its full-axes variable file (opsz, wght, SOFT, WONK).      */
-/*  Manrope ships its weight-axis variable file (200..800).                   */
-/*  Bundled at build time → zero external requests, full GDPR compliance.     */
+/*  Brand fonts — Manual de marca (Tipografía)                                */
+/*  Hoss Round Wide Light: titulares, jerarquía principal (cf. VIRTUS).        */
+/*  Nexa Regular: texto secundario, cuerpo, subtítulos, eslóganes (cf. way).   */
+/*  Archivos: public/fonts/                                                   */
 /* -------------------------------------------------------------------------- */
-@import "@fontsource-variable/fraunces/full.css";
-@import "@fontsource-variable/fraunces/full-italic.css";
-@import "@fontsource-variable/manrope/index.css";
+@font-face {
+  font-family: "Hoss Round Wide";
+  src: url("/fonts/hoss-round-wide-light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nexa";
+  src: url("/fonts/nexa-regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* -------------------------------------------------------------------------- */
-/*  Design tokens — VirtusWay                                                 */
-/*  A calm, editorial palette inspired by the brand mark:                     */
-/*  ocean depth → celeste sky, with a single living teal accent.              */
+/*  Design tokens — VirtusWay (Manual de marca 2026 + SVG WEB)                 */
+/*  Primarios: #0A4D7A … #52C2E6, acento #00CB97, texto #1E1E1E.              */
 /* -------------------------------------------------------------------------- */
 @theme {
   --color-paper: #f4f7f9;
   --color-paper-warm: #f8f5ee;
-  --color-mist: #e2eef4;
-  --color-mist-soft: #eef5f9;
+  --color-mist: #e0edf4;
+  --color-mist-soft: #edf4f8;
 
-  --color-ink: #0c1e29;
-  --color-ink-muted: #5a6f7a;
-  --color-ink-soft: #8a9ba4;
-  --color-rule: #d8e3ea;
+  --color-ink: #1e1e1e;
+  --color-ink-muted: #5c6468;
+  --color-ink-soft: #8a9194;
+  --color-rule: #d4e2eb;
 
-  --color-deep: #0a3a52;
-  --color-tide: #2c7aa3;
-  --color-sky: #8fc6df;
-  --color-leaf: #2eb39b;
-  --color-leaf-deep: #1a8a76;
+  --color-deep: #0a4d7a;
+  --color-tide: #127fb5;
+  --color-sky: #52c2e6;
+  --color-sky-deep: #2795c5;
+  --color-blue-mid: #016ea9;
+  --color-leaf: #00cb97;
+  --color-leaf-deep: #009e75;
 
-  --font-display:
-    "Fraunces Variable", "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
-  --font-sans:
-    "Manrope Variable", "Manrope", ui-sans-serif, system-ui, -apple-system,
-    "Segoe UI", Roboto, sans-serif;
+  --color-surface-dark: #061a28;
+  --color-on-dark-muted: #c8dbe5;
+  --color-on-dark-soft: #9eb6c2;
+  --color-on-dark-accent: #4dd4b5;
+
+  --font-display: "Hoss Round Wide", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Nexa", ui-sans-serif, system-ui, sans-serif;
 
   --tracking-eyebrow: 0.22em;
   --tracking-tight: -0.025em;
@@ -55,16 +70,15 @@ html {
 }
 
 body {
-  font-feature-settings: "ss01", "ss02", "cv11";
   background:
     radial-gradient(
       1100px 600px at 88% -10%,
-      rgba(143, 198, 223, 0.18),
+      rgba(82, 194, 230, 0.2),
       transparent 60%
     ),
     radial-gradient(
       900px 500px at -10% 30%,
-      rgba(46, 179, 155, 0.08),
+      rgba(0, 203, 151, 0.07),
       transparent 60%
     ),
     var(--color-paper);
@@ -80,19 +94,15 @@ body {
 /* -------------------------------------------------------------------------- */
 .font-display {
   font-family: var(--font-display);
-  font-optical-sizing: auto;
-  font-variation-settings:
-    "SOFT" 50,
-    "WONK" 0;
+  font-weight: 300;
   letter-spacing: var(--tracking-tight);
 }
 
+/* Acentos dentro de titulares / citas: Nexa (secundario), como “way” en marca. */
 .font-display-italic {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-style: italic;
-  font-variation-settings:
-    "SOFT" 100,
-    "WONK" 1;
+  font-weight: 400;
 }
 
 .eyebrow {
@@ -105,10 +115,10 @@ body {
 }
 
 .numeral {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-variation-settings: "SOFT" 100;
-  font-feature-settings: "lnum", "ss01";
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
   color: var(--color-leaf-deep);
 }
 
@@ -140,7 +150,7 @@ body {
   color: var(--color-paper);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.4) inset,
-    0 14px 30px -18px rgba(10, 58, 82, 0.6);
+    0 14px 30px -18px rgba(10, 77, 122, 0.55);
 }
 .btn-primary:hover {
   background: var(--color-ink);
@@ -278,7 +288,7 @@ body {
   outline: none;
   border-color: var(--color-deep);
   background: #fff;
-  box-shadow: 0 0 0 4px rgba(46, 179, 155, 0.15);
+  box-shadow: 0 0 0 4px rgba(0, 203, 151, 0.18);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -287,7 +297,7 @@ body {
 .contour {
   background-image: radial-gradient(
     circle at 50% 50%,
-    rgba(10, 58, 82, 0.06) 1px,
+    rgba(10, 77, 122, 0.06) 1px,
     transparent 1.4px
   );
   background-size: 22px 22px;
@@ -314,9 +324,7 @@ body {
 :where(.prose-legal) > h2,
 :where(.prose-legal) h2:not(.no-rule) {
   font-family: var(--font-display);
-  font-variation-settings:
-    "opsz" 144,
-    "SOFT" 50;
+  font-weight: 300;
   letter-spacing: -0.022em;
   font-size: clamp(1.55rem, 2.2vw, 1.9rem);
   line-height: 1.18;
@@ -334,13 +342,10 @@ body {
 
 :where(.prose-legal) > h2 > .num,
 :where(.prose-legal) h2 > .num {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-variation-settings:
-    "opsz" 144,
-    "SOFT" 100,
-    "WONK" 1;
-  font-feature-settings: "lnum", "ss01";
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
   color: var(--color-leaf-deep);
   font-size: 1.05rem;
   letter-spacing: 0;
@@ -369,15 +374,12 @@ body {
 }
 
 :where(.prose-legal) h3 > .num {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-variation-settings:
-    "SOFT" 100,
-    "WONK" 1;
-  font-feature-settings: "lnum";
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
   color: var(--color-leaf-deep);
   font-size: 0.95rem;
-  font-weight: 400;
 }
 
 :where(.prose-legal) > p {
@@ -394,13 +396,10 @@ body {
 :where(.prose-legal) > p em,
 :where(.prose-legal) > ul em,
 :where(.prose-legal) > ol em {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-style: italic;
-  font-variation-settings:
-    "SOFT" 100,
-    "WONK" 1;
-  color: var(--color-deep);
   font-weight: inherit;
+  color: var(--color-deep);
 }
 
 :where(.prose-legal) > p a,
@@ -410,8 +409,8 @@ body {
   text-decoration: none;
   background-image: linear-gradient(
     transparent 60%,
-    rgba(46, 179, 155, 0.25) 60%,
-    rgba(46, 179, 155, 0.25) 90%,
+    rgba(0, 203, 151, 0.28) 60%,
+    rgba(0, 203, 151, 0.28) 90%,
     transparent 90%
   );
   transition:
@@ -426,8 +425,8 @@ body {
   background-image: linear-gradient(
     transparent 0%,
     transparent 60%,
-    rgba(46, 179, 155, 0.45) 60%,
-    rgba(46, 179, 155, 0.45) 100%
+    rgba(0, 203, 151, 0.42) 60%,
+    rgba(0, 203, 151, 0.42) 100%
   );
 }
 
@@ -465,9 +464,10 @@ body {
 }
 :where(.prose-legal) > ol > li::before {
   content: counter(legal-ol, decimal-leading-zero);
-  font-family: var(--font-display);
-  font-style: italic;
-  font-variation-settings: "SOFT" 100;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
   position: absolute;
   left: 0;
   top: 0.05em;
@@ -480,9 +480,9 @@ body {
   padding: 1rem 1.4rem;
   border-left: 2px solid var(--color-leaf);
   color: var(--color-ink);
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-style: italic;
-  font-variation-settings: "SOFT" 80;
+  font-weight: 400;
   font-size: 1.15rem;
   line-height: 1.5;
 }
@@ -490,7 +490,7 @@ body {
 :where(.prose-legal) code {
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   font-size: 0.86em;
-  background: rgba(10, 58, 82, 0.06);
+  background: rgba(10, 77, 122, 0.06);
   padding: 0.12em 0.45em;
   border-radius: 0.35em;
   color: var(--color-deep);
@@ -508,7 +508,7 @@ body {
   font-weight: 600;
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
-  background: rgba(46, 179, 155, 0.15);
+  background: rgba(0, 203, 151, 0.14);
   color: var(--color-leaf-deep);
-  border: 1px solid rgba(46, 179, 155, 0.35);
+  border: 1px solid rgba(0, 203, 151, 0.32);
 }

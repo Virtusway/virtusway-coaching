@@ -8,12 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@fontsource-variable/fraunces':
-        specifier: ^5.2.9
-        version: 5.2.9
-      '@fontsource-variable/manrope':
-        specifier: ^5.2.8
-        version: 5.2.8
       '@tailwindcss/vite':
         specifier: ^4.2.4
         version: 4.2.4(vite@7.3.2(@types/node@25.6.0)(jiti@2.6.1)(lightningcss@1.32.0))
@@ -232,12 +226,6 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
-
-  '@fontsource-variable/fraunces@5.2.9':
-    resolution: {integrity: sha512-Y6IjunlN9Ni723np+GIgAaKzCDBrPRrqNi01TZxHs5wtHYROWFM9W6yiT+/gGwSjWIRD18oX17kD/BRWekc/Lw==}
-
-  '@fontsource-variable/manrope@5.2.8':
-    resolution: {integrity: sha512-nc9lOuCRz73UHnovDE2bwXUdghE2SEOc7Aii0qGe3CLyE03W1a7VnY5Z6euRiapiKbCkGS+eXbY3s/kvWeGeSw==}
 
   '@img/colour@1.1.0':
     resolution: {integrity: sha512-Td76q7j57o/tLVdgS746cYARfSyxk8iEfRxewL9h4OMzYhbW4TAcppl0mT4eyqXddh6L/jwoM75mo7ixa/pCeQ==}
@@ -1807,10 +1795,6 @@ snapshots:
 
   '@esbuild/win32-x64@0.27.7':
     optional: true
-
-  '@fontsource-variable/fraunces@5.2.9': {}
-
-  '@fontsource-variable/manrope@5.2.8': {}
 
   '@img/colour@1.1.0':
     optional: true
