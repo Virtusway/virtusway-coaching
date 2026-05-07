@@ -1,0 +1,58 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import LandingPage from "../components/LandingPage.astro";
+import Layout from "../layouts/Layout.astro";
+
+const values = [
+  {
+    title: "Alinea el trabajo con el negocio",
+    body: "Identificaremos los puntos de fricción y estableceremos un lenguaje común entre perfiles técnicos y áreas de negocio.",
+  },
+  {
+    title: "Reduce estrés y plazos muertos",
+    body: "Menos reuniones improductivas, menos malentendidos y más foco en lo que realmente importa para entregar mejor.",
+  },
+  {
+    title: "Construye propósito compartido",
+    body: "Iremos más allá de la entrega de código: tu equipo encontrará sentido en lo que hace y se comprometerá con los resultados.",
+  },
+];
+
+const credibility = [
+  "Durante 35 años he habitado el mundo de la tecnología, desde el desarrollo de software hasta el liderazgo de equipos TIC. Sé lo que es lidiar con plazos imposibles, jerga incomprensible y directivos que no entienden de código.",
+  "Por eso integré mi experiencia técnica con una formación sólida de Máster en Liderazgo y Business Coaching (FundAres/Universidad Manresa). He realizado más de 200 horas de práctica profesional acompañando a líderes que buscan un puente entre el conocimiento técnico y la coherencia empresarial.",
+  "Mi enfoque integrativo combina neurociencia, psicología humanista y filosofía práctica. No vendo recetas mágicas: te doy herramientas para que tu equipo sea más eficiente, más alineado y menos estresado.",
+];
+
+const proof = [
+  { label: "Tecnología", value: "35 años" },
+  { label: "Práctica", value: "200+ h" },
+  { label: "Enfoque", value: "TIC" },
+];
+---
+
+<Layout
+  title="Equipos TIC de Alto Rendimiento — VirtusWay"
+  description="Guía gratuita para líderes y equipos TIC que quieren alinear tecnología y negocio, reducir fricción y trabajar con propósito compartido."
+>
+  <Header />
+  <main>
+    <LandingPage
+      audience="equipos TIC de alto rendimiento"
+      eyebrow="Equipos TIC · Liderazgo y negocio"
+      hook="¿Tu equipo técnico y negocio hablan idiomas distintos?"
+      subhead="Cuando esa distancia genera fricción, retrasos y estrés innecesario, los valores del equipo pueden convertirse en un lenguaje común. Descarga la guía gratuita y empieza a alinear la tecnología con los objetivos del negocio."
+      leadLabel="Alineación práctica"
+      cta="Descargar. Alinea tu equipo"
+      ctaSupport="Es gratuita. Descárgala ahora y empieza a mejorar la comunicación en tu equipo hoy mismo."
+      tone="tic"
+      valueIntro="Con mi método de coaching integrativo, especialmente diseñado para equipos TIC, trabajaremos los puntos que más afectan a la eficiencia y la colaboración."
+      values={values}
+      credibilityTitle="Porque he estado en tu lugar."
+      credibility={credibility}
+      proof={proof}
+    />
+  </main>
+  <Footer />
+</Layout>

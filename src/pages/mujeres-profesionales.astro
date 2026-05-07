@@ -1,0 +1,58 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import LandingPage from "../components/LandingPage.astro";
+import Layout from "../layouts/Layout.astro";
+
+const values = [
+  {
+    title: "Ordena el caos mental",
+    body: "Ganarás visión estratégica y claridad para tomar decisiones sin segundas dudas.",
+  },
+  {
+    title: "Desactiva los guiones internos",
+    body: "Identificaremos y desmontaremos las creencias que te frenan: el debería, el miedo y la culpa.",
+  },
+  {
+    title: "Vive con coherencia",
+    body: "Alinearemos tus acciones diarias con tus valores más profundos, para que lideres desde la calma y no desde el agotamiento.",
+  },
+];
+
+const credibility = [
+  "Durante 35 años he trabajado en tecnología, un sector históricamente masculino donde la presión por demostrar valía es constante y donde muchas mujeres han tenido que esforzarse el doble para ser reconocidas.",
+  "Mi formación incluye un Máster en Liderazgo y Business Coaching (FundAres/Universidad Manresa) y más de 200 horas de práctica profesional con perfiles como el tuyo.",
+  "Mi enfoque integrativo combina neurociencia, psicología humanista y filosofía práctica para ayudarte a salir del ciclo de culpa y autoevaluación constante.",
+];
+
+const proof = [
+  { label: "TIC", value: "35 años" },
+  { label: "Práctica", value: "200+ h" },
+  { label: "Ética", value: "EMCC" },
+];
+---
+
+<Layout
+  title="Mujeres profesionales — VirtusWay"
+  description="Guía gratuita para mujeres profesionales que quieren recuperar claridad, energía y coherencia en sus decisiones."
+>
+  <Header />
+  <main>
+    <LandingPage
+      audience="mujeres profesionales"
+      eyebrow="Mujeres profesionales · Coaching integrativo"
+      hook="¿Te agota tener que demostrar siempre tu valía?"
+      subhead="Deja atrás la frustración y empieza a liderar tu vida y tu trabajo con coherencia. Descarga esta guía gratuita y descubre cuáles son los valores que realmente te mueven para tomar decisiones claras y sin culpa."
+      leadLabel="Recupera claridad"
+      cta="Descarga. Recupera tu claridad"
+      ctaSupport="Es gratuita. Descárgala ahora y empieza a recuperar tu energía."
+      tone="women"
+      valueIntro="Conoce mi método de coaching integrativo, diseñado específicamente para que recuperes el control en tres áreas críticas."
+      values={values}
+      credibilityTitle="Porque conozco el entorno que te agota."
+      credibility={credibility}
+      proof={proof}
+    />
+  </main>
+  <Footer />
+</Layout>
