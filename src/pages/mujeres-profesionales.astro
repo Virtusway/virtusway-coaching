@@ -4,54 +4,65 @@ import Header from "../components/Header.astro";
 import LandingPage from "../components/LandingPage.astro";
 import Layout from "../layouts/Layout.astro";
 
-const values = [
+const approachItems = [
   {
-    title: "Ordena el caos mental",
-    body: "Ganarás visión estratégica y claridad para tomar decisiones sin segundas dudas.",
+    label: "Proceso",
+    body: "8 sesiones diseñadas para que, desde tu experiencia, tus valores y tu contexto real, encuentres tus propias respuestas.",
   },
   {
-    title: "Desactiva los guiones internos",
-    body: "Identificaremos y desmontaremos las creencias que te frenan: el debería, el miedo y la culpa.",
+    label: "Ritmo",
+    body: "Paso a paso, sin atajos, con espacio para reflexionar, evaluar y traducir lo que aparece en cambios reales.",
   },
   {
-    title: "Vive con coherencia",
-    body: "Alinearemos tus acciones diarias con tus valores más profundos, para que lideres desde la calma y no desde el agotamiento.",
+    label: "Resultado",
+    body: "Una forma más ligera, coherente y alineada de liderar tu vida y tu trabajo.",
   },
-];
-
-const credibility = [
-  "Durante 35 años he trabajado en tecnología, un sector históricamente masculino donde la presión por demostrar valía es constante y donde muchas mujeres han tenido que esforzarse el doble para ser reconocidas.",
-  "Mi formación incluye un Máster en Liderazgo y Business Coaching (FundAres/Universidad Manresa) y más de 200 horas de práctica profesional con perfiles como el tuyo.",
-  "Mi enfoque integrativo combina neurociencia, psicología humanista y filosofía práctica para ayudarte a salir del ciclo de culpa y autoevaluación constante.",
-];
-
-const proof = [
-  { label: "TIC", value: "35 años" },
-  { label: "Práctica", value: "200+ h" },
-  { label: "Ética", value: "EMCC" },
 ];
 ---
 
 <Layout
   title="Mujeres profesionales — VirtusWay"
-  description="Guía gratuita para mujeres profesionales que quieren recuperar claridad, energía y coherencia en sus decisiones."
+  description="Coaching integrativo para mujeres profesionales que quieren liderar con coherencia, claridad y menos presión interna."
 >
   <Header />
   <main>
     <LandingPage
-      audience="mujeres profesionales"
       eyebrow="Mujeres profesionales · Coaching integrativo"
-      hook="¿Te agota tener que demostrar siempre tu valía?"
-      subhead="Deja atrás la frustración y empieza a liderar tu vida y tu trabajo con coherencia. Descarga esta guía gratuita y descubre cuáles son los valores que realmente te mueven para tomar decisiones claras y sin culpa."
-      leadLabel="Recupera claridad"
-      cta="Descarga. Recupera tu claridad"
-      ctaSupport="Es gratuita. Descárgala ahora y empieza a recuperar tu energía."
+      hook="Has construido tu carrera con esfuerzo y talento. Ahora quieres liderar con coherencia, sin tener que demostrar nada."
+      intro={[
+        "Llegas donde te propones. Tomas decisiones difíciles. Gestionas equipos, proyectos o tu propio negocio. Eres valiente y persistente. Pero a veces el contexto pesa: entornos que no siempre te reconocen, ritmos que no te dejan respirar, una voz interna que te exige más de lo razonable.",
+        "¿Te has preguntado si hay una forma mejor? Y si hubiera un camino donde la coherencia y la claridad te brindaran esa paz y tranquilidad que te permitiese disfrutar de cada día...",
+      ]}
+      heroLabel="Proceso individual"
+      heroHighlights={[
+        "8 sesiones a medida",
+        "Sesión de exploración online y gratuita",
+        "Coherencia, claridad y decisiones sin culpa",
+      ]}
       tone="women"
-      valueIntro="Conoce mi método de coaching integrativo, diseñado específicamente para que recuperes el control en tres áreas críticas."
-      values={values}
-      credibilityTitle="Porque conozco el entorno que te agota."
-      credibility={credibility}
-      proof={proof}
+      challengeTitle="Qué está pasando realmente"
+      challenge={[
+        "Has aprendido a funcionar en un sistema que no fue diseñado para ti. Y lo has hecho bien. Pero ese sistema te ha enseñado a vivir desde los \"deberías\": debo estar siempre disponible, debo demostrar que valgo, debo elegir entre carrera y vida personal.",
+        "Y eso tiene un coste: la paz interior, la claridad para decidir, la coherencia entre lo que sientes y lo que haces.",
+        "Ya sabes que eres capaz. Tal vez solo necesitas espacio para preguntarte: ¿desde dónde quiero tomar mis decisiones? ¿Cómo lidero sin agotarme? ¿Qué quiero realmente, más allá de lo que se espera de mí?",
+      ]}
+      approachTitle="Mi enfoque: un proceso para que recuperes la claridad y la coherencia"
+      approachLead="Te ofrezco un proceso de 8 sesiones. Está diseñado para que, desde tu experiencia, tus valores y tu contexto real, encuentres tus propias respuestas."
+      approachParagraphs={[
+        "Te acompaño en un proceso donde la reflexión profunda y la evaluación de ideas se traducen en cambios reales. Paso a paso. Sin atajos, pero con claridad. Si trabajas en ello, podrás integrar una nueva forma de liderar tu vida: más ligera, más coherente, más alineada con lo que realmente importa para ti.",
+      ]}
+      approachItems={approachItems}
+      whyTitle="Por qué este proceso puede ser diferente"
+      why={[
+        "He liderado equipos técnicos durante 35 años. He visto cómo el esfuerzo sostenido sin coherencia quema a las mejores profesionales. También he visto cómo, con el acompañamiento adecuado, esas mismas personas recuperan claridad, energía y seguridad para decidir.",
+        "Acompaño desde la experiencia real, con los pies en el suelo y con la teoría de respaldo. He estado en trincheras parecidas, y he aprendido que el cambio real viene de entender qué te mueve por dentro y alinear tus decisiones con eso.",
+        "Trabajo desde un enfoque integrativo (coaching ontológico, análisis transaccional relacional, ACT). En la práctica, eso significa un espacio sin juicio, con preguntas precisas y un acompañamiento realista.",
+      ]}
+      questionTitle="Una pregunta sincera"
+      questionBody={'Si pudieras tomar tus decisiones desde la calma y la coherencia, sin la presión de los "deberías"… ¿qué cambiaría en tu día a día?'}
+      ctaTitle="Si esto te resuena, hablemos sin compromiso"
+      ctaBody="La sesión de exploración es una conversación de 45 minutos, online y gratuita. Nos conocemos, escucho tu situación, y decidimos juntos si tiene sentido caminar juntas."
+      ctaLabel="Reservar sesión de exploración"
     />
   </main>
   <Footer />
