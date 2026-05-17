@@ -1,4 +1,11 @@
 <section id="guia" class="relative">
+  <div class="lead-toast-stack" aria-live="polite" aria-atomic="true">
+    <div class="lead-toast" data-feedback-toast data-state="idle" hidden>
+      <p class="lead-toast__eyebrow" data-toast-eyebrow>Entrega completada</p>
+      <p class="lead-toast__message" data-toast-message></p>
+    </div>
+  </div>
+
   <div class="max-w-310 mx-auto px-6 md:px-10 py-20 md:py-28">
     <div
       class="relative overflow-hidden rounded-[36px] reveal"
@@ -65,7 +72,8 @@
             </li>
             <li class="flex items-baseline gap-3">
               <span class="numeral text-[1rem] text-on-dark-accent">03</span>
-              Tomar una decisión más clara sobre si el coaching tiene sentido para ti
+              Tomar una decisión más clara sobre si el coaching tiene sentido para
+              ti
             </li>
           </ul>
         </div>
@@ -73,9 +81,9 @@
         <!-- Form column -->
         <div class="col-span-12 lg:col-span-5">
           <form
+            data-lead-magnet-form
             class="rounded-3xl p-7 md:p-8 border"
             style="background: rgba(255,255,255,0.06); border-color: rgba(203,220,229,0.2); backdrop-filter: blur(6px);"
-            onsubmit="event.preventDefault(); this.querySelector('button').textContent = '✓ ¡A tu correo!';"
           >
             <div class="flex items-center gap-3">
               <img
@@ -88,11 +96,7 @@
                 loading="lazy"
                 decoding="async"
               />
-              <p
-                class="font-display text-[1.2rem]"
-              >
-                Recibe tu copia ahora
-              </p>
+              <p class="font-display text-[1.2rem]">Recibe tu copia ahora</p>
             </div>
 
             <div class="mt-6 space-y-3">
@@ -119,16 +123,27 @@
               </label>
               <button
                 type="submit"
+                data-submit-button
                 class="btn btn-primary w-full justify-center bg-leaf! text-ink! hover:bg-leaf-deep! hover:text-paper!"
               >
-                Descarga gratuita
+                <span data-submit-label>Descarga gratuita</span>
                 <span class="arrow" aria-hidden="true">→</span>
               </button>
             </div>
 
-            <p class="mt-5 text-[0.78rem] leading-relaxed text-on-dark-soft">
-              Solo tu email. Recibirás la guía y, si quieres, algunas reflexiones
-              breves sobre liderazgo y coherencia. Puedes darte de baja en un clic.
+            <p
+              class="mt-4 form-status"
+              data-form-status
+              data-state="idle"
+              role="status"
+              aria-live="polite"
+            >
+            </p>
+
+            <p class="mt-3 text-[0.78rem] leading-relaxed text-on-dark-soft">
+              Solo tu email. Recibirás la guía y, si quieres, algunas
+              reflexiones breves sobre liderazgo y coherencia. Puedes darte de
+              baja en un clic.
             </p>
           </form>
         </div>
@@ -136,3 +151,94 @@
     </div>
   </div>
 </section>
+
+<script is:inline>
+  document.querySelectorAll("[data-lead-magnet-form]").forEach((form) => {
+    if (!(form instanceof HTMLFormElement)) {
+      return;
+    }
+
+    const section = form.closest("section");
+    const button = form.querySelector("[data-submit-button]");
+    const label = form.querySelector("[data-submit-label]");
+    const status = form.querySelector("[data-form-status]");
+    const toast = section?.querySelector("[data-feedback-toast]");
+    const toastEyebrow = section?.querySelector("[data-toast-eyebrow]");
+    const toastMessage = section?.querySelector("[data-toast-message]");
+
+    if (
+      !(button instanceof HTMLButtonElement) ||
+      !(label instanceof HTMLElement) ||
+      !(status instanceof HTMLElement) ||
+      !(toast instanceof HTMLElement) ||
+      !(toastEyebrow instanceof HTMLElement) ||
+      !(toastMessage instanceof HTMLElement)
+    ) {
+      return;
+    }
+
+    const defaultLabel = label.textContent ?? "Descarga gratuita";
+    let toastTimer;
+
+    const setStatus = (message, state) => {
+      status.textContent = message;
+      status.dataset.state = state;
+    };
+
+    const showToast = (message, state) => {
+      window.clearTimeout(toastTimer);
+
+      toast.hidden = false;
+      toast.dataset.state = state;
+      toastEyebrow.textContent =
+        state === "success" ? "Correo enviado" : "No se pudo enviar";
+      toastMessage.textContent = message;
+
+      toastTimer = window.setTimeout(() => {
+        toast.hidden = true;
+        toast.dataset.state = "idle";
+      }, 4800);
+    };
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      button.disabled = true;
+      label.textContent = "Enviando...";
+      setStatus("Preparando tu guía...", "pending");
+      toast.hidden = true;
+      toast.dataset.state = "idle";
+
+      try {
+        const response = await fetch("/api/lead-magnet", {
+          method: "POST",
+          body: new FormData(form),
+        });
+        const payload = await response.json().catch(() => null);
+        const message =
+          payload && typeof payload.message === "string"
+            ? payload.message
+            : "Ha ocurrido un error inesperado.";
+
+        if (!response.ok) {
+          throw new Error(message);
+        }
+
+        form.reset();
+        label.textContent = defaultLabel;
+        setStatus(message, "success");
+        showToast(message, "success");
+      } catch (error) {
+        label.textContent = defaultLabel;
+        const message =
+          error instanceof Error
+            ? error.message
+            : "No se pudo enviar la guía. Inténtalo de nuevo.";
+        setStatus(message, "error");
+        showToast(message, "error");
+      } finally {
+        button.disabled = false;
+      }
+    });
+  });
+</script>
