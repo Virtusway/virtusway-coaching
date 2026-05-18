@@ -70,6 +70,7 @@ html {
 }
 
 body {
+  min-width: 0;
   background:
     radial-gradient(
       1100px 600px at 88% -10%,
@@ -84,6 +85,10 @@ body {
     var(--color-paper);
 }
 
+main {
+  min-width: 0;
+}
+
 ::selection {
   background: var(--color-deep);
   color: var(--color-paper);
@@ -96,6 +101,8 @@ body {
   font-family: var(--font-display);
   font-weight: 300;
   letter-spacing: var(--tracking-tight);
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 /* Acentos dentro de titulares / citas: Nexa (secundario), como “way” en marca. */
@@ -112,6 +119,16 @@ body {
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
   color: var(--color-ink-muted);
+  overflow-wrap: break-word;
+}
+
+/* Hairline + label: grid (not flex) so the label can shrink-wrap on narrow screens */
+.eyebrow-with-rule {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: 0.75rem;
+  min-width: 0;
 }
 
 .numeral {
@@ -402,7 +419,6 @@ body {
 
 /* -------------------------------------------------------------------------- */
 /*  Editorial prose for legal / long-form documents                           */
-/*                                                                            */
 /*  All selectors are wrapped in :where() so they have ZERO specificity.     */
 /*  This means utility classes (Tailwind) and inline styles inside the prose */
 /*  region — e.g. an opt-out highlight block — always win without !important. */

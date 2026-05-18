@@ -7,10 +7,12 @@ const year = new Date().getFullYear();
     class="border-t border-rule/70"
     style="background: linear-gradient(180deg, rgba(244,247,249,0) 0%, rgba(232,241,246,0.6) 100%);"
   >
-    <div class="max-w-310 mx-auto px-6 md:px-10 pt-16 pb-10">
-      <div class="grid grid-cols-12 gap-10">
+    <div class="max-w-310 mx-auto w-full min-w-0 px-6 md:px-10 pt-16 pb-10">
+      <div
+        class="grid min-w-0 grid-cols-1 gap-10 md:grid-cols-12 md:gap-x-10 md:gap-y-10"
+      >
         <!-- Brand -->
-        <div class="col-span-12 md:col-span-5">
+        <div class="min-w-0 md:col-span-5">
           <a href="/" class="flex items-center gap-3 group">
             <img
               src="/brand/WEB/Virtusway_Brand_H.svg"
@@ -30,16 +32,16 @@ const year = new Date().getFullYear();
         </div>
 
         <!-- Navigation -->
-        <div class="col-span-6 md:col-span-3">
+        <div class="min-w-0 md:col-span-3">
           <p class="eyebrow">Sitio</p>
           <ul class="mt-4 space-y-2.5 text-[0.95rem]">
             <li>
-              <a href="/" class="hover:text-deep transition-colors"
-                >Inicio</a
-              >
+              <a href="/" class="hover:text-deep transition-colors">Inicio</a>
             </li>
             <li>
-              <a href="/mujeres-profesionales" class="hover:text-deep transition-colors"
+              <a
+                href="/mujeres-profesionales"
+                class="hover:text-deep transition-colors"
                 >Mujeres profesionales</a
               >
             </li>
@@ -64,7 +66,7 @@ const year = new Date().getFullYear();
         </div>
 
         <!-- Legal -->
-        <div class="col-span-6 md:col-span-4">
+        <div class="min-w-0 md:col-span-4">
           <p class="eyebrow">Legal &amp; ética</p>
           <ul class="mt-4 space-y-2.5 text-[0.95rem]">
             <li>

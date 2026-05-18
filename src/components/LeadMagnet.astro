@@ -1,4 +1,4 @@
-<section id="guia" class="relative">
+<section id="guia" class="relative min-w-0">
   <div class="lead-toast-stack" aria-live="polite" aria-atomic="true">
     <div class="lead-toast" data-feedback-toast data-state="idle" hidden>
       <p class="lead-toast__eyebrow" data-toast-eyebrow>Entrega completada</p>
@@ -6,9 +6,9 @@
     </div>
   </div>
 
-  <div class="max-w-310 mx-auto px-6 md:px-10 py-20 md:py-28">
+  <div class="max-w-310 mx-auto w-full min-w-0 px-6 md:px-10 py-20 md:py-28">
     <div
-      class="relative overflow-hidden rounded-[36px] reveal"
+      class="relative min-w-0 overflow-hidden rounded-[36px] reveal"
       style="background: linear-gradient(160deg, #0a4d7a 0%, #082438 70%, #061a28 100%);"
     >
       <!-- Decorative atmosphere -->
@@ -33,17 +33,17 @@
       </div>
 
       <div
-        class="relative grid grid-cols-12 gap-10 p-8 md:p-14 lg:p-20 text-paper"
+        class="relative grid min-w-0 grid-cols-1 gap-6 p-5 text-paper sm:p-8 md:gap-y-10 md:p-14 lg:grid-cols-12 lg:gap-x-10 lg:gap-y-6 lg:p-20"
       >
         <!-- Copy column -->
-        <div class="col-span-12 lg:col-span-7">
-          <p class="eyebrow flex items-center gap-3 text-on-dark-accent">
-            <span class="w-8 h-px bg-on-dark-accent"></span>
-            Guía gratuita · PDF
+        <div class="min-w-0 lg:col-span-7">
+          <p class="eyebrow eyebrow-with-rule text-on-dark-accent">
+            <span class="w-8 h-px shrink-0 bg-on-dark-accent"></span>
+            <span class="min-w-0">Guía gratuita · PDF</span>
           </p>
 
           <h2
-            class="mt-5 font-display text-[2.2rem] md:text-[3.4rem] leading-[1.02] tracking-[-0.03em]"
+            class="mt-5 max-w-full min-w-0 break-words font-display text-[1.85rem] leading-[1.08] tracking-[-0.03em] sm:text-[2.2rem] md:text-[3.4rem] md:leading-[1.02]"
           >
             5 preguntas para conectar con tus
             <span class="font-display-italic text-on-dark-accent">valores</span>
@@ -51,7 +51,7 @@
           </h2>
 
           <p
-            class="mt-7 text-[1.05rem] leading-[1.7] max-w-136 text-on-dark-muted"
+            class="mt-7 max-w-full min-w-0 text-[1.05rem] leading-[1.7] text-on-dark-muted sm:max-w-136"
           >
             Inspirada en la psicología humanista, el coaching de valores y la
             filosofía práctica. Una guía breve para distinguir lo que realmente
@@ -60,32 +60,44 @@
           </p>
 
           <ul
-            class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-[0.95rem] text-on-dark-muted"
+            class="mt-8 grid min-w-0 grid-cols-1 gap-x-4 gap-y-3 text-[0.95rem] text-on-dark-muted sm:grid-cols-2 sm:gap-x-6"
           >
-            <li class="flex items-baseline gap-3">
-              <span class="numeral text-[1rem] text-on-dark-accent">01</span>
-              Identificar qué valores están en conflicto en tu día a día
+            <li class="flex min-w-0 items-baseline gap-3">
+              <span class="numeral shrink-0 text-[1rem] text-on-dark-accent"
+                >01</span
+              >
+              <span class="min-w-0"
+                >Identificar qué valores están en conflicto en tu día a día</span
+              >
             </li>
-            <li class="flex items-baseline gap-3">
-              <span class="numeral text-[1rem] text-on-dark-accent">02</span>
-              Diferenciar lo que deseas de lo que crees que deberías desear
+            <li class="flex min-w-0 items-baseline gap-3">
+              <span class="numeral shrink-0 text-[1rem] text-on-dark-accent"
+                >02</span
+              >
+              <span class="min-w-0"
+                >Diferenciar lo que deseas de lo que crees que deberías desear</span
+              >
             </li>
-            <li class="flex items-baseline gap-3">
-              <span class="numeral text-[1rem] text-on-dark-accent">03</span>
-              Tomar una decisión más clara sobre si el coaching tiene sentido para
-              ti
+            <li class="flex min-w-0 items-baseline gap-3 sm:col-span-2">
+              <span class="numeral shrink-0 text-[1rem] text-on-dark-accent"
+                >03</span
+              >
+              <span class="min-w-0"
+                >Tomar una decisión más clara sobre si el coaching tiene sentido
+                para ti</span
+              >
             </li>
           </ul>
         </div>
 
         <!-- Form column -->
-        <div class="col-span-12 lg:col-span-5">
+        <div class="min-w-0 lg:col-span-5">
           <form
             data-lead-magnet-form
-            class="rounded-3xl p-7 md:p-8 border"
+            class="min-w-0 rounded-3xl p-7 md:p-8 border"
             style="background: rgba(255,255,255,0.06); border-color: rgba(203,220,229,0.2); backdrop-filter: blur(6px);"
           >
-            <div class="flex items-center gap-3">
+            <div class="flex min-w-0 items-center gap-3">
               <img
                 src="/brand/ISO/Web/Virtusway_ISO.svg"
                 alt=""
@@ -96,7 +108,9 @@
                 loading="lazy"
                 decoding="async"
               />
-              <p class="font-display text-[1.2rem]">Recibe tu copia ahora</p>
+              <p class="min-w-0 font-display text-[1.2rem]">
+                Recibe tu copia ahora
+              </p>
             </div>
 
             <div class="mt-6 space-y-3">

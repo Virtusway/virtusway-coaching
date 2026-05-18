@@ -34,39 +34,45 @@ const pillars = [
     </div>
   </div>
 
-  <div class="max-w-310 mx-auto px-6 md:px-10 py-20 md:py-28">
+  <div class="max-w-310 mx-auto w-full min-w-0 px-6 md:px-10 py-20 md:py-28">
     <!-- Heading -->
-    <div class="grid grid-cols-12 gap-8 items-end reveal">
-      <div class="col-span-12 lg:col-span-7">
-        <p class="eyebrow flex items-center gap-3">
-          <span class="w-8 h-px bg-leaf-deep"></span> Método
+    <div
+      class="grid min-w-0 grid-cols-1 gap-8 items-end reveal lg:grid-cols-12 lg:gap-x-8 lg:gap-y-0"
+    >
+      <div class="min-w-0 lg:col-span-7">
+        <p class="eyebrow eyebrow-with-rule">
+          <span class="w-8 h-px shrink-0 bg-leaf-deep"></span>
+          <span class="min-w-0">Método</span>
         </p>
         <h2
           class="mt-4 font-display text-[2.2rem] md:text-[3.1rem] leading-[1.05] tracking-[-0.03em] text-ink"
         >
           Conversaciones que conectan
-          <span class="font-display-italic text-deep"> cabeza, emoción y acción </span>
+          <span class="font-display-italic text-deep">
+            cabeza, emoción y acción
+          </span>
         </h2>
       </div>
       <p
-        class="col-span-12 lg:col-span-5 text-[1.02rem] text-ink-muted leading-relaxed"
+        class="min-w-0 lg:col-span-5 text-[1.02rem] text-ink-muted leading-relaxed"
       >
         Una conversación estructurada: visión humanista, coaching de valores y
-        neurociencia. Un proceso a tu ritmo, con tus decisiones, sin recetas prefabricadas.
+        neurociencia. Un proceso a tu ritmo, con tus decisiones, sin recetas
+        prefabricadas.
       </p>
     </div>
 
     <!-- Pillars grid -->
     <div
-      class="mt-16 md:mt-20 grid grid-cols-12 gap-px bg-rule border border-rule rounded-[28px] overflow-hidden"
+      class="mt-16 md:mt-20 grid min-w-0 grid-cols-1 gap-px bg-rule border border-rule rounded-[28px] overflow-hidden md:grid-cols-3"
     >
       {
         pillars.map((p, i) => (
           <article
-            class="col-span-12 md:col-span-4 bg-paper p-8 md:p-10 min-h-90 flex flex-col reveal hover:bg-mist-soft transition-colors duration-500"
+            class="min-w-0 bg-paper p-8 md:p-10 min-h-90 flex flex-col reveal hover:bg-mist-soft transition-colors duration-500"
             style={`transition-delay: ${i * 80}ms;`}
           >
-            <div class="flex items-center justify-between">
+            <div class="flex min-w-0 items-center justify-between">
               <span class="numeral text-[1.8rem]">{p.n}</span>
               <svg
                 width="48"
@@ -84,9 +90,7 @@ const pillars = [
               </svg>
             </div>
 
-            <h3
-              class="mt-12 md:mt-16 font-display text-[1.65rem] md:text-[1.85rem] leading-[1.1] tracking-[-0.02em] text-ink"
-            >
+            <h3 class="mt-12 md:mt-16 font-display text-[1.65rem] md:text-[1.85rem] leading-[1.1] tracking-[-0.02em] text-ink">
               {p.title}
               <span class="block font-display-italic text-leaf-deep text-[1.05rem] mt-2 tracking-normal">
                 — hacia la {p.italic}
@@ -106,10 +110,9 @@ const pillars = [
       <p
         class="font-display text-[1.4rem] md:text-[1.7rem] leading-[1.45] tracking-[-0.015em] text-ink"
       >
-        <span class="font-display-italic text-leaf-deep">"</span>Sin magia,
-        con método, para que la conversación se convierta en una práctica sostenible.<span
-          class="font-display-italic text-leaf-deep">"</span
-        >
+        <span class="font-display-italic text-leaf-deep">"</span>Sin magia, con
+        método, para que la conversación se convierta en una práctica
+        sostenible.<span class="font-display-italic text-leaf-deep">"</span>
       </p>
     </div>
   </div>

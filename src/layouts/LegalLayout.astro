@@ -59,7 +59,7 @@ const isSplit = typeof parts !== "string";
       </div>
 
       <div
-        class="max-w-275 mx-auto px-6 md:px-10 pt-12 md:pt-16 pb-10 md:pb-14"
+        class="max-w-275 mx-auto w-full min-w-0 px-6 md:px-10 pt-12 md:pt-16 pb-10 md:pb-14"
       >
         <a
           href="/"
@@ -69,11 +69,13 @@ const isSplit = typeof parts !== "string";
           Volver a VirtusWay
         </a>
 
-        <div class="mt-10 grid grid-cols-12 gap-8 items-end">
-          <div class="col-span-12 lg:col-span-9">
-            <p class="eyebrow flex items-center gap-3">
-              <span class="w-8 h-px bg-leaf-deep"></span>
-              {eyebrow}
+        <div
+          class="mt-10 grid min-w-0 grid-cols-1 gap-8 items-end lg:grid-cols-12 lg:gap-x-8 lg:gap-y-0"
+        >
+          <div class="min-w-0 lg:col-span-9">
+            <p class="eyebrow eyebrow-with-rule">
+              <span class="w-8 h-px shrink-0 bg-leaf-deep"></span>
+              <span class="min-w-0">{eyebrow}</span>
             </p>
 
             <h1
@@ -83,9 +85,7 @@ const isSplit = typeof parts !== "string";
                 isSplit ? (
                   <>
                     {parts.before}
-                    <span
-                      class="font-display-italic text-deep"
-                    >
+                    <span class="font-display-italic text-deep">
                       {parts.accent}
                     </span>
                     {parts.after}
@@ -105,9 +105,11 @@ const isSplit = typeof parts !== "string";
             }
           </div>
 
-          <div class="col-span-12 lg:col-span-3 lg:text-right">
+          <div class="min-w-0 lg:col-span-3 lg:text-right">
             <p class="eyebrow">Última actualización</p>
-            <p class="mt-2 font-sans text-leaf-deep text-[1.05rem] font-semibold">
+            <p
+              class="mt-2 font-sans text-leaf-deep text-[1.05rem] font-semibold"
+            >
               {lastUpdated}
             </p>
           </div>
@@ -119,12 +121,16 @@ const isSplit = typeof parts !== "string";
 
     <!-- Document body -->
     <section class="relative">
-      <div class="max-w-275 mx-auto px-6 md:px-10 pb-20 md:pb-28">
-        <article class="grid grid-cols-12 gap-10">
+      <div
+        class="max-w-275 mx-auto w-full min-w-0 px-6 md:px-10 pb-20 md:pb-28"
+      >
+        <article
+          class="grid min-w-0 grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-x-10"
+        >
           <div class="hidden lg:block lg:col-span-1">
             <!-- left margin gutter for breathing room / future TOC -->
           </div>
-          <div class="col-span-12 lg:col-span-10 prose-legal">
+          <div class="min-w-0 lg:col-span-10 prose-legal">
             <slot />
           </div>
         </article>

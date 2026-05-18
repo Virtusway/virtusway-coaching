@@ -57,7 +57,8 @@ const heroBackground = isTic
 const heroText = isTic ? "text-paper" : "text-ink";
 const heroMuted = isTic ? "text-on-dark-muted" : "text-ink-muted";
 const accent = isTic ? "text-on-dark-accent" : "text-leaf-deep";
-const bookingUrl = "https://outlook.office.com/bookwithme/user/48d235d03a08496b97d4b477ea665fbb@virtusway.com/meetingtype/l9E3R2UjHUaYl4B09FL6MQ2?anonymous&ep=mlink";
+const bookingUrl =
+  "https://outlook.office.com/bookwithme/user/48d235d03a08496b97d4b477ea665fbb@virtusway.com/meetingtype/l9E3R2UjHUaYl4B09FL6MQ2?anonymous&ep=mlink";
 ---
 
 <section class="relative overflow-hidden">
@@ -74,12 +75,18 @@ const bookingUrl = "https://outlook.office.com/bookwithme/user/48d235d03a08496b9
     </div>
   </div>
 
-  <div class="max-w-310 mx-auto px-6 md:px-10 pt-14 md:pt-22 pb-18 md:pb-28">
+  <div
+    class="max-w-310 mx-auto w-full min-w-0 px-6 md:px-10 pt-14 md:pt-22 pb-18 md:pb-28"
+  >
     <div
-      class={`relative overflow-hidden rounded-[38px] px-7 py-10 md:p-14 lg:p-18 ${heroText}`}
+      class={`relative min-w-0 overflow-hidden rounded-[38px] px-7 py-10 md:p-14 lg:p-18 ${heroText}`}
       style={`background: ${heroBackground};`}
     >
-      <div class="absolute inset-0 contour opacity-35 mix-blend-overlay" aria-hidden="true"></div>
+      <div
+        class="absolute inset-0 contour opacity-35 mix-blend-overlay"
+        aria-hidden="true"
+      >
+      </div>
       <div
         aria-hidden="true"
         class="absolute -bottom-28 -right-24 w-100 h-100 rounded-full opacity-35 blur-3xl"
@@ -87,42 +94,71 @@ const bookingUrl = "https://outlook.office.com/bookwithme/user/48d235d03a08496b9
       >
       </div>
 
-      <div class="relative grid grid-cols-12 gap-10 items-end">
-        <div class="col-span-12 lg:col-span-8">
-          <p class={`eyebrow flex items-center gap-3 rise ${isTic ? "text-on-dark-muted" : ""}`}>
-            <span class={`w-8 h-px ${isTic ? "bg-on-dark-accent" : "bg-leaf-deep"}`}></span>
-            {eyebrow}
+      <div
+        class="relative grid min-w-0 grid-cols-1 gap-y-10 items-end lg:grid-cols-12 lg:gap-x-10 lg:gap-y-10"
+      >
+        <div class="min-w-0 lg:col-span-8">
+          <p
+            class={`eyebrow eyebrow-with-rule rise ${isTic ? "text-on-dark-muted" : ""}`}
+          >
+            <span
+              class={`w-8 h-px shrink-0 ${isTic ? "bg-on-dark-accent" : "bg-leaf-deep"}`}
+            ></span>
+            <span class="min-w-0">{eyebrow}</span>
           </p>
 
           <h1
-            class="mt-6 font-display text-[2.35rem] sm:text-[3.25rem] md:text-[4.35rem] lg:text-[5.2rem] leading-[0.98] tracking-[-0.04em] rise"
+            class="mt-6 font-display text-[2.35rem] sm:text-[3.25rem] md:text-[4.35rem] lg:text-[5.2rem] leading-[0.98] tracking-tighter rise"
             style="animation-delay: 120ms;"
           >
             {hook}
           </h1>
 
-          <div class={`mt-8 max-w-2xl space-y-5 text-[1.08rem] md:text-[1.2rem] leading-[1.65] ${heroMuted} rise`} style="animation-delay: 260ms;">
+          <div
+            class={`mt-8 max-w-2xl space-y-5 text-[1.08rem] md:text-[1.2rem] leading-[1.65] ${heroMuted} rise`}
+            style="animation-delay: 260ms;"
+          >
             {intro.map((paragraph) => <p>{paragraph}</p>)}
           </div>
 
-          <div class="mt-9 flex flex-wrap items-center gap-4 rise" style="animation-delay: 390ms;">
-            <a href={bookingUrl} class="btn btn-primary bg-leaf! text-ink! hover:bg-paper! hover:text-deep!">
+          <div
+            class="mt-9 flex flex-wrap items-center gap-4 rise"
+            style="animation-delay: 390ms;"
+          >
+            <a
+              href={bookingUrl}
+              class="btn btn-primary bg-leaf! text-ink! hover:bg-paper! hover:text-deep!"
+            >
               {ctaLabel}
               <span class="arrow" aria-hidden="true">→</span>
             </a>
-            <a href="#metodo" class={`btn ${isTic ? "border border-white/25 text-paper hover:border-on-dark-accent" : "btn-ghost"}`}>
+            <a
+              href="#metodo"
+              class={`btn ${isTic ? "border border-white/25 text-paper hover:border-on-dark-accent" : "btn-ghost"}`}
+            >
               Ver el proceso
             </a>
           </div>
 
-          <p class={`mt-5 max-w-xl text-[0.9rem] leading-relaxed ${heroMuted} rise`} style="animation-delay: 500ms;">
-            Sesión de exploración online, gratuita y sin compromiso para entender tu situación y decidir si tiene sentido avanzar.
+          <p
+            class={`mt-5 max-w-xl text-[0.9rem] leading-relaxed ${heroMuted} rise`}
+            style="animation-delay: 500ms;"
+          >
+            Sesión de exploración online, gratuita y sin compromiso para
+            entender tu situación y decidir si tiene sentido avanzar.
           </p>
         </div>
 
-        <aside class="col-span-12 lg:col-span-4 lg:pl-6 lg:border-l border-white/20 rise" style="animation-delay: 340ms;">
-          <p class={`eyebrow ${isTic ? "text-on-dark-muted" : ""}`}>{heroLabel}</p>
-          <p class="mt-4 font-display text-[1.45rem] md:text-[1.7rem] leading-[1.3]">
+        <aside
+          class="min-w-0 lg:col-span-4 lg:pl-6 lg:border-l border-white/20 rise"
+          style="animation-delay: 340ms;"
+        >
+          <p class={`eyebrow ${isTic ? "text-on-dark-muted" : ""}`}>
+            {heroLabel}
+          </p>
+          <p
+            class="mt-4 font-display text-[1.45rem] md:text-[1.7rem] leading-[1.3]"
+          >
             Un acompañamiento
             <span class={`font-display-italic ${accent}`}> a medida</span>
             para alinear decisiones, liderazgo y contexto.
@@ -138,62 +174,88 @@ const bookingUrl = "https://outlook.office.com/bookwithme/user/48d235d03a08496b9
 </section>
 
 <section id="audiencia" class="relative">
-  <div class="max-w-310 mx-auto px-6 md:px-10 py-18 md:py-26">
-    <div class="grid grid-cols-12 gap-8 items-end reveal">
-      <div class="col-span-12 lg:col-span-7">
-        <p class="eyebrow flex items-center gap-3">
-          <span class="w-8 h-px bg-leaf-deep"></span> Contexto
+  <div class="max-w-310 mx-auto w-full min-w-0 px-6 md:px-10 py-18 md:py-26">
+    <div class="min-w-0 reveal">
+      <div class="min-w-0 lg:max-w-3xl">
+        <p class="eyebrow eyebrow-with-rule">
+          <span class="w-8 h-px shrink-0 bg-leaf-deep"></span>
+          <span class="min-w-0">Contexto</span>
         </p>
-        <h2 class="mt-4 font-display text-[2.1rem] md:text-[3rem] leading-[1.07] tracking-[-0.03em] text-ink">
+        <h2
+          class="mt-4 font-display text-[2.1rem] md:text-[3rem] leading-[1.07] tracking-[-0.03em] text-ink"
+        >
           {challengeTitle}
         </h2>
       </div>
     </div>
 
-    <div class="mt-10 max-w-4xl space-y-5 text-[1.02rem] leading-[1.72] text-ink-muted reveal">
+    <div
+      class="mt-10 max-w-4xl space-y-5 text-[1.02rem] leading-[1.72] text-ink-muted reveal"
+    >
       {challenge.map((paragraph) => <p>{paragraph}</p>)}
     </div>
   </div>
 </section>
 
 <section id="metodo" class="relative">
-  <div class="max-w-310 mx-auto px-6 md:px-10 py-18 md:py-26">
-    <div class="grid grid-cols-12 gap-10 items-start">
-      <div class="col-span-12 lg:col-span-7 reveal">
-        <p class="eyebrow flex items-center gap-3">
-          <span class="w-8 h-px bg-leaf-deep"></span> Proceso
+  <div class="max-w-310 mx-auto w-full min-w-0 px-6 md:px-10 py-18 md:py-26">
+    <div
+      class="grid min-w-0 grid-cols-1 gap-y-10 items-start lg:grid-cols-12 lg:gap-x-10 lg:gap-y-0"
+    >
+      <div class="min-w-0 lg:col-span-7 reveal">
+        <p class="eyebrow eyebrow-with-rule">
+          <span class="w-8 h-px shrink-0 bg-leaf-deep"></span>
+          <span class="min-w-0">Proceso</span>
         </p>
-        <h2 class="mt-4 font-display text-[2rem] md:text-[2.85rem] leading-[1.08] tracking-[-0.03em] text-ink">
+        <h2
+          class="mt-4 font-display text-[2rem] md:text-[2.85rem] leading-[1.08] tracking-[-0.03em] text-ink"
+        >
           {approachTitle}
         </h2>
-        <div class="mt-8 space-y-5 text-[1.02rem] leading-[1.72] text-ink-muted max-w-2xl">
+        <div
+          class="mt-8 space-y-5 text-[1.02rem] leading-[1.72] text-ink-muted max-w-2xl"
+        >
           <p>{approachLead}</p>
           {approachParagraphs.map((paragraph) => <p>{paragraph}</p>)}
         </div>
       </div>
 
-      <div class="col-span-12 lg:col-span-5 reveal" style="transition-delay: 100ms;">
-        <div class="rounded-[32px] p-8 md:p-10 border border-rule bg-white/65">
+      <div
+        class="min-w-0 lg:col-span-5 reveal"
+        style="transition-delay: 100ms;"
+      >
+        <div
+          class="rounded-4xl p-8 md:p-10 border border-rule bg-white/65 min-w-0"
+        >
           <p class="eyebrow">Qué incluye</p>
-          {approachItems.length ? (
-            <ul class="mt-6 space-y-4 text-[0.97rem] leading-[1.65] text-ink-muted">
-              {approachItems.map((item) => (
-                <li>
-                  <span class="text-ink font-semibold">{item.label}:</span> {item.body}
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p class="mt-6 text-[0.97rem] leading-[1.65] text-ink-muted">
-              Un proceso diseñado para traducir reflexión profunda en decisiones y acciones sostenibles, desde tu experiencia y tu contexto real.
-            </p>
-          )}
-          {approachFootnote && (
-            <>
-              <div class="hairline mt-8"></div>
-              <p class="mt-6 text-[0.95rem] leading-[1.65] text-ink-muted">{approachFootnote}</p>
-            </>
-          )}
+          {
+            approachItems.length ? (
+              <ul class="mt-6 space-y-4 text-[0.97rem] leading-[1.65] text-ink-muted">
+                {approachItems.map((item) => (
+                  <li>
+                    <span class="text-ink font-semibold">{item.label}:</span>{" "}
+                    {item.body}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p class="mt-6 text-[0.97rem] leading-[1.65] text-ink-muted">
+                Un proceso diseñado para traducir reflexión profunda en
+                decisiones y acciones sostenibles, desde tu experiencia y tu
+                contexto real.
+              </p>
+            )
+          }
+          {
+            approachFootnote && (
+              <>
+                <div class="hairline mt-8" />
+                <p class="mt-6 text-[0.95rem] leading-[1.65] text-ink-muted">
+                  {approachFootnote}
+                </p>
+              </>
+            )
+          }
         </div>
       </div>
     </div>
@@ -201,29 +263,45 @@ const bookingUrl = "https://outlook.office.com/bookwithme/user/48d235d03a08496b9
 </section>
 
 <section id="sobre" class="relative">
-  <div class="max-w-310 mx-auto px-6 md:px-10 py-18 md:py-26">
-    <div class="grid grid-cols-12 gap-10 items-start">
-      <div class="col-span-12 lg:col-span-5 reveal">
-        <div class="rounded-[32px] p-8 md:p-10 border border-rule bg-white/65">
+  <div class="max-w-310 mx-auto w-full min-w-0 px-6 md:px-10 py-18 md:py-26">
+    <div
+      class="grid min-w-0 grid-cols-1 gap-y-10 items-start lg:grid-cols-12 lg:gap-x-10 lg:gap-y-0"
+    >
+      <div class="min-w-0 lg:col-span-5 reveal">
+        <div
+          class="rounded-4xl p-8 md:p-10 border border-rule bg-white/65 min-w-0"
+        >
           <p class="eyebrow">Base del acompañamiento</p>
-          <p class="mt-6 font-display text-[1.45rem] md:text-[1.7rem] leading-[1.3] text-ink">
-            35 años en tecnología y una práctica de coaching centrada en coherencia, comunicación y propósito.
+          <p
+            class="mt-6 font-display text-[1.45rem] md:text-[1.7rem] leading-[1.3] text-ink"
+          >
+            35 años en tecnología y una práctica de coaching centrada en
+            coherencia, comunicación y propósito.
           </p>
           <div class="hairline mt-8"></div>
           <p class="mt-6 text-[0.95rem] leading-[1.65] text-ink-muted">
-            Una mirada integrativa para acompañar decisiones complejas sin perder profundidad ni sentido práctico.
+            Una mirada integrativa para acompañar decisiones complejas sin
+            perder profundidad ni sentido práctico.
           </p>
         </div>
       </div>
 
-      <div class="col-span-12 lg:col-span-7 reveal" style="transition-delay: 100ms;">
-        <p class="eyebrow flex items-center gap-3">
-          <span class="w-8 h-px bg-leaf-deep"></span> Por qué este proceso
+      <div
+        class="min-w-0 lg:col-span-7 reveal"
+        style="transition-delay: 100ms;"
+      >
+        <p class="eyebrow eyebrow-with-rule">
+          <span class="w-8 h-px shrink-0 bg-leaf-deep"></span>
+          <span class="min-w-0">Por qué este proceso</span>
         </p>
-        <h2 class="mt-4 font-display text-[2rem] md:text-[2.85rem] leading-[1.08] tracking-[-0.03em] text-ink">
+        <h2
+          class="mt-4 font-display text-[2rem] md:text-[2.85rem] leading-[1.08] tracking-[-0.03em] text-ink"
+        >
           {whyTitle}
         </h2>
-        <div class="mt-8 space-y-5 text-[1.02rem] leading-[1.72] text-ink-muted max-w-2xl">
+        <div
+          class="mt-8 space-y-5 text-[1.02rem] leading-[1.72] text-ink-muted max-w-2xl"
+        >
           {why.map((paragraph) => <p>{paragraph}</p>)}
         </div>
       </div>
@@ -232,31 +310,54 @@ const bookingUrl = "https://outlook.office.com/bookwithme/user/48d235d03a08496b9
 </section>
 
 <section id="contacto" class="relative">
-  <div class="max-w-310 mx-auto px-6 md:px-10 py-20 md:py-28">
-    <div class="relative overflow-hidden rounded-[36px] reveal" style="background: linear-gradient(160deg, #0a4d7a 0%, #082438 70%, #061a28 100%);">
-      <div aria-hidden="true" class="absolute -top-32 -right-24 w-115 h-115 rounded-full opacity-50 blur-3xl" style="background: radial-gradient(circle, rgba(0,203,151,0.5), transparent 70%);"></div>
-      <div aria-hidden="true" class="absolute inset-0 contour opacity-[0.4] mix-blend-overlay"></div>
+  <div class="max-w-310 mx-auto w-full min-w-0 px-6 md:px-10 py-20 md:py-28">
+    <div
+      class="relative min-w-0 overflow-hidden rounded-[36px] reveal"
+      style="background: linear-gradient(160deg, #0a4d7a 0%, #082438 70%, #061a28 100%);"
+    >
+      <div
+        aria-hidden="true"
+        class="absolute -top-32 -right-24 w-115 h-115 rounded-full opacity-50 blur-3xl"
+        style="background: radial-gradient(circle, rgba(0,203,151,0.5), transparent 70%);"
+      >
+      </div>
+      <div
+        aria-hidden="true"
+        class="absolute inset-0 contour opacity-[0.4] mix-blend-overlay"
+      >
+      </div>
 
-      <div class="relative grid grid-cols-12 gap-10 p-8 md:p-14 lg:p-18 text-paper">
-        <div class="col-span-12 lg:col-span-7">
-          <p class="eyebrow flex items-center gap-3 text-on-dark-accent">
-            <span class="w-8 h-px bg-on-dark-accent"></span> Sesión de exploración
+      <div
+        class="relative grid min-w-0 grid-cols-1 gap-y-10 p-8 text-paper md:p-14 lg:grid-cols-12 lg:gap-x-10 lg:gap-y-0 lg:p-18"
+      >
+        <div class="min-w-0 lg:col-span-7">
+          <p class="eyebrow eyebrow-with-rule text-on-dark-accent">
+            <span class="w-8 h-px shrink-0 bg-on-dark-accent"></span>
+            <span class="min-w-0">Sesión de exploración</span>
           </p>
-          <h2 class="mt-5 font-display text-[2rem] md:text-[3.1rem] leading-[1.04] tracking-[-0.03em]">
+          <h2
+            class="mt-5 font-display text-[2rem] md:text-[3.1rem] leading-[1.04] tracking-[-0.03em]"
+          >
             {questionTitle}
           </h2>
-          {questionBody && (
-            <p class="mt-7 text-[1.05rem] leading-[1.7] max-w-136 text-on-dark-muted">{questionBody}</p>
-          )}
+          {
+            questionBody && (
+              <p class="mt-7 text-[1.05rem] leading-[1.7] max-w-136 text-on-dark-muted">
+                {questionBody}
+              </p>
+            )
+          }
         </div>
 
-        <div class="col-span-12 lg:col-span-5">
+        <div class="min-w-0 lg:col-span-5">
           <div
-            class="rounded-3xl p-7 md:p-8 border"
+            class="min-w-0 rounded-3xl p-7 md:p-8 border"
             style="background: rgba(255,255,255,0.06); border-color: rgba(203,220,229,0.2); backdrop-filter: blur(6px);"
           >
             <p class="font-display text-[1.2rem]">{ctaTitle}</p>
-            <p class="mt-5 text-[0.98rem] leading-[1.7] text-on-dark-muted">{ctaBody}</p>
+            <p class="mt-5 text-[0.98rem] leading-[1.7] text-on-dark-muted">
+              {ctaBody}
+            </p>
             <a
               href={bookingUrl}
               class="btn btn-primary mt-7 w-full justify-center bg-leaf! text-ink! hover:bg-paper! hover:text-deep!"
