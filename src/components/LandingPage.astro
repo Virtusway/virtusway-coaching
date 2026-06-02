@@ -269,16 +269,39 @@ const bookingUrl =
     >
       <div class="min-w-0 lg:col-span-5 reveal">
         <div
-          class="rounded-4xl p-8 md:p-10 border border-rule bg-white/65 min-w-0"
+          class="rounded-4xl p-8 md:p-10 border border-rule bg-white/65 min-w-0 relative overflow-hidden"
         >
+          <div
+            aria-hidden="true"
+            class="absolute -top-12 -right-12 w-48 h-48 rounded-full opacity-20 blur-2xl pointer-events-none"
+            style="background: radial-gradient(circle, rgba(0,203,151,0.4), transparent 70%);"
+          >
+          </div>
+
+          <!-- Coach Author -->
+          <div class="flex items-center gap-3.5 mb-6 relative">
+            <div class="w-12 h-12 rounded-full overflow-hidden border border-leaf-deep/20 shadow-sm shrink-0">
+              <img
+                src="/personal-image.jpeg"
+                alt="Mauricio Magni Manchón"
+                class="w-full h-full object-cover object-[center_30%]"
+                loading="lazy"
+              />
+            </div>
+            <div class="min-w-0">
+              <p class="font-display text-[0.98rem] text-ink truncate">Mauricio Magni Manchón</p>
+              <p class="text-[0.72rem] eyebrow tracking-[0.15em] text-ink-muted mt-0.5">Coach integrativo</p>
+            </div>
+          </div>
+
           <p class="eyebrow">Base del acompañamiento</p>
           <p
-            class="mt-6 font-display text-[1.45rem] md:text-[1.7rem] leading-[1.3] text-ink"
+            class="mt-4 font-display text-[1.45rem] md:text-[1.7rem] leading-[1.3] text-ink"
           >
             35 años en tecnología y una práctica de coaching centrada en
             coherencia, comunicación y propósito.
           </p>
-          <div class="hairline mt-8"></div>
+          <div class="hairline mt-6"></div>
           <p class="mt-6 text-[0.95rem] leading-[1.65] text-ink-muted">
             Una mirada integrativa para acompañar decisiones complejas sin
             perder profundidad ni sentido práctico.

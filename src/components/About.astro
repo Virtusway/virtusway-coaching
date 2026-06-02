@@ -16,17 +16,21 @@
           >
           </div>
 
-          <!-- Portrait placeholder: a soft, calm initial monogram -->
+          <!-- Portrait Photo -->
           <div class="relative">
             <div
-              class="w-45 h-45 mx-auto rounded-full flex items-center justify-center"
-              style="background: radial-gradient(circle at 35% 30%, #ffffff 0%, #cfe3ee 35%, #127fb5 100%);"
+              class="w-45 h-45 mx-auto rounded-full overflow-hidden border border-rule bg-white shadow-md relative group"
             >
-              <span
-                class="font-display text-white text-[3.2rem] tracking-tight"
-              >
-                MM
-              </span>
+              <div
+                class="absolute inset-0 bg-gradient-to-tr from-deep/15 via-transparent to-leaf/10 pointer-events-none mix-blend-overlay"
+              ></div>
+              <img
+                src="/personal-image.jpeg"
+                alt="Mauricio Magni Manchón — Coach integrativo y fundador de VirtusWay"
+                class="w-full h-full object-cover object-[center_30%] transition-transform duration-700 ease-out group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <div class="mt-6 min-w-0 text-center">
               <p
