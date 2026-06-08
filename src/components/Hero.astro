@@ -78,30 +78,57 @@
 
       <!-- Sidebar editorial card -->
       <aside
-        class="min-w-0 lg:col-span-4 lg:pl-6 lg:border-l lg:border-rule rise"
+        class="min-w-0 lg:col-span-4 lg:pl-8 lg:border-l lg:border-rule rise"
         style="animation-delay: 360ms;"
       >
-        <div class="flex min-w-0 items-start gap-4">
-          <div class="w-12 h-12 rounded-full overflow-hidden border border-leaf-deep/20 shadow-sm shrink-0 mt-0.5">
-            <img
-              src="/personal-image.jpeg"
-              alt="Mauricio Magni Manchón"
-              class="w-full h-full object-cover object-[center_30%]"
-              loading="eager"
-              decoding="async"
-            />
+        <div
+          class="relative min-w-0 overflow-hidden rounded-[1.75rem] border border-rule/80 bg-paper/55 p-5 shadow-[0_24px_70px_-52px_rgba(10,77,122,0.65)] backdrop-blur-sm sm:p-6 lg:bg-transparent lg:p-0 lg:shadow-none lg:backdrop-blur-0 lg:border-0 lg:rounded-none"
+        >
+          <div
+            aria-hidden="true"
+            class="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-leaf/10 blur-2xl lg:hidden"
+          >
           </div>
-          <div class="min-w-0">
-            <p class="eyebrow">Una nota de Mauricio</p>
-            <p class="mt-3 font-display text-[1.35rem] leading-[1.35] text-ink">
-              <span class="font-display-italic">"</span>Dos caminos.
+
+          <div
+            class="relative flex min-w-0 flex-col gap-5 sm:flex-row sm:items-center lg:flex-col lg:items-start"
+          >
+            <div
+              class="h-28 w-28 overflow-hidden rounded-4xl border border-leaf-deep/20 bg-mist shadow-[0_18px_42px_-24px_rgba(10,77,122,0.72)] shrink-0 sm:h-32 sm:w-32 lg:h-36 lg:w-36"
+            >
+              <img
+                src="/personal-image.jpeg"
+                alt="Mauricio Magni Manchón"
+                class="w-full h-full object-cover object-[center_28%]"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+
+            <div class="min-w-0">
+              <p class="eyebrow">Una nota de</p>
+              <h2
+                class="mt-2 font-display text-[1.45rem] leading-[1.16] tracking-[-0.03em] text-ink sm:text-[1.7rem] lg:text-[1.9rem]"
+              >
+                Mauricio Magni Manchón
+              </h2>
+              <p class="mt-3 eyebrow text-ink-muted">Coach integrativo</p>
+            </div>
+          </div>
+
+          <blockquote
+            class="relative mt-7 min-w-0 border-l border-leaf-deep/40 pl-5"
+          >
+            <p
+              class="font-display text-[1.35rem] leading-[1.35] text-ink sm:text-[1.55rem]"
+            >
+              <span class="font-display-italic">“</span>Dos caminos.
               <span class="font-display-italic text-leaf-deep">
                 Una misma brújula.</span
               >
-              <span class="font-display-italic">"</span>
+              <span class="font-display-italic">”</span>
             </p>
-            <p class="mt-4 eyebrow">— Mauricio Magni · Coach integrativo</p>
-          </div>
+          </blockquote>
         </div>
 
         <div class="hairline mt-8"></div>
