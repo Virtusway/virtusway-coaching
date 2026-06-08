@@ -1,7 +1,8 @@
-<header class="sticky top-0 z-40">
-  <div class="backdrop-blur-md bg-paper/75 border-b border-rule/70">
+<header class="sticky top-0 z-40 transition-all duration-300" id="site-header">
+  <div class="backdrop-blur-md bg-paper/75 border-b border-rule/70 transition-all duration-300">
     <div
-      class="max-w-310 mx-auto w-full min-w-0 px-6 md:px-10 flex items-center justify-between h-18 gap-6"
+      class="max-w-310 mx-auto w-full min-w-0 px-6 md:px-10 flex items-center justify-between h-20 sm:h-22 md:h-24 gap-6 transition-all duration-300"
+      id="header-inner"
     >
       <a
         href="/"
@@ -13,7 +14,8 @@
           alt="VirtusWay"
           width="201"
           height="33"
-          class="h-7 sm:h-8 w-auto shrink-0 transition-opacity duration-300 group-hover:opacity-90"
+          class="h-8 sm:h-9 w-auto shrink-0 transition-all duration-300 group-hover:opacity-90"
+          id="header-logo"
           loading="eager"
           decoding="async"
         />
@@ -54,3 +56,47 @@
     </div>
   </div>
 </header>
+
+<style>
+  /* Transition sizes when scrolled */
+  #site-header.scrolled #header-inner {
+    height: 3.5rem; /* h-14 */
+  }
+  @media (min-width: 640px) {
+    #site-header.scrolled #header-inner {
+      height: 4rem; /* h-16 */
+    }
+  }
+  @media (min-width: 768px) {
+    #site-header.scrolled #header-inner {
+      height: 4.5rem; /* h-18 */
+    }
+  }
+
+  #site-header.scrolled #header-logo {
+    height: 1.75rem; /* h-7 */
+  }
+  @media (min-width: 640px) {
+    #site-header.scrolled #header-logo {
+      height: 2rem; /* h-8 */
+    }
+  }
+</style>
+
+<script>
+  const header = document.getElementById('site-header');
+  
+  const handleScroll = () => {
+    if (window.scrollY > 20) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+  };
+
+  // Run immediately to set initial state on page load (e.g. if loaded mid-page)
+  handleScroll();
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+</script>
+
