@@ -87,9 +87,11 @@
   const header = document.getElementById('site-header');
   
   const handleScroll = () => {
-    if (window.scrollY > 20) {
+    const currentScroll = window.scrollY;
+    // Hysteresis: Shrink when scrolling past 80px, expand when scrolling back below 30px
+    if (currentScroll > 80) {
       header?.classList.add('scrolled');
-    } else {
+    } else if (currentScroll < 30) {
       header?.classList.remove('scrolled');
     }
   };

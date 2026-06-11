@@ -7,4 +7,4 @@ Disallow: /legal/compromiso-etico.html
 Disallow: /legal/politica-cookies.html
 Disallow: /legal/politica-privacidad.html
 
-Sitemap: https://virtusway.com/sitemap.xml
+Sitemap: https://virtusway.com/sitemap-index.xml
