@@ -1,0 +1,252 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Revocar consentimiento comercial · VirtusWay"
+  description="Retira tu consentimiento para recibir comunicaciones comerciales de VirtusWay."
+>
+  <Header />
+
+  <main>
+    <section class="relative overflow-hidden">
+      <div
+        aria-hidden="true"
+        class="absolute inset-0 -z-10 pointer-events-none"
+      >
+        <div
+          class="absolute -top-32 -right-20 h-120 w-120 rounded-full opacity-25 blur-3xl"
+          style="background: radial-gradient(circle at 50% 50%, rgba(82,194,230,0.48), transparent 62%);"
+        >
+        </div>
+      </div>
+
+      <div
+        class="max-w-275 mx-auto w-full min-w-0 px-6 md:px-10 py-20 md:py-28"
+      >
+        <div class="grid min-w-0 grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10">
+          <div class="min-w-0 lg:col-span-7">
+            <p class="eyebrow eyebrow-with-rule">
+              <span class="w-8 h-px shrink-0 bg-leaf-deep"></span>
+              <span class="min-w-0">Privacidad · consentimiento</span>
+            </p>
+
+            <h1
+              class="mt-5 font-display text-[2.25rem] leading-[1.04] tracking-[-0.035em] text-ink md:text-[3.9rem]"
+            >
+              Revoca tu permiso
+              <span class="font-display-italic text-deep"> comercial.</span>
+            </h1>
+
+            <p
+              class="mt-6 max-w-2xl text-[1.05rem] leading-[1.75] text-ink-muted md:text-[1.12rem]"
+            >
+              Puedes retirar en cualquier momento el consentimiento para que
+              VirtusWay te contacte con objetivos comerciales. La revocación no
+              afecta a la licitud de los contactos realizados antes de
+              retirarlo.
+            </p>
+
+            <div class="hairline mt-10"></div>
+
+            <p
+              class="mt-8 max-w-2xl text-[0.95rem] leading-relaxed text-ink-muted"
+            >
+              Si has llegado desde el enlace de un correo, podrás confirmar la
+              baja con un clic. También puedes introducir aquí el email con el
+              que descargaste la guía.
+            </p>
+          </div>
+
+          <div class="min-w-0 lg:col-span-5">
+            <form
+              data-revoke-consent-form
+              class="rounded-3xl border border-rule bg-white/80 p-7 shadow-[0_24px_60px_rgba(10,77,122,0.10)] md:p-8"
+            >
+              <p class="font-display text-[1.25rem] leading-snug text-ink">
+                Retirar consentimiento
+              </p>
+              <p class="mt-3 text-[0.92rem] leading-relaxed text-ink-muted">
+                Guardaremos el registro de la revocación para no volver a
+                contactarte con fines comerciales.
+              </p>
+
+              <input type="hidden" name="token" data-revoke-token />
+
+              <p
+                class="mt-5 rounded-2xl border border-leaf/25 bg-leaf/10 p-4 text-[0.88rem] leading-relaxed text-ink-muted"
+                data-token-confirmation
+                hidden
+              >
+                Hemos detectado tu enlace personal. Pulsa el botón para
+                confirmar la revocación del consentimiento comercial.
+              </p>
+
+              <label class="mt-6 block" data-revoke-email-field>
+                <span class="sr-only">Email</span>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="tu@correo.com"
+                  class="field"
+                  style="background: rgba(255,255,255,0.96); color: var(--color-ink);"
+                />
+              </label>
+
+              <button
+                type="submit"
+                data-revoke-submit-button
+                class="btn btn-primary mt-4 w-full justify-center"
+              >
+                <span data-revoke-submit-label>Revocar permiso</span>
+                <span class="arrow" aria-hidden="true">→</span>
+              </button>
+
+              <p
+                class="revoke-status mt-4 min-h-6 text-[0.9rem] leading-relaxed"
+                data-revoke-status
+                data-state="idle"
+                role="status"
+                aria-live="polite"
+              >
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .revoke-status[data-state="idle"] {
+    color: var(--color-ink-soft);
+  }
+
+  .revoke-status[data-state="pending"] {
+    color: var(--color-ink-muted);
+  }
+
+  .revoke-status[data-state="success"] {
+    color: var(--color-leaf-deep);
+  }
+
+  .revoke-status[data-state="error"] {
+    color: #a33a32;
+  }
+</style>
+
+<script is:inline>
+  const stateMessages = {
+    revocado: {
+      state: "success",
+      message: "Tu consentimiento comercial ha sido revocado correctamente.",
+    },
+    "enlace-no-valido": {
+      state: "error",
+      message:
+        "El enlace de revocación no es válido o ya no está disponible. Puedes usar el formulario con tu email.",
+    },
+    error: {
+      state: "error",
+      message:
+        "No pudimos procesar la revocación ahora mismo. Inténtalo de nuevo en unos minutos.",
+    },
+  };
+
+  document.querySelectorAll("[data-revoke-consent-form]").forEach((form) => {
+    if (!(form instanceof HTMLFormElement)) {
+      return;
+    }
+
+    const button = form.querySelector("[data-revoke-submit-button]");
+    const label = form.querySelector("[data-revoke-submit-label]");
+    const status = form.querySelector("[data-revoke-status]");
+    const tokenInput = form.querySelector("[data-revoke-token]");
+    const emailField = form.querySelector("[data-revoke-email-field]");
+    const emailInput = form.querySelector('input[name="email"]');
+    const tokenConfirmation = form.querySelector("[data-token-confirmation]");
+
+    if (
+      !(button instanceof HTMLButtonElement) ||
+      !(label instanceof HTMLElement) ||
+      !(status instanceof HTMLElement) ||
+      !(tokenInput instanceof HTMLInputElement) ||
+      !(emailInput instanceof HTMLInputElement)
+    ) {
+      return;
+    }
+
+    const setStatus = (message, state) => {
+      status.textContent = message;
+      status.dataset.state = state;
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get("token");
+
+    if (token) {
+      tokenInput.value = token;
+      emailInput.required = false;
+      if (emailField instanceof HTMLElement) {
+        emailField.hidden = true;
+      }
+      if (tokenConfirmation instanceof HTMLElement) {
+        tokenConfirmation.hidden = false;
+      }
+      label.textContent = "Confirmar revocación";
+    }
+
+    const initialState = params.get("estado");
+    const initialMessage = initialState ? stateMessages[initialState] : null;
+    if (initialMessage) {
+      setStatus(initialMessage.message, initialMessage.state);
+    }
+
+    const defaultLabel = label.textContent ?? "Revocar permiso";
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      button.disabled = true;
+      label.textContent = "Procesando...";
+      setStatus("Procesando tu solicitud...", "pending");
+
+      try {
+        const response = await fetch("/api/revoke-consent", {
+          method: "POST",
+          body: new FormData(form),
+        });
+        const payload = await response.json().catch(() => null);
+        const message =
+          payload && typeof payload.message === "string"
+            ? payload.message
+            : "Ha ocurrido un error inesperado.";
+
+        if (!response.ok) {
+          throw new Error(message);
+        }
+
+        form.reset();
+        if (token) {
+          tokenInput.value = token;
+        }
+        setStatus(message, "success");
+      } catch (error) {
+        const message =
+          error instanceof Error
+            ? error.message
+            : "No pudimos procesar la revocación ahora mismo.";
+        setStatus(message, "error");
+      } finally {
+        label.textContent = defaultLabel;
+        button.disabled = false;
+      }
+    });
+  });
+</script>
