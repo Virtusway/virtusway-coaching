@@ -5,12 +5,14 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
+  schemaMarkup?: Record<string, any>;
 }
 
 const {
   title = "VirtusWay — Coaching integrativo",
   description = "Integradora y directa: coaching para ejecutivas conscientes y equipos TIC — claridad, valores y método. Valencia · online.",
   image = "/personal-image.jpeg",
+  schemaMarkup,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? "https://virtusway.com");
@@ -46,6 +48,9 @@ const resolvedImageURL = new URL(image, Astro.site ?? "https://virtusway.com");
 
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    {schemaMarkup && (
+      <script type="application/ld+json" set:html={JSON.stringify(schemaMarkup)} />
+    )}
   </head>
 
 

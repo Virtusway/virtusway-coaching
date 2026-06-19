@@ -3,25 +3,7 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import LandingPage from "../components/LandingPage.astro";
 import Layout from "../layouts/Layout.astro";
-
-const approachItems = [
-  {
-    label: "Sesiones grupales presenciales",
-    body: "Comunicación, toma de decisiones, resolución de conflictos y propósito común.",
-  },
-  {
-    label: "Sesiones individuales con cada miembro del equipo",
-    body: "Patrones personales, valores y su contribución al colectivo.",
-  },
-  {
-    label: "Sesiones individuales con el líder técnico",
-    body: "Facilitación, feedback y gestión desde la comprensión.",
-  },
-  {
-    label: "Alineamiento con la gerencia",
-    body: "Si es necesario, para ajustar expectativas y contexto organizativo.",
-  },
-];
+import RoadmapTIC from "../components/RoadmapTIC.astro";
 ---
 
 <Layout
@@ -55,8 +37,7 @@ const approachItems = [
       approachParagraphs={[
         "El objetivo: que cada persona actúe con autonomía, que el equipo funcione como una unidad coherente y que el líder y la gerencia creen el contexto para que eso suceda.",
       ]}
-      approachItems={approachItems}
-      approachFootnote="Fases: diagnóstico → despliegue de sesiones → plan de sostenibilidad."
+      approachItems={[]}
       whyTitle="Por qué este proceso puede ser diferente"
       why={[
         "35 años en tecnología, liderando equipos y gestionando plazos imposibles. He estado donde estás tú. Hablo tu idioma y conozco la presión del día a día.",
@@ -66,7 +47,9 @@ const approachItems = [
       ctaTitle="Reservar sesión de exploración"
       ctaBody="La sesión de exploración es una conversación de 45 minutos, online y gratuita. Escucho tu situación, hacemos un primer diagnóstico y decidimos juntos si tiene sentido diseñar un programa a medida."
       ctaLabel="Reservar sesión de exploración"
-    />
+    >
+      <RoadmapTIC slot="after-approach" />
+    </LandingPage>
   </main>
   <Footer />
 </Layout>

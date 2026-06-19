@@ -1,0 +1,165 @@
+---
+const phases = [
+  {
+    num: "01",
+    title: "Diagnóstico",
+    subtitle: "Mapeo inicial (Semanas 1-2)",
+    description: "Evaluación inicial de la cultura del equipo, entrevistas individuales confidenciales y análisis de los canales de comunicación y fricciones.",
+    items: [
+      "Alineación de objetivos con gerencia",
+      "Entrevistas individuales de confianza",
+      "Diagnóstico de dinámicas de equipo",
+    ],
+    icon: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z",
+  },
+  {
+    num: "02",
+    title: "Despliegue",
+    subtitle: "Acompañamiento activo (Meses 2-5)",
+    description: "Proceso interactivo donde combinamos talleres colectivos del equipo completo con sesiones individuales de soporte.",
+    items: [
+      "Sesiones grupales de toma de decisiones",
+      "Coaching individual para el líder técnico",
+      "Desactivación de silos y fricciones",
+    ],
+    icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
+  },
+  {
+    num: "03",
+    title: "Sostenibilidad",
+    subtitle: "Consolidación (Mes 6)",
+    description: "Cierre del programa con acuerdos firmes de comunicación, métricas de fricción reducidas y un plan de seguimiento.",
+    items: [
+      "Establecimiento de acuerdos de comunicación",
+      "Evaluación final de avances y KPI",
+      "Sesión de seguimiento a los 3 meses",
+    ],
+    icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+  },
+];
+---
+
+<div class="roadmap-container mt-16 md:mt-20 border border-white/10 rounded-[28px] grid grid-cols-1 md:grid-cols-3 overflow-hidden shadow-xl">
+  {phases.map((phase, idx) => (
+    <article 
+      class="roadmap-card min-w-0 p-8 md:p-10 flex flex-col reveal"
+      style={`transition-delay: ${idx * 80}ms;`}
+    >
+      <!-- Top Row: Numeral and Icon -->
+      <div class="flex min-w-0 items-center justify-between">
+        <span class="numeral text-[1.8rem] text-on-dark-accent!">{phase.num}</span>
+        <svg 
+          width="48" 
+          height="32" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          stroke-width="1.4" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          class="text-sky opacity-80"
+          aria-hidden="true"
+        >
+          <path d={phase.icon} />
+        </svg>
+      </div>
+
+      <!-- Phase Title & Subtitle -->
+      <h3 class="mt-12 md:mt-16 font-display text-[1.45rem] md:text-[1.65rem] leading-[1.1] tracking-[-0.02em] text-paper">
+        {phase.title}
+        <span class="block font-display-italic text-on-dark-accent text-[0.95rem] mt-2 tracking-normal">
+          — {phase.subtitle}
+        </span>
+      </h3>
+
+      <!-- Description -->
+      <p class="mt-5 text-[0.98rem] leading-[1.65] text-on-dark-soft">
+        {phase.description}
+      </p>
+
+      <!-- Bullet List -->
+      <div class="h-px bg-white/10 mt-6"></div>
+      <ul class="mt-5 space-y-2.5 text-[0.88rem] text-on-dark-muted">
+        {phase.items.map((item) => (
+          <li class="tick-dark">
+            {item}
+          </li>
+        ))}
+      </ul>
+    </article>
+  ))}
+</div>
+
+<style>
+  .roadmap-container {
+    background-image: linear-gradient(180deg, #0a4d7a 0%, #065e91 25%, #061a28 50%, #065e91 75%, #0a4d7a 100%);
+    background-size: 100% 200%;
+    background-position: 0% 0%;
+    transition: background-position 600ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  /* Hovering card 1 (top on mobile): darkest zone (#061a28 at 50% stop) moves to top */
+  .roadmap-container:has(article:nth-child(1):hover) {
+    background-position: 0% 100%;
+  }
+  /* Hovering card 2 (middle on mobile): darkest zone (#061a28 at 50% stop) is centered */
+  .roadmap-container:has(article:nth-child(2):hover) {
+    background-position: 0% 50%;
+  }
+  /* Hovering card 3 (bottom on mobile): darkest zone (#061a28 at 50% stop) moves to bottom */
+  .roadmap-container:has(article:nth-child(3):hover) {
+    background-position: 0% 0%;
+  }
+
+  article {
+    background: transparent;
+    transition: transform 400ms ease, opacity 900ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  /* Separate cards with borders on mobile */
+  article:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  @media (min-width: 768px) {
+    .roadmap-container {
+      background-image: linear-gradient(90deg, #0a4d7a 0%, #065e91 25%, #061a28 50%, #065e91 75%, #0a4d7a 100%);
+      background-size: 200% 100%;
+      background-position: 0% 0%;
+    }
+
+    /* Hovering card 1 (left on desktop): darkest zone (#061a28 at 50% stop) slides left */
+    .roadmap-container:has(article:nth-child(1):hover) {
+      background-position: 100% 0%;
+    }
+    /* Hovering card 2 (middle on desktop): darkest zone (#061a28 at 50% stop) is centered */
+    .roadmap-container:has(article:nth-child(2):hover) {
+      background-position: 50% 0%;
+    }
+    /* Hovering card 3 (right on desktop): darkest zone (#061a28 at 50% stop) slides right */
+    .roadmap-container:has(article:nth-child(3):hover) {
+      background-position: 0% 0%;
+    }
+
+    /* Reset mobile borders and apply horizontal borders for desktop grid */
+    article:not(:last-child) {
+      border-bottom: none;
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  .tick-dark {
+    position: relative;
+    padding-left: 1.4rem;
+  }
+  .tick-dark::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.78em;
+    width: 0.7rem;
+    height: 1px;
+    background: var(--color-on-dark-accent);
+  }
+</style>
+

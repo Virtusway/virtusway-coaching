@@ -8,11 +8,49 @@ import Hero from "../components/Hero.astro";
 import LeadMagnet from "../components/LeadMagnet.astro";
 import Method from "../components/Method.astro";
 import Layout from "../layouts/Layout.astro";
+
+const homeSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "VirtusWay — Mauricio Magni",
+  "image": "https://virtusway.com/personal-image.jpeg",
+  "logo": "https://virtusway.com/brand/WEB/VIrtusway_Brand_Square.svg",
+  "@id": "https://virtusway.com/#organization",
+  "url": "https://virtusway.com",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Valencia",
+    "addressCountry": "ES"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 39.4699,
+    "longitude": -0.3763
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "09:00",
+    "closes": "18:00"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/mauricio-magni-manchon/"
+  ],
+  "description": "Coaching integrativo para mujeres profesionales y equipos TIC. Liderazgo con coherencia, claridad y método. Valencia y online."
+};
 ---
 
 <Layout
   title="VirtusWay — Coaching integrativo para mujeres profesionales y equipos TIC"
-  description="Liderar con coherencia y claridad. Coaching integrativo para mujeres profesionales y equipos TIC, con una gestión más armónica, tranquila y eficiente."
+  description="Liderar con coherencia y claridad. Coaching integrativo para mujeres profesionales y equipos TIC, con una gestión más armónica, tranquilidad y eficiencia."
+  schemaMarkup={homeSchema}
 >
   <Header />
   <main>
