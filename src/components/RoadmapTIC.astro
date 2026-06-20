@@ -94,36 +94,20 @@ const phases = [
   .roadmap-container {
     display: grid;
     grid-template-columns: 1fr;
-    background-image: linear-gradient(180deg, #0a4d7a 0%, #065e91 25%, #061a28 50%, #065e91 75%, #0a4d7a 100%);
-    background-size: 100% 200%;
-    background-position: 0% 0%;
-    transition: background-position 600ms cubic-bezier(0.25, 0.8, 0.25, 1);
-  }
-
-  /* Hovering card 1 (top on mobile): darkest zone (#061a28 at 50% stop) moves to top */
-  .roadmap-container:has(article:nth-child(1):hover) {
-    background-position: 0% 100%;
-  }
-  /* Hovering card 2 (middle on mobile): darkest zone (#061a28 at 50% stop) is centered */
-  .roadmap-container:has(article:nth-child(2):hover) {
-    background-position: 0% 50%;
-  }
-  /* Hovering card 3 (bottom on mobile): darkest zone (#061a28 at 50% stop) moves to bottom */
-  .roadmap-container:has(article:nth-child(3):hover) {
-    background-position: 0% 0%;
+    background-image: linear-gradient(180deg, #0a4d7a 0%, #065e91 52%, #061a28 100%);
+    background-size: 100% 100%;
   }
 
   article {
     display: flex;
     flex-direction: column;
-    /* Subtle semi-transparent dark gradient to dim the card background slightly */
-    background: linear-gradient(180deg, rgba(6, 26, 40, 0.2) 0%, rgba(0, 0, 0, 0.45) 100%);
-    transition: background 500ms ease, transform 400ms ease, opacity 900ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    background: rgba(0, 0, 0, 0);
+    transition: background 400ms ease, transform 400ms ease, opacity 900ms cubic-bezier(0.2, 0.7, 0.2, 1);
   }
 
-  /* When hovered, we fade out the dark overlay so the vibrant container background glows through */
+  /* Hover card lights up by dimming the background slightly to black 20% for improved text contrast */
   article:hover {
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 100%);
+    background: rgba(0, 0, 0, 0.2);
   }
 
   /* Separate cards with borders on mobile */
@@ -135,33 +119,19 @@ const phases = [
     .roadmap-container {
       grid-template-columns: repeat(3, minmax(0, 1fr));
       grid-template-rows: auto auto auto auto auto;
-      background-image: linear-gradient(90deg, #0a4d7a 0%, #065e91 25%, #061a28 50%, #065e91 75%, #0a4d7a 100%);
-      background-size: 200% 100%;
-      background-position: 0% 0%;
-    }
-
-    /* Hovering card 1 (left on desktop): darkest zone (#061a28 at 50% stop) slides left */
-    .roadmap-container:has(article:nth-child(1):hover) {
-      background-position: 100% 0%;
-    }
-    /* Hovering card 2 (middle on desktop): darkest zone (#061a28 at 50% stop) is centered */
-    .roadmap-container:has(article:nth-child(2):hover) {
-      background-position: 50% 0%;
-    }
-    /* Hovering card 3 (right on desktop): darkest zone (#061a28 at 50% stop) slides right */
-    .roadmap-container:has(article:nth-child(3):hover) {
-      background-position: 0% 0%;
+      background-image: linear-gradient(90deg, #0a4d7a 0%, #065e91 52%, #061a28 100%);
+      background-size: 100% 100%;
     }
 
     article {
       display: grid;
       grid-row: span 5;
       grid-template-rows: subgrid;
-      background: linear-gradient(180deg, rgba(6, 26, 40, 0.25) 0%, rgba(0, 0, 0, 0.45) 100%);
+      background: rgba(0, 0, 0, 0);
     }
 
     article:hover {
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 100%);
+      background: rgba(0, 0, 0, 0.2);
     }
 
     /* Reset mobile borders and apply horizontal borders for desktop grid */
