@@ -1,12 +1,18 @@
-<section id="sobre" class="relative min-w-0">
-  <div class="max-w-310 mx-auto w-full min-w-0 px-6 md:px-10 py-20 md:py-28">
+<section id="sobre" class="relative min-w-0 overflow-hidden bg-gradient-to-b from-paper via-mist-soft/40 to-paper border-y border-rule/30">
+  <!-- Decorative background lights -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden select-none" aria-hidden="true">
+    <div class="absolute top-1/4 left-1/4 -translate-y-1/2 w-[550px] h-[550px] rounded-full bg-sky/8 blur-3xl"></div>
+    <div class="absolute bottom-1/4 right-1/4 translate-y-1/2 w-[450px] h-[450px] rounded-full bg-leaf/6 blur-3xl"></div>
+  </div>
+
+  <div class="max-w-310 mx-auto w-full min-w-0 px-6 md:px-10 py-20 md:py-28 relative z-10">
     <div
       class="grid min-w-0 grid-cols-1 gap-12 items-start lg:grid-cols-12 lg:gap-x-10 lg:gap-y-12"
     >
       <!-- Portrait card -->
       <div class="min-w-0 lg:col-span-5 reveal">
         <div
-          class="relative min-w-0 rounded-4xl p-8 md:p-10 overflow-hidden border border-rule"
+          class="relative min-w-0 rounded-4xl p-8 md:p-10 overflow-hidden border border-rule shadow-xs"
           style="background: linear-gradient(160deg, #ffffff 0%, #eaf3f7 100%);"
         >
           <div
@@ -83,68 +89,68 @@
           a las personas.
         </h2>
 
-        <div
-          class="mt-8 max-w-full min-w-0 space-y-5 text-[1.02rem] leading-[1.7] text-ink-muted sm:max-w-2xl wrap-anywhere"
-        >
-          <p class="min-w-0">
-            35 años en entornos TIC como desarrollador, líder de equipos y
-            gestor de proyectos complejos. Esa experiencia me enseñó que el
-            verdadero cuello de botella no suele ser técnico: es la desconexión
-            entre valores, comunicación y propósito.
-          </p>
-          <p class="min-w-0">
-            Por eso me formé como coach integrativo con un Máster en Liderazgo y
-            Business Coaching (FundAres / Universidad Manresa). Más de 200 horas
-            de práctica acompañando a personas como tú.
-          </p>
-          <p class="min-w-0">
-            Mi enfoque combina coaching ontológico, análisis transaccional
-            relacional y herramientas de cambio conductual (ACT). En la
-            práctica: un espacio sin juicio, preguntas precisas y un
-            acompañamiento realista.
-          </p>
-          <p class="min-w-0">
-            No creo en las transformaciones mágicas. Creo en procesos paso a
-            paso, con honestidad y coherencia. He venido a dar estructura y
-            profundidad a lo que ya sabía que podía aportar.
-          </p>
-        </div>
+        <!-- Bio Paragraphs Grid -->
+        <div class="mt-10 grid min-w-0 grid-cols-1 gap-6 sm:grid-cols-2">
+          <!-- Card 1 -->
+          <div class="group relative min-w-0 rounded-3xl border border-rule/80 bg-white/95 p-6 shadow-[0_4px_20px_-10px_rgba(10,77,122,0.12)] hover:shadow-[0_12px_32px_-12px_rgba(10,77,122,0.2)] hover:bg-white hover:border-leaf/30 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4 border-b border-rule/40 pb-3">
+                <span class="eyebrow text-leaf-deep font-semibold">01 · Trayectoria</span>
+                <span class="text-xs font-mono text-ink-soft select-none group-hover:text-leaf transition-colors duration-300">TIC</span>
+              </div>
+              <p class="text-ink-muted text-[0.98rem] leading-[1.6] wrap-anywhere">
+                35 años en entornos TIC como desarrollador, líder de equipos y
+                gestor de proyectos complejos. Esa experiencia me enseñó que el
+                verdadero cuello de botella no suele ser técnico: es la desconexión
+                entre valores, comunicación y propósito.
+              </p>
+            </div>
+          </div>
 
-        <!-- Credentials row -->
-        <div class="mt-10 grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2">
-          <div class="min-w-0 rounded-2xl border border-rule bg-white/60 p-5">
-            <p class="eyebrow">Formación</p>
-            <p
-              class="mt-2 min-w-0 text-[0.96rem] text-ink leading-snug wrap-anywhere"
-            >
-              Máster en Liderazgo y Business Coaching · FundAres / Universidad
-              Manresa
-            </p>
+          <!-- Card 2 -->
+          <div class="group relative min-w-0 rounded-3xl border border-rule/80 bg-white/95 p-6 shadow-[0_4px_20px_-10px_rgba(10,77,122,0.12)] hover:shadow-[0_12px_32px_-12px_rgba(10,77,122,0.2)] hover:bg-white hover:border-leaf/30 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4 border-b border-rule/40 pb-3">
+                <span class="eyebrow text-leaf-deep font-semibold">02 · Formación</span>
+                <span class="text-xs font-mono text-ink-soft select-none group-hover:text-leaf transition-colors duration-300">Respaldo</span>
+              </div>
+              <p class="text-ink-muted text-[0.98rem] leading-[1.6] wrap-anywhere">
+                Por eso me formé como coach integrativo con un Máster en Liderazgo y
+                Business Coaching (FundAres / Universidad Manresa). Más de 200 horas
+                de práctica acompañando a personas como tú.
+              </p>
+            </div>
           </div>
-          <div class="min-w-0 rounded-2xl border border-rule bg-white/60 p-5">
-            <p class="eyebrow">Experiencia</p>
-            <p
-              class="mt-2 min-w-0 text-[0.96rem] text-ink leading-snug wrap-anywhere"
-            >
-              Desarrollo, liderazgo de equipos y gestión de proyectos complejos
-              en TIC
-            </p>
+
+          <!-- Card 3 -->
+          <div class="group relative min-w-0 rounded-3xl border border-rule/80 bg-white/95 p-6 shadow-[0_4px_20px_-10px_rgba(10,77,122,0.12)] hover:shadow-[0_12px_32px_-12px_rgba(10,77,122,0.2)] hover:bg-white hover:border-leaf/30 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4 border-b border-rule/40 pb-3">
+                <span class="eyebrow text-leaf-deep font-semibold">03 · Enfoque</span>
+                <span class="text-xs font-mono text-ink-soft select-none group-hover:text-leaf transition-colors duration-300">Método</span>
+              </div>
+              <p class="text-ink-muted text-[0.98rem] leading-[1.6] wrap-anywhere">
+                Mi enfoque combina coaching ontológico, análisis transaccional
+                relacional y herramientas de cambio conductual (ACT). En la
+                práctica: un espacio sin juicio, preguntas precisas y un
+                acompañamiento realista.
+              </p>
+            </div>
           </div>
-          <div class="min-w-0 rounded-2xl border border-rule bg-white/60 p-5">
-            <p class="eyebrow">Ética</p>
-            <p
-              class="mt-2 min-w-0 text-[0.96rem] text-ink leading-snug wrap-anywhere"
-            >
-              Espacio sin juicio, preguntas precisas y acompañamiento realista
-            </p>
-          </div>
-          <div class="min-w-0 rounded-2xl border border-rule bg-white/60 p-5">
-            <p class="eyebrow">Enfoque</p>
-            <p
-              class="mt-2 min-w-0 text-[0.96rem] text-ink leading-snug wrap-anywhere"
-            >
-              Coaching ontológico · Análisis transaccional relacional · ACT
-            </p>
+
+          <!-- Card 4 -->
+          <div class="group relative min-w-0 rounded-3xl border border-rule/80 bg-white/95 p-6 shadow-[0_4px_20px_-10px_rgba(10,77,122,0.12)] hover:shadow-[0_12px_32px_-12px_rgba(10,77,122,0.2)] hover:bg-white hover:border-leaf/30 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4 border-b border-rule/40 pb-3">
+                <span class="eyebrow text-leaf-deep font-semibold">04 · Coherencia</span>
+                <span class="text-xs font-mono text-ink-soft select-none group-hover:text-leaf transition-colors duration-300">Ética</span>
+              </div>
+              <p class="text-ink-muted text-[0.98rem] leading-[1.6] wrap-anywhere">
+                No creo en las transformaciones mágicas. Creo en procesos paso a
+                paso, con honestidad y coherencia. He venido a dar estructura y
+                profundidad a lo que ya sabía que podía aportar.
+              </p>
+            </div>
           </div>
         </div>
       </div>
