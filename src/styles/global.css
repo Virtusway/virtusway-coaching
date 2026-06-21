@@ -129,6 +129,24 @@ main {
   overflow-wrap: break-word;
 }
 
+/* Allow utility classes to override the default eyebrow color */
+.eyebrow.text-on-dark-accent {
+  color: var(--color-on-dark-accent);
+}
+.eyebrow.text-on-dark-muted {
+  color: var(--color-on-dark-muted);
+}
+.eyebrow.text-leaf-deep {
+  color: var(--color-leaf-deep);
+}
+.eyebrow.text-deep {
+  color: var(--color-deep);
+}
+.eyebrow.text-ink-muted {
+  color: var(--color-ink-muted);
+}
+
+
 /* Hairline + label: grid (not flex) so the label can shrink-wrap on narrow screens */
 .eyebrow-with-rule {
   display: grid;
