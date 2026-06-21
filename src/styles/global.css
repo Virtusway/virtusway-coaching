@@ -62,11 +62,18 @@
 /*  Base                                                                      */
 /* -------------------------------------------------------------------------- */
 html {
+  scroll-behavior: smooth;
   font-family: var(--font-sans);
   background: var(--color-paper);
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
 }
 
 body {
