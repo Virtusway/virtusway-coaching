@@ -70,25 +70,25 @@
             <!-- Separator line (hidden on tablet, visible on mobile and desktop) -->
             <div class="hairline sm:hidden xl:block mt-auto mb-6"></div>
 
-            <!-- Metrics list (Right side on tablet, bottom on mobile and desktop) -->
-            <dl
-              class="sm:col-span-5 xl:col-span-12 grid min-w-0 grid-cols-1 gap-6 text-center sm:grid-cols-1 xl:grid-cols-3 sm:gap-4 sm:border-l sm:border-rule sm:pl-8 xl:border-l-0 xl:pl-0"
-            >
-              <div class="min-w-0">
-                <dt class="eyebrow">Años en TIC</dt>
-                <dd class="mt-1 font-display text-[1.6rem] text-deep">35</dd>
-              </div>
-              <div class="min-w-0">
-                <dt class="eyebrow">Práctica</dt>
-                <dd class="mt-1 font-display text-[1.6rem] text-deep">
-                  200<span class="text-[1rem] align-top">+ h</span>
-                </dd>
-              </div>
-              <div class="min-w-0">
-                <dt class="eyebrow">Formación</dt>
-                <dd class="mt-1 font-display text-[1.6rem] text-deep">Máster</dd>
-              </div>
-            </dl>
+            <!-- Metrics container (using Tailwind v4 container queries) -->
+            <div class="@container sm:col-span-5 xl:col-span-12 w-full sm:border-l sm:border-rule sm:pl-8 xl:border-l-0 xl:pl-0">
+              <dl class="grid min-w-0 grid-cols-1 gap-6 text-center @xs:grid-cols-3 @xs:gap-4">
+                <div class="min-w-0">
+                  <dt class="eyebrow whitespace-nowrap">Años en TIC</dt>
+                  <dd class="mt-1 font-display text-[1.6rem] text-deep whitespace-nowrap">35</dd>
+                </div>
+                <div class="min-w-0">
+                  <dt class="eyebrow whitespace-nowrap">Práctica</dt>
+                  <dd class="mt-1 font-display text-[1.6rem] text-deep whitespace-nowrap">
+                    200<span class="text-[1rem] align-top font-sans">+ h</span>
+                  </dd>
+                </div>
+                <div class="min-w-0">
+                  <dt class="eyebrow whitespace-nowrap">Formación</dt>
+                  <dd class="mt-1 font-display text-[1.6rem] text-deep whitespace-nowrap">Máster</dd>
+                </div>
+              </dl>
+            </div>
           </div>
         </div>
       </div>
@@ -157,3 +157,5 @@
     </div>
   </div>
 </section>
+
+
