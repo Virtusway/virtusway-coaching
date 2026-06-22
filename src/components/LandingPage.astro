@@ -108,10 +108,25 @@ const bookingUrl =
           </p>
 
           <h1
-            class="mt-6 font-display text-[2.35rem] sm:text-[3.25rem] md:text-[4.35rem] lg:text-[5.2rem] leading-[0.98] tracking-tighter rise"
+            class="mt-6 font-display text-[1.85rem] sm:text-[2.4rem] md:text-[3.1rem] lg:text-[3.6rem] leading-[1.1] tracking-[-0.03em] rise"
             style="animation-delay: 120ms;"
           >
-            {hook}
+            {(() => {
+              const parts = hook.split(/(?<=[.?!])\s+/);
+              if (parts.length > 1) {
+                return (
+                  <>
+                    <span class={`block text-[0.78em] font-light ${isTic ? 'text-white/80' : 'text-ink/80'} mb-3.5 leading-tight tracking-normal`}>
+                      {parts[0]}
+                    </span>
+                    <span class={`block font-semibold ${accent}`}>
+                      {parts[1]}
+                    </span>
+                  </>
+                );
+              }
+              return hook;
+            })()}
           </h1>
 
           <div
