@@ -116,7 +116,9 @@ main {
 .font-display-italic {
   font-family: var(--font-sans);
   font-style: italic;
-  font-weight: 400;
+  font-weight: 600;
+  font-size: 1.05em;
+  letter-spacing: -0.01em;
 }
 
 .eyebrow {
