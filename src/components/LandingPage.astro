@@ -400,6 +400,17 @@ const bookingUrl =
               {ctaLabel}
               <span class="arrow" aria-hidden="true">→</span>
             </a>
+            <div class="mt-6 pt-5 border-t border-white/10 text-center">
+              <a
+                href={isTic ? "/mujeres-profesionales" : "/equipos-tic"}
+                class="text-[0.85rem] font-medium text-on-dark-muted hover:text-on-dark-accent transition-colors duration-300 inline-flex items-center gap-1.5 hover:underline underline-offset-4 decoration-white/20 hover:decoration-current"
+              >
+                {isTic
+                  ? "¿Buscas acompañamiento individual? Ver Mujeres profesionales"
+                  : "¿Buscas acompañamiento para tu equipo? Ver Equipos TIC"}
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
