@@ -403,12 +403,19 @@ const bookingUrl =
             <div class="mt-6 pt-5 border-t border-white/10 text-center">
               <a
                 href={isTic ? "/mujeres-profesionales" : "/equipos-tic"}
-                class="text-[0.85rem] font-medium text-on-dark-muted hover:text-on-dark-accent transition-colors duration-300 inline-flex items-center gap-1.5 hover:underline underline-offset-4 decoration-white/20 hover:decoration-current"
+                class="group text-[0.85rem] font-medium text-on-dark-muted hover:text-on-dark-accent transition-colors duration-300 inline-flex flex-col items-center gap-1"
               >
-                {isTic
-                  ? "¿Buscas acompañamiento individual? Ver Mujeres profesionales"
-                  : "¿Buscas acompañamiento para tu equipo? Ver Equipos TIC"}
-                <span aria-hidden="true">→</span>
+                <span>
+                  {isTic
+                    ? "¿Buscas acompañamiento individual?"
+                    : "¿Buscas acompañamiento para tu equipo?"}
+                </span>
+                <span class="inline-flex items-center gap-1.5">
+                  <span class="group-hover:underline underline-offset-4 decoration-white/20 group-hover:decoration-current">
+                    {isTic ? "Ver Mujeres profesionales" : "Ver Equipos TIC"}
+                  </span>
+                  <span aria-hidden="true" class="inline-block transition-transform duration-300 group-hover:translate-x-0.5">→</span>
+                </span>
               </a>
             </div>
           </div>
