@@ -14,11 +14,11 @@
     "db:migrate": "drizzle-kit migrate"
   },
   "dependencies": {
-    "@astrojs/netlify": "^7.0.13",
+    "@astrojs/netlify": "^8.1.1",
     "@astrojs/sitemap": "^3.7.3",
     "@neondatabase/serverless": "^1.1.0",
     "@tailwindcss/vite": "^4.3.0",
-    "astro": "^6.4.7",
+    "astro": "^7.0.6",
     "dotenv": "^17.4.2",
     "drizzle-orm": "^0.45.2",
     "nodemailer": "^8.0.7",

@@ -6,6 +6,8 @@ import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
+  // Astro 7 defaults to JSX whitespace rules; preserve spaces between inline elements.
+  compressHTML: true,
   site: "https://virtusway.com",
   integrations: [sitemap()],
   vite: {
