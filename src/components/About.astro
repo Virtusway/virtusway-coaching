@@ -1,11 +1,25 @@
-<section id="sobre" class="relative min-w-0 overflow-hidden bg-gradient-to-b from-paper via-mist-soft/40 to-paper border-y border-rule/30">
+<section
+  id="sobre"
+  class="relative min-w-0 overflow-hidden bg-linear-to-b from-paper via-mist-soft/40 to-paper border-y border-rule/30"
+>
   <!-- Decorative background lights -->
-  <div class="absolute inset-0 pointer-events-none overflow-hidden select-none" aria-hidden="true">
-    <div class="absolute top-1/4 left-1/4 -translate-y-1/2 w-[550px] h-[550px] rounded-full bg-sky/8 blur-3xl"></div>
-    <div class="absolute bottom-1/4 right-1/4 translate-y-1/2 w-[450px] h-[450px] rounded-full bg-leaf/6 blur-3xl"></div>
+  <div
+    class="absolute inset-0 pointer-events-none overflow-hidden select-none"
+    aria-hidden="true"
+  >
+    <div
+      class="absolute top-1/4 left-1/4 -translate-y-1/2 w-137.5 h-137.5 rounded-full bg-sky/8 blur-3xl"
+    >
+    </div>
+    <div
+      class="absolute bottom-1/4 right-1/4 translate-y-1/2 w-112.5 h-112.5 rounded-full bg-leaf/6 blur-3xl"
+    >
+    </div>
   </div>
 
-  <div class="max-w-310 mx-auto w-full min-w-0 px-6 md:px-10 py-20 md:py-28 relative z-10">
+  <div
+    class="max-w-310 mx-auto w-full min-w-0 px-6 md:px-10 py-20 md:py-28 relative z-10"
+  >
     <!-- Section Title (Top of section) -->
     <div class="mb-12 reveal">
       <p class="eyebrow eyebrow-with-rule">
@@ -39,16 +53,20 @@
           </div>
 
           <!-- Adaptive layout wrapper (Horizontal on tablet, vertical on mobile and desktop) -->
-          <div class="sm:grid sm:grid-cols-12 sm:gap-8 sm:items-center xl:flex xl:flex-col xl:justify-between xl:h-full xl:gap-0 xl:w-full flex-1">
-            
+          <div
+            class="sm:grid sm:grid-cols-12 sm:gap-8 sm:items-center xl:flex xl:flex-col xl:justify-between xl:h-full xl:gap-0 xl:w-full flex-1"
+          >
             <!-- Portrait Photo & Name wrapper (Left side on tablet, centered on mobile and desktop) -->
-            <div class="sm:col-span-7 xl:col-span-12 relative flex flex-col justify-center py-4 xl:py-6">
+            <div
+              class="sm:col-span-7 xl:col-span-12 relative flex flex-col justify-center py-4 xl:py-6"
+            >
               <div
                 class="w-45 h-45 xl:w-56 xl:h-56 2xl:w-60 2xl:h-60 mx-auto rounded-full overflow-hidden border border-rule bg-white shadow-md relative group"
               >
                 <div
-                  class="absolute inset-0 bg-gradient-to-tr from-deep/15 via-transparent to-leaf/10 pointer-events-none mix-blend-overlay"
-                ></div>
+                  class="absolute inset-0 bg-linear-to-tr from-deep/15 via-transparent to-leaf/10 pointer-events-none mix-blend-overlay"
+                >
+                </div>
                 <img
                   src="/personal-image.jpeg"
                   alt="Mauricio Magni Manchón — Coach integrativo y fundador de VirtusWay"
@@ -67,25 +85,48 @@
               </div>
             </div>
 
+            <!-- Coaching definition -->
+            <p
+              class="mt-6 xl:mt-8 max-w-full text-center text-ink-muted text-[0.98rem] leading-[1.6] wrap-balance px-2 sm:px-4 xl:px-6"
+            >
+              El coaching es un espacio relacional donde la persona puede
+              resignificarse, crecer y ganar coherencia y claridad para actuar
+              en su entorno.
+            </p>
+
             <!-- Separator line (hidden on tablet, visible on mobile and desktop) -->
             <div class="hairline sm:hidden xl:block mt-auto mb-6"></div>
 
             <!-- Metrics container (using Tailwind v4 container queries) -->
-            <div class="@container sm:col-span-5 xl:col-span-12 w-full sm:border-l sm:border-rule sm:pl-8 xl:border-l-0 xl:pl-0">
-              <dl class="grid min-w-0 grid-cols-1 gap-6 text-center @xs:grid-cols-3 @xs:gap-4">
+            <div
+              class="@container sm:col-span-5 xl:col-span-12 w-full sm:border-l sm:border-rule sm:pl-8 xl:border-l-0 xl:pl-0"
+            >
+              <dl
+                class="grid min-w-0 grid-cols-1 gap-6 text-center @xs:grid-cols-3 @xs:gap-4"
+              >
                 <div class="min-w-0">
                   <dt class="eyebrow whitespace-nowrap">Años en TIC</dt>
-                  <dd class="mt-1 font-display text-[1.6rem] text-deep whitespace-nowrap">35</dd>
+                  <dd
+                    class="mt-1 font-display text-[1.6rem] text-deep whitespace-nowrap"
+                  >
+                    35
+                  </dd>
                 </div>
                 <div class="min-w-0">
                   <dt class="eyebrow whitespace-nowrap">Práctica</dt>
-                  <dd class="mt-1 font-display text-[1.6rem] text-deep whitespace-nowrap">
+                  <dd
+                    class="mt-1 font-display text-[1.6rem] text-deep whitespace-nowrap"
+                  >
                     200<span class="text-[1rem] align-top font-sans">+ h</span>
                   </dd>
                 </div>
                 <div class="min-w-0">
                   <dt class="eyebrow whitespace-nowrap">Formación</dt>
-                  <dd class="mt-1 font-display text-[1.6rem] text-deep whitespace-nowrap">Máster</dd>
+                  <dd
+                    class="mt-1 font-display text-[1.6rem] text-deep whitespace-nowrap"
+                  >
+                    Máster
+                  </dd>
                 </div>
               </dl>
             </div>
@@ -99,56 +140,127 @@
         style="transition-delay: 100ms;"
       >
         <!-- Bio Paragraphs Grid -->
-        <div class="grid min-w-0 grid-cols-1 gap-6 sm:grid-cols-2 xl:h-full xl:grid-rows-2">
+        <div
+          class="grid min-w-0 grid-cols-1 gap-6 sm:grid-cols-2 xl:h-full xl:grid-rows-2"
+        >
           <!-- Card 1 -->
-          <div class="group relative min-w-0 rounded-3xl border border-rule/80 bg-white/95 p-6 shadow-[0_4px_20px_-10px_rgba(10,77,122,0.12)] hover:shadow-[0_12px_32px_-12px_rgba(10,77,122,0.2)] hover:bg-white hover:border-leaf/30 transition-all duration-300 flex flex-col justify-between">
+          <div
+            class="group relative min-w-0 rounded-3xl border border-rule/80 bg-white/95 p-6 shadow-[0_4px_20px_-10px_rgba(10,77,122,0.12)] hover:shadow-[0_12px_32px_-12px_rgba(10,77,122,0.2)] hover:bg-white hover:border-leaf/30 transition-all duration-300 flex flex-col justify-between"
+          >
             <div>
-              <div class="flex items-center justify-between mb-4 border-b border-rule/40 pb-3">
-                <span class="eyebrow text-leaf-deep font-semibold">Trayectoria</span>
-                <span class="text-xs font-mono text-ink-soft select-none group-hover:text-leaf transition-colors duration-300">TIC</span>
+              <div
+                class="flex items-center justify-between mb-4 border-b border-rule/40 pb-3"
+              >
+                <span class="eyebrow text-leaf-deep font-semibold"
+                  >Trayectoria</span
+                >
+                <span
+                  class="text-xs font-mono text-ink-soft select-none group-hover:text-leaf transition-colors duration-300"
+                  >TIC</span
+                >
               </div>
-              <p class="text-ink-muted text-[0.98rem] leading-[1.6] wrap-anywhere">
-                <strong class="font-semibold text-ink">35 años en entornos TIC</strong> como desarrollador, líder de equipos y
-                gestor de proyectos complejos. Esa experiencia me enseñó que <strong class="font-semibold text-ink">el verdadero cuello de botella no suele ser técnico</strong>: es la <strong class="font-semibold text-ink">desconexión entre valores, comunicación y propósito</strong>.
+              <p
+                class="text-ink-muted text-[0.98rem] leading-[1.6] wrap-anywhere"
+              >
+                <strong class="font-semibold text-ink"
+                  >35 años en entornos TIC</strong
+                > como desarrollador, líder de equipos y gestor de proyectos complejos.
+                Esa experiencia me enseñó que <strong
+                  class="font-semibold text-ink"
+                  >el verdadero cuello de botella no suele ser técnico</strong
+                >: es la <strong class="font-semibold text-ink"
+                  >desconexión entre valores, comunicación y propósito</strong
+                >.
               </p>
             </div>
           </div>
 
           <!-- Card 2 -->
-          <div class="group relative min-w-0 rounded-3xl border border-rule/80 bg-white/95 p-6 shadow-[0_4px_20px_-10px_rgba(10,77,122,0.12)] hover:shadow-[0_12px_32px_-12px_rgba(10,77,122,0.2)] hover:bg-white hover:border-leaf/30 transition-all duration-300 flex flex-col justify-between">
+          <div
+            class="group relative min-w-0 rounded-3xl border border-rule/80 bg-white/95 p-6 shadow-[0_4px_20px_-10px_rgba(10,77,122,0.12)] hover:shadow-[0_12px_32px_-12px_rgba(10,77,122,0.2)] hover:bg-white hover:border-leaf/30 transition-all duration-300 flex flex-col justify-between"
+          >
             <div>
-              <div class="flex items-center justify-between mb-4 border-b border-rule/40 pb-3">
-                <span class="eyebrow text-leaf-deep font-semibold">Formación</span>
-                <span class="text-xs font-mono text-ink-soft select-none group-hover:text-leaf transition-colors duration-300">Respaldo</span>
+              <div
+                class="flex items-center justify-between mb-4 border-b border-rule/40 pb-3"
+              >
+                <span class="eyebrow text-leaf-deep font-semibold"
+                  >Formación</span
+                >
+                <span
+                  class="text-xs font-mono text-ink-soft select-none group-hover:text-leaf transition-colors duration-300"
+                  >Respaldo</span
+                >
               </div>
-              <p class="text-ink-muted text-[0.98rem] leading-[1.6] wrap-anywhere">
-                Por eso me formé como <strong class="font-semibold text-ink">coach integrativo</strong> con un <strong class="font-semibold text-ink">Máster en Liderazgo y Business Coaching</strong> (FundAres / Universidad Manresa). <strong class="font-semibold text-ink">Más de 200 horas de práctica</strong> acompañando a personas como tú.
+              <p
+                class="text-ink-muted text-[0.98rem] leading-[1.6] wrap-anywhere"
+              >
+                Por eso me formé como <strong class="font-semibold text-ink"
+                  >coach integrativo</strong
+                > con un <strong class="font-semibold text-ink"
+                  >Máster en Liderazgo y Business Coaching</strong
+                > (FundAres / Universidad Manresa). <strong
+                  class="font-semibold text-ink"
+                  >Más de 200 horas de práctica</strong
+                > acompañando a personas como tú.
               </p>
             </div>
           </div>
 
           <!-- Card 3 -->
-          <div class="group relative min-w-0 rounded-3xl border border-rule/80 bg-white/95 p-6 shadow-[0_4px_20px_-10px_rgba(10,77,122,0.12)] hover:shadow-[0_12px_32px_-12px_rgba(10,77,122,0.2)] hover:bg-white hover:border-leaf/30 transition-all duration-300 flex flex-col justify-between">
+          <div
+            class="group relative min-w-0 rounded-3xl border border-rule/80 bg-white/95 p-6 shadow-[0_4px_20px_-10px_rgba(10,77,122,0.12)] hover:shadow-[0_12px_32px_-12px_rgba(10,77,122,0.2)] hover:bg-white hover:border-leaf/30 transition-all duration-300 flex flex-col justify-between"
+          >
             <div>
-              <div class="flex items-center justify-between mb-4 border-b border-rule/40 pb-3">
-                <span class="eyebrow text-leaf-deep font-semibold">Enfoque</span>
-                <span class="text-xs font-mono text-ink-soft select-none group-hover:text-leaf transition-colors duration-300">Método</span>
+              <div
+                class="flex items-center justify-between mb-4 border-b border-rule/40 pb-3"
+              >
+                <span class="eyebrow text-leaf-deep font-semibold">Enfoque</span
+                >
+                <span
+                  class="text-xs font-mono text-ink-soft select-none group-hover:text-leaf transition-colors duration-300"
+                  >Método</span
+                >
               </div>
-              <p class="text-ink-muted text-[0.98rem] leading-[1.6] wrap-anywhere">
-                Mi enfoque combina <strong class="font-semibold text-ink">coaching ontológico, análisis transaccional relacional y herramientas de cambio conductual (ACT)</strong>. En la práctica: un <strong class="font-semibold text-ink">espacio sin juicio, preguntas precisas y un acompañamiento realista</strong>.
+              <p
+                class="text-ink-muted text-[0.98rem] leading-[1.6] wrap-anywhere"
+              >
+                Mi enfoque combina <strong class="font-semibold text-ink"
+                  >coaching ontológico, análisis transaccional relacional y
+                  herramientas de cambio conductual (ACT)</strong
+                >. En la práctica: un <strong class="font-semibold text-ink"
+                  >espacio sin juicio, preguntas precisas y un acompañamiento
+                  realista</strong
+                >.
               </p>
             </div>
           </div>
 
           <!-- Card 4 -->
-          <div class="group relative min-w-0 rounded-3xl border border-rule/80 bg-white/95 p-6 shadow-[0_4px_20px_-10px_rgba(10,77,122,0.12)] hover:shadow-[0_12px_32px_-12px_rgba(10,77,122,0.2)] hover:bg-white hover:border-leaf/30 transition-all duration-300 flex flex-col justify-between">
+          <div
+            class="group relative min-w-0 rounded-3xl border border-rule/80 bg-white/95 p-6 shadow-[0_4px_20px_-10px_rgba(10,77,122,0.12)] hover:shadow-[0_12px_32px_-12px_rgba(10,77,122,0.2)] hover:bg-white hover:border-leaf/30 transition-all duration-300 flex flex-col justify-between"
+          >
             <div>
-              <div class="flex items-center justify-between mb-4 border-b border-rule/40 pb-3">
-                <span class="eyebrow text-leaf-deep font-semibold">Coherencia</span>
-                <span class="text-xs font-mono text-ink-soft select-none group-hover:text-leaf transition-colors duration-300">Ética</span>
+              <div
+                class="flex items-center justify-between mb-4 border-b border-rule/40 pb-3"
+              >
+                <span class="eyebrow text-leaf-deep font-semibold"
+                  >Coherencia</span
+                >
+                <span
+                  class="text-xs font-mono text-ink-soft select-none group-hover:text-leaf transition-colors duration-300"
+                  >Ética</span
+                >
               </div>
-              <p class="text-ink-muted text-[0.98rem] leading-[1.6] wrap-anywhere">
-                <strong class="font-semibold text-ink">No creo en las transformaciones mágicas</strong>. Creo en <strong class="font-semibold text-ink">procesos paso a paso, con honestidad y coherencia</strong>. He venido a dar <strong class="font-semibold text-ink">estructura y profundidad</strong> a lo que ya sabía que podía aportar.
+              <p
+                class="text-ink-muted text-[0.98rem] leading-[1.6] wrap-anywhere"
+              >
+                <strong class="font-semibold text-ink"
+                  >No creo en las transformaciones mágicas</strong
+                >. Creo en <strong class="font-semibold text-ink"
+                  >procesos paso a paso, con honestidad y coherencia</strong
+                >. He venido a dar <strong class="font-semibold text-ink"
+                  >estructura y profundidad</strong
+                > a lo que ya sabía que podía aportar.
               </p>
             </div>
           </div>
@@ -157,5 +269,3 @@
     </div>
   </div>
 </section>
-
-
