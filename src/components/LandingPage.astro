@@ -9,7 +9,7 @@ interface Props {
   hook: string;
   intro: string[];
   heroLabel: string;
-  heroHighlights: string[];
+  heroHighlights: { text: string; iconPath: string }[];
   tone: "women" | "tic";
   challengeTitle: string;
   challenge: string[];
@@ -179,8 +179,26 @@ const bookingUrl =
             para alinear decisiones, liderazgo y contexto.
           </p>
           <div class="hairline mt-7 opacity-70"></div>
-          <ul class={`mt-6 space-y-3 text-[0.94rem] ${heroMuted}`}>
-            {heroHighlights.map((item) => <li class="tick">{item}</li>)}
+          <ul class={`mt-6 space-y-3.5 text-[0.94rem] ${heroMuted}`}>
+            {heroHighlights.map((item) => (
+              <li class="flex items-start gap-3.5 leading-snug">
+                <svg 
+                  width="18" 
+                  height="18" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  stroke-width="1.8" 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round"
+                  class={`mt-0.5 shrink-0 ${isTic ? 'text-on-dark-accent' : 'text-leaf-deep'}`}
+                  aria-hidden="true"
+                >
+                  <path d={item.iconPath} />
+                </svg>
+                <span class="min-w-0">{item.text}</span>
+              </li>
+            ))}
           </ul>
         </aside>
       </div>
