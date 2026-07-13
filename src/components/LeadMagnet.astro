@@ -96,23 +96,69 @@
             class="min-w-0 rounded-3xl p-7 md:p-8 border"
             style="background: rgba(255,255,255,0.06); border-color: rgba(203,220,229,0.2); backdrop-filter: blur(6px);"
           >
-            <div class="flex min-w-0 items-center gap-3">
-              <img
-                src="/brand/ISO/Web/Virtusway_ISO.svg"
-                alt=""
-                width="30"
-                height="29"
-                class="h-7 w-auto shrink-0"
-                aria-hidden="true"
-                loading="lazy"
-                decoding="async"
-              />
-              <p class="min-w-0 font-display text-[1.2rem]">
-                Recibe tu copia ahora
-              </p>
+            <!-- Form Header & Progress Bar -->
+            <div class="flex min-w-0 flex-col gap-3">
+              <div class="flex items-center gap-3">
+                <img
+                  src="/brand/ISO/Web/Virtusway_ISO.svg"
+                  alt=""
+                  width="30"
+                  height="29"
+                  class="h-7 w-auto shrink-0"
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <p class="min-w-0 font-display text-[1.12rem] font-medium" data-form-title>
+                  Obtén tu guía de autoevaluación
+                </p>
+              </div>
+              
+              <!-- Progress Indicator -->
+              <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden my-2">
+                <div 
+                  class="bg-leaf h-full transition-all duration-500 ease-out" 
+                  style="width: 35%;" 
+                  data-progress-bar
+                ></div>
+              </div>
             </div>
 
-            <div class="mt-6 space-y-3">
+            <!-- Hidden Fields -->
+            <input type="hidden" name="interes" data-interest-input />
+
+            <!-- STEP 1: Select Interest (IKEA / Reciprocity Effect) -->
+            <div class="mt-4 space-y-3" data-form-step="1">
+              <p class="text-[0.88rem] leading-relaxed text-on-dark-muted">
+                Para adaptar tu experiencia, ¿cuál es tu enfoque o desafío principal hoy?
+              </p>
+              <div class="grid grid-cols-1 gap-2.5 pt-2">
+                <button
+                  type="button"
+                  data-step-btn="Liderazgo Femenino"
+                  class="w-full text-left rounded-2xl border border-white/15 bg-white/[0.07] px-4 py-3 text-[0.88rem] text-paper hover:border-leaf/45 hover:bg-white/[0.12] transition-all duration-200 cursor-pointer"
+                >
+                  👩‍💼 Conciliación y liderazgo femenino
+                </button>
+                <button
+                  type="button"
+                  data-step-btn="Equipos TIC"
+                  class="w-full text-left rounded-2xl border border-white/15 bg-white/[0.07] px-4 py-3 text-[0.88rem] text-paper hover:border-leaf/45 hover:bg-white/[0.12] transition-all duration-200 cursor-pointer"
+                >
+                  💻 Alinear mi equipo técnico y negocio
+                </button>
+                <button
+                  type="button"
+                  data-step-btn="Claridad de Decisiones"
+                  class="w-full text-left rounded-2xl border border-white/15 bg-white/[0.07] px-4 py-3 text-[0.88rem] text-paper hover:border-leaf/45 hover:bg-white/[0.12] transition-all duration-200 cursor-pointer"
+                >
+                  🎯 Claridad al tomar decisiones complejas
+                </button>
+              </div>
+            </div>
+
+            <!-- STEP 2: Name & Email Form -->
+            <div class="mt-4 space-y-3 hidden" data-form-step="2">
               <label class="block">
                 <span class="sr-only">Nombre</span>
                 <input
@@ -123,6 +169,7 @@
                   style="background: rgba(255,255,255,0.92); color: var(--color-ink);"
                 />
               </label>
+              
               <label class="block">
                 <span class="sr-only">Email</span>
                 <input
@@ -134,6 +181,8 @@
                   style="background: rgba(255,255,255,0.92); color: var(--color-ink);"
                 />
               </label>
+              
+              <!-- Visually optimized Compliance Checkbox Card -->
               <label
                 class="flex min-w-0 cursor-pointer gap-3 rounded-2xl border border-white/15 bg-white/[0.07] p-4 text-[0.82rem] leading-relaxed text-on-dark-muted transition-colors hover:border-leaf/40"
               >
@@ -146,10 +195,7 @@
                   style="accent-color: var(--color-leaf);"
                 />
                 <span class="min-w-0">
-                  Doy mi consentimiento para que VirtusWay me contacte con
-                  objetivos comerciales relacionados con sus servicios de
-                  coaching a cambio de recibir el PDF. Puedo revocar este
-                  consentimiento en cualquier momento desde la
+                  Doy mi consentimiento para recibir la guía y suscribirme al boletín mensual de coherencia. Puedo revocarlo en cualquier momento en la 
                   <a
                     href="/revocar-consentimiento"
                     class="text-on-dark-accent underline decoration-on-dark-accent/50 underline-offset-3 hover:decoration-on-dark-accent"
@@ -157,19 +203,29 @@
                   >.
                 </span>
               </label>
+              
               <button
                 type="submit"
                 data-submit-button
                 disabled
                 class="btn btn-primary w-full cursor-pointer justify-center bg-leaf! text-ink! hover:bg-leaf-deep! hover:text-paper! disabled:cursor-not-allowed disabled:opacity-45"
               >
-                <span data-submit-label>Descarga gratuita</span>
+                <span data-submit-label>Descargar guía y suscribirme</span>
                 <span class="arrow" aria-hidden="true">→</span>
+              </button>
+              
+              <button
+                type="button"
+                data-back-btn
+                class="w-full text-center text-[0.82rem] text-on-dark-soft hover:text-on-dark-accent underline underline-offset-2 mt-2 transition-colors cursor-pointer"
+              >
+                ← Cambiar mi selección
               </button>
             </div>
 
+            <!-- Status Message -->
             <p
-              class="mt-4 form-status"
+              class="mt-4 form-status text-[0.88rem] leading-relaxed"
               data-form-status
               data-state="idle"
               role="status"
@@ -177,10 +233,8 @@
             >
             </p>
 
-            <p class="mt-3 text-[0.78rem] leading-relaxed text-on-dark-soft">
-              Te enviaremos el enlace de descarga por email y registraremos tu
-              consentimiento para poder contactarte con fines comerciales.
-              Puedes retirarlo en cualquier momento.
+            <p class="mt-3 text-[0.78rem] leading-relaxed text-on-dark-soft" data-form-footnote>
+              Al completar la descarga, te daremos de alta en el boletín de coherencia de Mauricio Magni (sin spam, baja en 1 clic).
             </p>
           </form>
         </div>
@@ -196,6 +250,14 @@
     }
 
     const section = form.closest("section");
+    const step1 = form.querySelector('[data-form-step="1"]');
+    const step2 = form.querySelector('[data-form-step="2"]');
+    const title = form.querySelector('[data-form-title]');
+    const progressBar = form.querySelector('[data-progress-bar]');
+    const interestInput = form.querySelector('[data-interest-input]');
+    const backBtn = form.querySelector('[data-back-btn]');
+    const stepButtons = form.querySelectorAll('[data-step-btn]');
+    
     const emailInput = form.querySelector('input[name="email"]');
     const consentInput = form.querySelector('input[name="commercialConsent"]');
     const button = form.querySelector("[data-submit-button]");
@@ -213,18 +275,52 @@
       !(status instanceof HTMLElement) ||
       !(toast instanceof HTMLElement) ||
       !(toastEyebrow instanceof HTMLElement) ||
-      !(toastMessage instanceof HTMLElement)
+      !(toastMessage instanceof HTMLElement) ||
+      !(step1 instanceof HTMLElement) ||
+      !(step2 instanceof HTMLElement) ||
+      !(title instanceof HTMLElement) ||
+      !(progressBar instanceof HTMLElement) ||
+      !(interestInput instanceof HTMLInputElement) ||
+      !(backBtn instanceof HTMLElement)
     ) {
       return;
     }
 
-    const defaultLabel = label.textContent ?? "Descarga gratuita";
+    const defaultLabel = label.textContent ?? "Descargar guía y suscribirme";
     let toastTimer;
     let isSubmitting = false;
 
+    // Step navigation
+    stepButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const choice = btn.getAttribute('data-step-btn') || '';
+        interestInput.value = choice;
+        
+        // Advance to Step 2
+        step1.classList.add('hidden');
+        step2.classList.remove('hidden');
+        progressBar.style.width = '75%';
+        title.textContent = '¿A dónde te enviamos la guía?';
+        
+        // Auto focus email input
+        emailInput.focus();
+        updateSubmitAvailability();
+      });
+    });
+
+    backBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      // Return to Step 1
+      step2.classList.add('hidden');
+      step1.classList.remove('hidden');
+      progressBar.style.width = '35%';
+      title.textContent = 'Obtén tu guía de autoevaluación';
+      updateSubmitAvailability();
+    });
+
     const canSubmit = () => {
       const hasEmail = emailInput.value.trim().length > 0;
-      return hasEmail && emailInput.validity.valid && consentInput.checked;
+      return hasEmail && emailInput.validity.valid && consentInput.checked && interestInput.value.length > 0;
     };
 
     const updateSubmitAvailability = () => {
@@ -246,7 +342,7 @@
       toast.hidden = false;
       toast.dataset.state = state;
       toastEyebrow.textContent =
-        state === "success" ? "Correo enviado" : "No se pudo enviar";
+        state === "success" ? "Guía enviada" : "No se pudo enviar";
       toastMessage.textContent = message;
 
       toastTimer = window.setTimeout(() => {
@@ -265,15 +361,22 @@
 
       isSubmitting = true;
       updateSubmitAvailability();
-      label.textContent = "Enviando...";
+      label.textContent = "Procesando...";
       setStatus("Preparando tu guía...", "pending");
       toast.hidden = true;
       toast.dataset.state = "idle";
 
       try {
+        const formData = new FormData(form);
+        const nombre = formData.get("nombre") || "";
+        const interes = formData.get("interes") || "";
+        if (interes) {
+          formData.set("nombre", nombre ? `${nombre} (Interés: ${interes})` : `Interés: ${interes}`);
+        }
+
         const response = await fetch("/api/lead-magnet", {
           method: "POST",
-          body: new FormData(form),
+          body: formData,
         });
         const payload = await response.json().catch(() => null);
         const message =
@@ -286,7 +389,15 @@
         }
 
         form.reset();
+        progressBar.style.width = '100%';
         label.textContent = defaultLabel;
+        
+        // Go back to Step 1 after success
+        step2.classList.add('hidden');
+        step1.classList.remove('hidden');
+        progressBar.style.width = '35%';
+        title.textContent = 'Obtén tu guía de autoevaluación';
+        
         updateSubmitAvailability();
         setStatus(message, "success");
         showToast(message, "success");
