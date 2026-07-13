@@ -23,11 +23,37 @@ const faqItems = [
     answer: "Evaluamos el avance mediante indicadores objetivos, como la reducción de fricciones en canales de comunicación, el alineamiento de objetivos compartidos y la satisfacción colectiva del equipo (NPS).",
   },
 ];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Coaching Integrativo para Equipos TIC",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "VirtusWay",
+    "url": "https://virtusway.com",
+    "logo": "https://virtusway.com/brand/WEB/VIrtusway_Brand_Square.svg"
+  },
+  "serviceType": "Coaching Organizacional y de Equipos",
+  "areaServed": [
+    { "@type": "City", "name": "Valencia", "sameAs": "https://es.wikipedia.org/wiki/Valencia" },
+    { "@type": "City", "name": "Barcelona", "sameAs": "https://es.wikipedia.org/wiki/Barcelona" },
+    { "@type": "City", "name": "Madrid", "sameAs": "https://es.wikipedia.org/wiki/Madrid" }
+  ],
+  "description": "Programa de coaching a medida para líderes y equipos técnicos que buscan reducir la fricción comunicativa y alinear el desarrollo con el propósito del negocio.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "EUR",
+    "description": "Sesión de exploración gratuita de 45 minutos"
+  }
+};
 ---
 
 <Layout
-  title="Equipos TIC de Alto Rendimiento — VirtusWay"
-  description="Coaching integrativo para líderes y equipos TIC que necesitan alinear tecnología, negocio y propósito compartido."
+  title="Coaching Equipos TIC en Barcelona, Madrid y Valencia · VirtusWay"
+  description="Coaching integrativo para líderes y equipos TIC en Barcelona, Madrid, Valencia y online. Alinea tecnología, negocio y propósito compartido."
+  schemaMarkup={serviceSchema}
 >
   <Header />
   <main>
@@ -60,7 +86,8 @@ const faqItems = [
       whyTitle="Por qué este proceso puede ser <span class='font-display-italic text-deep'>diferente</span>"
       why={[
         "35 años en tecnología, liderando equipos y gestionando plazos imposibles. He estado donde estás tú. Hablo tu idioma y conozco la presión del día a día.",
-        "No vengo a enseñar a nadie a hacer su trabajo. Vengo a acompañar a todo el sistema, personas, equipo, líder y gerencia, para que funcione con coherencia.",
+        "No vengo a enseñar a nadie a hacer su trabajo. Vengo a acompañar a todo el sistema (personas, equipo, líder y gerencia) para que funcione con coherencia.",
+        "Acompaño en formato online o híbrido-presencial en centros tecnológicos de Valencia, Barcelona y Madrid, adaptándome al ritmo y cultura del equipo."
       ]}
       questionTitle="Una pregunta <span class='font-display-italic text-on-dark-accent'>sincera</span>"
       questionBody="Si tu equipo dejara de ser un conjunto de talentos individuales y se convirtiera en un equipo real… ¿cuánta fricción desaparecería?"

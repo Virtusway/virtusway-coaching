@@ -37,11 +37,37 @@ const faqItems = [
     answer: "No es terapia porque no se enfoca en diagnósticos clínicos ni en el pasado profundo, sino en tu presente y futuro profesional. Y a diferencia de la consultoría, no te doy recetas prefabricadas; te acompaño a encontrar soluciones adaptadas a tu realidad y valores.",
   },
 ];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Coaching Integrativo para Mujeres Profesionales",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "VirtusWay",
+    "url": "https://virtusway.com",
+    "logo": "https://virtusway.com/brand/WEB/VIrtusway_Brand_Square.svg"
+  },
+  "serviceType": "Coaching y Desarrollo Personal",
+  "areaServed": [
+    { "@type": "City", "name": "Valencia", "sameAs": "https://es.wikipedia.org/wiki/Valencia" },
+    { "@type": "City", "name": "Barcelona", "sameAs": "https://es.wikipedia.org/wiki/Barcelona" },
+    { "@type": "City", "name": "Madrid", "sameAs": "https://es.wikipedia.org/wiki/Madrid" }
+  ],
+  "description": "Acompañamiento individual para ejecutivas, directivas y profesionales que buscan liderar con claridad y coherencia, reduciendo la culpa y conciliando con su vida personal.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "EUR",
+    "description": "Sesión de exploración gratuita de 45 minutos"
+  }
+};
 ---
 
 <Layout
-  title="Mujeres profesionales — VirtusWay"
-  description="Coaching integrativo para mujeres profesionales que quieren liderar con coherencia, claridad y menos presión interna."
+  title="Coaching Mujeres Profesionales en Madrid, Barcelona y Valencia · VirtusWay"
+  description="Coaching integrativo para mujeres profesionales en Madrid, Barcelona, Valencia y online. Lidera con coherencia, claridad y menos presión interna."
+  schemaMarkup={serviceSchema}
 >
   <Header />
   <main>
@@ -75,7 +101,7 @@ const faqItems = [
       why={[
         "He liderado equipos técnicos durante 35 años. He visto cómo el esfuerzo sostenido sin coherencia quema a las mejores profesionales. También he visto cómo, con el acompañamiento adecuado, esas mismas personas recuperan claridad, energía y seguridad para decidir.",
         "Acompaño desde la experiencia real, con los pies en el suelo y con la teoría de respaldo. He estado en trincheras parecidas, y he aprendido que el cambio real viene de entender qué te mueve por dentro y alinear tus decisiones con eso.",
-        "Trabajo desde un enfoque integrativo (coaching ontológico, análisis transaccional relacional, ACT). En la práctica, eso significa un espacio sin juicio, con preguntas precisas y un acompañamiento realista.",
+        "Trabajo desde un enfoque integrativo (coaching ontológico, análisis transaccional relacional, ACT). Acompaño de forma online a toda España (y con opción presencial en Valencia, Barcelona o Madrid)."
       ]}
       questionTitle="Una pregunta <span class='font-display-italic text-on-dark-accent'>sincera</span>"
       questionBody={'Si pudieras tomar tus decisiones desde la calma y la coherencia, sin la presión de los "deberías"… ¿qué cambiaría en tu día a día?'}
