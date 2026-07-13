@@ -18,6 +18,25 @@ const approachItems = [
     body: "Una forma más ligera, coherente y alineada de liderar tu vida y tu trabajo.",
   },
 ];
+
+const faqItems = [
+  {
+    question: "¿Cómo sé si este proceso es para mí?",
+    answer: "Está diseñado para ejecutivas, directivas o emprendedoras que sienten que el esfuerzo por conciliar o cumplir con las expectativas del entorno les genera sobrecarga y culpa, y buscan liderar desde la calma y sus propios valores.",
+  },
+  {
+    question: "¿En qué consiste el proceso de 8 sesiones?",
+    answer: "Es un acompañamiento individualizado donde en cada sesión abordamos un desafío concreto de tu liderazgo o contexto profesional, utilizando herramientas de coaching ontológico y análisis transaccional para traducirlo en acciones reales.",
+  },
+  {
+    question: "¿Es 100% online?",
+    answer: "Sí. Todas las sesiones se realizan por videollamada para facilitar que puedas integrarlo cómodamente en tu agenda sin tiempos de desplazamiento.",
+  },
+  {
+    question: "¿Qué diferencia este proceso de una consultoría o terapia?",
+    answer: "No es terapia porque no se enfoca en diagnósticos clínicos ni en el pasado profundo, sino en tu presente y futuro profesional. Y a diferencia de la consultoría, no te doy recetas prefabricadas; te acompaño a encontrar soluciones adaptadas a tu realidad y valores.",
+  },
+];
 ---
 
 <Layout
@@ -43,7 +62,7 @@ const approachItems = [
       challengeTitle="Qué está pasando <span class='font-display-italic text-deep'>realmente</span>"
       challenge={[
         "Has aprendido a funcionar en un sistema que no fue diseñado para ti. Y lo has hecho bien. Pero ese sistema te ha enseñado a vivir desde los \"deberías\": debo estar siempre disponible, debo demostrar que valgo, debo elegir entre carrera y vida personal.",
-        "Y eso tiene un coste: la paz interior, la claridad para decidir, la coherencia entre lo que sientes and lo que haces.",
+        "Y eso tiene un coste: la paz interior, la claridad para decidir, la coherencia entre lo que sientes y lo que haces.",
         "Ya sabes que eres capaz. Tal vez solo necesitas espacio para preguntarte: ¿desde dónde quiero tomar mis decisiones? ¿Cómo lidero sin agotarme? ¿Qué quiero realmente, más allá de lo que se espera de mí?",
       ]}
       approachTitle="Mi enfoque: un proceso para que recuperes la <span class='font-display-italic text-deep'>claridad</span> y la <span class='font-display-italic text-deep'>coherencia</span>"
@@ -61,8 +80,9 @@ const approachItems = [
       questionTitle="Una pregunta <span class='font-display-italic text-on-dark-accent'>sincera</span>"
       questionBody={'Si pudieras tomar tus decisiones desde la calma y la coherencia, sin la presión de los "deberías"… ¿qué cambiaría en tu día a día?'}
       ctaTitle="Si esto te resuena, hablemos sin compromiso"
-      ctaBody="La sesión de exploración es una conversación de 45 minutos, online y gratuita. Nos conocemos, escucho tu situación, y decidimos juntos si tiene sentido caminar juntas."
+      ctaBody="La sesión de exploración es una conversación de 45 minutos, online y gratuita. Nos conocemos, escucho tu situación, y decidimos juntos si tiene sentido recorrer este camino."
       ctaLabel="Reservar sesión de exploración"
+      faqItems={faqItems}
     />
   </main>
   <Footer />

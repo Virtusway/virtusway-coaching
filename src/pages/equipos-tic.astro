@@ -4,6 +4,25 @@ import Header from "../components/Header.astro";
 import LandingPage from "../components/LandingPage.astro";
 import Layout from "../layouts/Layout.astro";
 import RoadmapTIC from "../components/RoadmapTIC.astro";
+
+const faqItems = [
+  {
+    question: "¿Cómo se adapta el programa a las particularidades de nuestra empresa?",
+    answer: "Todo programa comienza con una fase de diagnóstico inicial donde entrevistamos de forma confidencial al líder, gerencia y miembros del equipo. Con base en esta información, diseñamos las dinámicas y talleres a medida.",
+  },
+  {
+    question: "¿Cuánto dura el programa?",
+    answer: "Suele extenderse entre 3 y 6 meses. Este tiempo garantiza que el equipo pueda asimilar los nuevos acuerdos de comunicación y consolidar los cambios en su día a día.",
+  },
+  {
+    question: "¿Interrumpe el ciclo de entregas o desarrollo técnico del equipo?",
+    answer: "No. El programa se integra de forma orgánica y los talleres colectivos se programan para evitar colisionar con hitos de entrega o despliegues críticos.",
+  },
+  {
+    question: "¿Cómo medimos los resultados de este acompañamiento?",
+    answer: "Evaluamos el avance mediante indicadores objetivos, como la reducción de fricciones en canales de comunicación, el alineamiento de objetivos compartidos y la satisfacción colectiva del equipo (NPS).",
+  },
+];
 ---
 
 <Layout
@@ -48,6 +67,7 @@ import RoadmapTIC from "../components/RoadmapTIC.astro";
       ctaTitle="Reservar sesión de exploración"
       ctaBody="La sesión de exploración es una conversación de 45 minutos, online y gratuita. Escucho tu situación, hacemos un primer diagnóstico y decidimos juntos si tiene sentido diseñar un programa a medida."
       ctaLabel="Reservar sesión de exploración"
+      faqItems={faqItems}
     >
       <RoadmapTIC slot="after-approach" />
     </LandingPage>
