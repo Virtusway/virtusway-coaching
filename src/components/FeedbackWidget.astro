@@ -79,6 +79,71 @@
       <p id="feedback-form-status" class="text-[0.82rem] leading-relaxed text-center hidden" role="status"></p>
     </form>
   </div>
+
+  <!-- Flow Diagram Popup Modal -->
+  <div
+    id="flow-modal"
+    class="fixed inset-0 z-[200] bg-ink/60 backdrop-blur-xs flex items-center justify-center p-4 hidden"
+  >
+    <div class="bg-paper rounded-3xl border border-rule w-full max-w-lg p-6 flex flex-col gap-4 max-h-[90vh] overflow-y-auto shadow-2xl">
+      <div class="flex items-center justify-between">
+        <div class="min-w-0">
+          <h5 class="font-display text-[1.12rem] font-semibold text-ink">Ciclo de Funcionamiento (Contacto)</h5>
+          <p class="text-[0.72rem] text-ink-muted mt-0.5">Validaciones y flujos del formulario interactivo</p>
+        </div>
+        <button
+          type="button"
+          id="close-flow-modal"
+          class="text-ink-muted hover:text-ink cursor-pointer p-1.5 rounded-full hover:bg-mist-soft"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="hairline"></div>
+      
+      <!-- Flow Steps -->
+      <div class="flex flex-col gap-4 text-[0.82rem] leading-relaxed text-ink-muted">
+        <div class="flex gap-3">
+          <span class="shrink-0 w-6 h-6 rounded-full bg-on-dark-accent/15 text-on-dark-accent flex items-center justify-center font-bold text-[0.75rem]">1</span>
+          <div>
+            <p class="font-semibold text-ink">Paso 1: Elección de Interés (Progreso 35%)</p>
+            <p>El usuario selecciona su desafío principal para personalizar el recurso, lo cual reduce la fatiga mental y activa el Efecto IKEA.</p>
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <span class="shrink-0 w-6 h-6 rounded-full bg-on-dark-accent/15 text-on-dark-accent flex items-center justify-center font-bold text-[0.75rem]">2</span>
+          <div>
+            <p class="font-semibold text-ink">Paso 2: Datos de Contacto (Progreso 75%)</p>
+            <p>Se autodefine el email y se requiere el consentimiento. El botón verde de descarga permanece deshabilitado hasta que se ingrese un email válido y se marque el checkbox legal.</p>
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <span class="shrink-0 w-6 h-6 rounded-full bg-on-dark-accent/15 text-on-dark-accent flex items-center justify-center font-bold text-[0.75rem]">3</span>
+          <div>
+            <p class="font-semibold text-ink">Procesamiento y Envío (Servidor)</p>
+            <p>Al hacer clic se deshabilitan los campos. El servidor registra la opción elegida en la base de datos de Neon y dispara un correo SMTP con la descarga.</p>
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <span class="shrink-0 w-6 h-6 rounded-full bg-leaf-deep/15 text-leaf-deep flex items-center justify-center font-bold text-[0.75rem]">✔</span>
+          <div>
+            <p class="font-semibold text-ink">Estado de Éxito (Progreso 100%)</p>
+            <p>Se muestra un <strong>toast verde</strong> de éxito. El formulario se resetea y vuelve de forma limpia al Paso 1 para quedar listo para otro uso.</p>
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <span class="shrink-0 w-6 h-6 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold text-[0.75rem]">⚠</span>
+          <div>
+            <p class="font-semibold text-ink">Estado de Error (Controlado)</p>
+            <p>Se muestra un <strong>toast rojo</strong> con el error exacto (ej. email inválido, base de datos desconectada) y el usuario permanece en el Paso 2 para poder corregirlo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script is:inline>
@@ -106,67 +171,78 @@
     const formStatus = document.getElementById("feedback-form-status");
     const checklistContainer = document.getElementById("checklist-container");
 
-    if (!triggerBtn || !panel || !closeBtn || !form || !commentArea || !submitBtn || !btnLabel || !formStatus || !checklistContainer) {
+    const flowModal = document.getElementById("flow-modal");
+    const closeFlowModalBtn = document.getElementById("close-flow-modal");
+
+    if (!triggerBtn || !panel || !closeBtn || !form || !commentArea || !submitBtn || !btnLabel || !formStatus || !checklistContainer || !flowModal || !closeFlowModalBtn) {
       return;
     }
 
-    // List of possible changes to review, with scroll targets (CSS selectors)
+    // List of specific changes to review, mapping exactly to our Task list
     const reviewItems = [
       {
         id: "hero-quote",
-        title: "Cita lateral del Héroe",
-        desc: "Mantra: 'De la tecnología a las personas...'. Comilla decorativa de fondo.",
+        title: "Cita y Redundancia (Home)",
+        desc: "Eliminamos duplicidad en cabecera lateral cambiando 'Dos caminos. Una misma brújula' por tu mantra oficial: 'De la tecnología a las personas...'.",
         selector: "blockquote",
-        page: "home"
-      },
-      {
-        id: "h2-accent",
-        title: "Resaltado de H2 Acompañamiento",
-        desc: "Cursiva continua para toda la expresión 'Una misma brújula.'",
-        selector: "span.text-deep",
-        page: "home"
-      },
-      {
-        id: "tablet-grid",
-        title: "Rejilla responsiva (Sobre mí)",
-        desc: "Corrección en tabletas del texto estrecho de definición de coaching.",
-        selector: "#sobre",
-        page: "home"
+        page: "home",
+        actionText: "Ver"
       },
       {
         id: "lead-magnet-form",
-        title: "Formulario en 2 pasos",
-        desc: "Interacción de personalización (IKEA Effect) y barra de progreso.",
+        title: "P1: Formulario Interactivo",
+        desc: "Personalización en 2 pasos según interés, barra de progreso y alineación de listas sin palabras huérfanas.",
         selector: "form[data-lead-magnet-form]",
-        page: "any"
+        page: "any",
+        actionText: "Ver Form"
       },
       {
-        id: "list-align",
-        title: "Alineación de lista (Lead Magnet)",
-        desc: "Nivelación de números 01-03 y corrección del salto huérfano 'para ti'.",
-        selector: "ul.divide-y",
-        page: "any"
-      },
-      {
-        id: "testimonials",
-        title: "Sección de Testimonios (Simulados)",
-        desc: "Testimonios de clientes en Madrid, Valencia y 22@ Barcelona.",
-        selector: "#testimonios",
-        page: "any"
+        id: "flow-schema",
+        title: "P1: Esquema de Funcionamiento",
+        desc: "Diagrama y ciclo completo del formulario de contacto (validaciones, base de datos y envío de correos).",
+        selector: null,
+        page: "any",
+        actionText: "Esquema"
       },
       {
         id: "faq-section",
-        title: "Acordeón animado de FAQs",
-        desc: "Respuestas y transiciones fluidas de altura sin usar Javascript.",
+        title: "P2: FAQs de Servicios",
+        desc: "Sección de acordeón interactivo de dudas con animación CSS fluida de apertura/cierre sin usar Javascript.",
         selector: "details",
-        page: "services"
+        page: "services",
+        actionText: "Ver FAQs"
+      },
+      {
+        id: "p3-iconography",
+        title: "P3: Iconografía y Roadmap",
+        desc: "Sustitución de guiones por iconos vectoriales SVG contextuales en el Héroe y en la infografía de Equipos TIC.",
+        selector: "svg.text-tide, .numeral", // Query svg or numeral
+        page: "any",
+        actionText: "Ver"
+      },
+      {
+        id: "p4-geo-seo",
+        title: "P4: Optimización Geo-SEO",
+        desc: "Esquemas Service (JSON-LD) y copys híbridos para Valencia, Barcelona y Madrid, mejorando el posicionamiento local.",
+        selector: "main",
+        page: "services",
+        actionText: "Ver"
+      },
+      {
+        id: "p5-testimonials",
+        title: "P5: Testimonios",
+        desc: "Rejilla de opiniones de clientes en Madrid, Valencia y el distrito tecnológico 22@ Barcelona.",
+        selector: "#testimonios",
+        page: "any",
+        actionText: "Ver"
       }
     ];
 
     // Filter and render items present on the current page
     const activeItems = [];
     reviewItems.forEach((item) => {
-      const element = document.querySelector(item.selector);
+      // If it's a specific page element, check if it exists on page. If selector is null (like flow-schema), always show.
+      const element = item.selector ? document.querySelector(item.selector) : true;
       if (element) {
         activeItems.push(item);
 
@@ -188,34 +264,52 @@
           </label>
           <button 
             type="button" 
-            data-scroll-to="${item.selector}"
+            data-action-id="${item.id}"
             class="shrink-0 text-[0.72rem] font-semibold text-on-dark-accent bg-leaf-deep/10 px-2 py-1 rounded hover:bg-leaf-deep/20 transition-all cursor-pointer"
           >
-            Ver
+            ${item.actionText}
           </button>
         `;
         checklistContainer.appendChild(itemEl);
       }
     });
 
-    // Add scroll action to "Ver" buttons
-    checklistContainer.querySelectorAll("[data-scroll-to]").forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        const selector = btn.getAttribute("data-scroll-to");
-        const element = document.querySelector(selector);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth", block: "center" });
-          
-          // Micro animation highlight
-          element.style.outline = "2px solid var(--color-leaf)";
-          element.style.outlineOffset = "4px";
-          setTimeout(() => {
-            element.style.outline = "";
-            element.style.outlineOffset = "";
-          }, 1500);
-        }
-      });
+    // Handle button actions (scroll to element or open flow schema modal)
+    activeItems.forEach((item) => {
+      const btn = checklistContainer.querySelector(`[data-action-id="${item.id}"]`);
+      if (btn) {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          if (item.id === "flow-schema") {
+            // Open flow modal
+            flowModal.classList.remove("hidden");
+          } else if (item.selector) {
+            // Scroll to selector
+            const element = document.querySelector(item.selector);
+            if (element) {
+              element.scrollIntoView({ behavior: "smooth", block: "center" });
+              
+              // Micro animation highlight outline
+              element.style.outline = "2px dashed var(--color-leaf)";
+              element.style.outlineOffset = "4px";
+              setTimeout(() => {
+                element.style.outline = "";
+                element.style.outlineOffset = "";
+              }, 1500);
+            }
+          }
+        });
+      }
+    });
+
+    // Close flow modal
+    closeFlowModalBtn.addEventListener("click", () => {
+      flowModal.classList.add("hidden");
+    });
+    flowModal.addEventListener("click", (e) => {
+      if (e.target === flowModal) {
+        flowModal.classList.add("hidden");
+      }
     });
 
     // Toggle Panel Open/Close
