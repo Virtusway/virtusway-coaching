@@ -370,45 +370,6 @@ const bookingUrl =
   </div>
 </section>
 
-{faqItems && faqItems.length > 0 && (
-  <section id="faq" class="relative overflow-hidden bg-paper-warm/40 border-t border-rule/70">
-    <div aria-hidden="true" class="absolute inset-0 -z-10 pointer-events-none">
-      <div
-        class="absolute -top-32 -left-24 w-110 h-110 rounded-full opacity-15 blur-3xl"
-        style="background: radial-gradient(circle, rgba(0,203,151,0.3), transparent 70%);"
-      >
-      </div>
-    </div>
-    
-    <div class="max-w-310 mx-auto w-full min-w-0 px-6 md:px-10 py-18 md:py-26 reveal">
-      <div class="text-center max-w-2xl mx-auto mb-14">
-        <p class="eyebrow eyebrow-with-rule justify-center">
-          <span class="w-8 h-px shrink-0 bg-leaf-deep"></span>
-          <span class="min-w-0">Preguntas Frecuentes</span>
-          <span class="w-8 h-px shrink-0 bg-leaf-deep"></span>
-        </p>
-        <h2 class="mt-5 font-display text-[2.1rem] md:text-[2.85rem] leading-[1.08] tracking-[-0.03em] text-ink">
-          Resolver tus <span class="font-display-italic text-deep">dudas</span>
-        </h2>
-      </div>
-
-      <div class="space-y-4 max-w-3xl mx-auto">
-        {faqItems.map((item) => (
-          <details class="group rounded-3xl border border-rule/80 bg-white/60 p-5 md:p-6 transition-all duration-300 hover:border-leaf/40 hover:bg-white/80 [&_summary::-webkit-details-marker]:hidden">
-            <summary class="flex justify-between items-center cursor-pointer font-display text-[1.05rem] md:text-[1.12rem] text-ink font-medium select-none list-none">
-              <span>{item.question}</span>
-              <span class="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-rule text-[1.3rem] font-light text-ink-soft transition-transform duration-300 group-open:rotate-45">+</span>
-            </summary>
-            <p class="mt-4 text-[0.96rem] md:text-[1rem] leading-relaxed text-ink-muted border-t border-rule/50 pt-4">
-              {item.answer}
-            </p>
-          </details>
-        ))}
-      </div>
-    </div>
-  </section>
-)}
-
 <section id="contacto" class="relative">
   <div class="max-w-310 mx-auto w-full min-w-0 px-6 md:px-10 py-20 md:py-28">
     <div
@@ -488,6 +449,45 @@ const bookingUrl =
     </div>
   </div>
 </section>
+
+{faqItems && faqItems.length > 0 && (
+  <section id="faq" class="relative overflow-hidden bg-paper-warm/40 border-t border-rule/70">
+    <div aria-hidden="true" class="absolute inset-0 -z-10 pointer-events-none">
+      <div
+        class="absolute -top-32 -left-24 w-110 h-110 rounded-full opacity-15 blur-3xl"
+        style="background: radial-gradient(circle, rgba(0,203,151,0.3), transparent 70%);"
+      >
+      </div>
+    </div>
+    
+    <div class="max-w-310 mx-auto w-full min-w-0 px-6 md:px-10 py-18 md:py-26 reveal">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <p class="eyebrow eyebrow-with-rule justify-center">
+          <span class="w-8 h-px shrink-0 bg-leaf-deep"></span>
+          <span class="min-w-0">Preguntas Frecuentes</span>
+          <span class="w-8 h-px shrink-0 bg-leaf-deep"></span>
+        </p>
+        <h2 class="mt-5 font-display text-[2.1rem] md:text-[2.85rem] leading-[1.08] tracking-[-0.03em] text-ink">
+          Resolver tus <span class="font-display-italic text-deep">dudas</span>
+        </h2>
+      </div>
+
+      <div class="space-y-4 max-w-3xl mx-auto">
+        {faqItems.map((item) => (
+          <details class="group rounded-3xl border border-rule/80 bg-white/60 p-5 md:p-6 transition-all duration-300 hover:border-leaf/40 hover:bg-white/80 [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex justify-between items-center cursor-pointer font-display text-[1.05rem] md:text-[1.12rem] text-ink font-medium select-none list-none">
+              <span>{item.question}</span>
+              <span class="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-rule text-[1.3rem] font-light text-ink-soft transition-transform duration-300 group-open:rotate-45">+</span>
+            </summary>
+            <p class="mt-4 text-[0.96rem] md:text-[1rem] leading-relaxed text-ink-muted border-t border-rule/50 pt-4">
+              {item.answer}
+            </p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
 
 <style>
   /* Habilitar la transición de tamaños dinámicos (auto) en CSS moderno */

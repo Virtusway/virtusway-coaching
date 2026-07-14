@@ -178,6 +178,12 @@
       return;
     }
 
+    // Detección de página
+    const isHomePage = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" 
+      ? (window.location.pathname === "/" || window.location.pathname.endsWith("/index.html"))
+      : (!window.location.pathname.includes("mujeres-profesionales") && !window.location.pathname.includes("equipos-tic"));
+    const isServicesPage = window.location.pathname.includes("mujeres-profesionales") || window.location.pathname.includes("equipos-tic");
+
     // List of specific changes to review, mapping exactly to our Task list
     const reviewItems = [
       {
@@ -193,7 +199,7 @@
         title: "P1: Formulario Interactivo",
         desc: "Personalización en 2 pasos según interés, barra de progreso y alineación de listas sin palabras huérfanas.",
         selector: "form[data-lead-magnet-form]",
-        page: "any",
+        page: "home",
         actionText: "Ver Form"
       },
       {
@@ -201,7 +207,7 @@
         title: "P1: Esquema de Funcionamiento",
         desc: "Diagrama y ciclo completo del formulario de contacto (validaciones, base de datos y envío de correos).",
         selector: null,
-        page: "any",
+        page: "home",
         actionText: "Esquema"
       },
       {
@@ -213,12 +219,20 @@
         actionText: "Ver FAQs"
       },
       {
-        id: "p3-iconography",
-        title: "P3: Iconografía y Roadmap",
-        desc: "Sustitución de guiones por iconos vectoriales SVG contextuales en el Héroe y en la infografía de Equipos TIC.",
-        selector: "svg.text-tide, .numeral", // Query svg or numeral
-        page: "any",
-        actionText: "Ver"
+        id: "p3-iconography-hero",
+        title: "P3: Iconografía de Héroe (Servicios)",
+        desc: "Sustitución de guiones por iconos vectoriales SVG en la cabecera (incluyendo la sesión de exploración/diagnóstico).",
+        selector: "aside ul",
+        page: "services",
+        actionText: "Ver Iconos"
+      },
+      {
+        id: "p3-iconography-roadmap",
+        title: "P3: Iconografía de Roadmap (TIC)",
+        desc: "Iconos vectoriales en la parte inferior para cada fase del Roadmap de Equipos TIC (incluyendo Diagnóstico).",
+        selector: ".roadmap-container",
+        page: "services",
+        actionText: "Ver Roadmap"
       },
       {
         id: "p4-geo-seo",
@@ -241,7 +255,11 @@
     // Filter and render items present on the current page
     const activeItems = [];
     reviewItems.forEach((item) => {
-      // If it's a specific page element, check if it exists on page. If selector is null (like flow-schema), always show.
+      // 1. Filter by page context
+      if (item.page === "home" && !isHomePage) return;
+      if (item.page === "services" && !isServicesPage) return;
+
+      // 2. Filter by selector presence (if selector is defined)
       const element = item.selector ? document.querySelector(item.selector) : true;
       if (element) {
         activeItems.push(item);
