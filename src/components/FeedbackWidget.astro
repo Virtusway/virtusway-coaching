@@ -1,6 +1,6 @@
 ---
 // Client Feedback / Approval Widget for preview environments.
-// It will only render on preview hosts (Netlify deploy previews and localhost).
+// Displays a checklist of specific changes made in Phase 2 with "Go to" scroll buttons.
 ---
 
 <div id="feedback-widget-container" class="hidden">
@@ -8,25 +8,26 @@
   <button
     id="feedback-trigger-btn"
     class="fixed bottom-6 right-6 z-[100] flex items-center gap-2.5 bg-ink text-paper px-4.5 py-3.5 rounded-full shadow-xl hover:bg-deep hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer border border-white/10"
-    aria-label="Abrir panel de feedback"
+    aria-label="Abrir checklist de revisión"
   >
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-on-dark-accent">
-      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+      <polyline points="22 4 12 14.01 9 11.01"></polyline>
     </svg>
-    <span class="font-sans text-[0.88rem] font-semibold tracking-wide">Revisión Fase 2</span>
+    <span class="font-sans text-[0.88rem] font-semibold tracking-wide">Aprobar Cambios</span>
   </button>
 
   <!-- Feedback Panel -->
   <div
     id="feedback-panel"
-    class="fixed bottom-24 right-6 z-[100] w-88 max-w-[calc(100vw-3rem)] bg-paper border border-rule rounded-[22px] shadow-2xl p-6 flex flex-col gap-4 transition-all duration-300 scale-95 opacity-0 pointer-events-none origin-bottom-right"
-    style="background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(8px);"
+    class="fixed bottom-24 right-6 z-[100] w-96 max-w-[calc(100vw-3rem)] bg-paper border border-rule rounded-[22px] shadow-2xl p-6 flex flex-col gap-4 transition-all duration-300 scale-95 opacity-0 pointer-events-none origin-bottom-right max-h-[calc(100vh-8rem)] overflow-y-auto"
+    style="background: rgba(255, 255, 255, 0.97); backdrop-filter: blur(8px);"
   >
     <!-- Header -->
     <div class="flex min-w-0 items-center justify-between">
       <div class="min-w-0">
-        <h4 class="font-display text-[1.12rem] font-semibold text-ink">Panel de Aprobación</h4>
-        <p class="text-[0.75rem] text-ink-muted mt-0.5">Envía tus comentarios directamente a Andrés</p>
+        <h4 class="font-display text-[1.15rem] font-semibold text-ink">Revisión de Cambios</h4>
+        <p class="text-[0.75rem] text-ink-muted mt-0.5">Fase 2: Marca la casilla si estás conforme con cada punto</p>
       </div>
       <button
         id="feedback-close-btn"
@@ -42,40 +43,25 @@
 
     <div class="hairline"></div>
 
-    <!-- Feedback Form -->
+    <!-- Feedback Checklist Form -->
     <form id="feedback-submit-form" class="flex flex-col gap-4">
-      <!-- Status Selection -->
-      <div>
-        <label class="block text-[0.82rem] font-semibold text-ink mb-2">¿Cómo ves los cambios?</label>
-        <div class="grid grid-cols-2 gap-2.5">
-          <button
-            type="button"
-            data-status-val="approved"
-            class="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl border border-rule bg-white text-[0.82rem] font-semibold text-ink hover:border-leaf/40 transition-all cursor-pointer"
-          >
-            <span class="text-leaf">✔</span> Aprobar (OK)
-          </button>
-          <button
-            type="button"
-            data-status-val="changes_requested"
-            class="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl border border-rule bg-white text-[0.82rem] font-semibold text-ink hover:border-red-400 transition-all cursor-pointer"
-          >
-            <span class="text-red-500">⚠</span> Observaciones
-          </button>
-        </div>
-        <input type="hidden" name="status" id="feedback-status-input" value="approved" />
+      
+      <!-- Interactive Checklist -->
+      <div class="flex flex-col gap-3.5" id="checklist-container">
+        <!-- Item templates rendered dynamically by JS depending on page context -->
       </div>
 
-      <!-- Comment Textarea -->
+      <div class="hairline"></div>
+
+      <!-- General Comments -->
       <div>
-        <label for="feedback-comment" class="block text-[0.82rem] font-semibold text-ink mb-2">Comentarios y Observaciones</label>
+        <label for="feedback-comment" class="block text-[0.82rem] font-semibold text-ink mb-1.5">Comentarios o Notas Generales</label>
         <textarea
           id="feedback-comment"
           name="comment"
-          required
-          rows="4"
-          placeholder="Escribe aquí las correcciones que consideres necesarias, o tu aprobación..."
-          class="w-full rounded-xl border border-rule bg-white p-3 text-[0.85rem] leading-relaxed text-ink placeholder:text-ink-muted/60 focus:border-deep/50 focus:outline-none focus:ring-2 focus:ring-deep/20 transition-all resize-none"
+          rows="3"
+          placeholder="Si tienes alguna sugerencia o cambio sobre los puntos anteriores, escríbelo aquí..."
+          class="w-full rounded-xl border border-rule bg-white p-3 text-[0.85rem] leading-relaxed text-ink placeholder:text-ink-muted/50 focus:border-deep/50 focus:outline-none focus:ring-2 focus:ring-deep/20 transition-all resize-none"
         ></textarea>
       </div>
 
@@ -85,7 +71,7 @@
         id="feedback-submit-btn"
         class="w-full justify-center py-3 bg-ink text-paper rounded-xl text-[0.88rem] font-semibold hover:bg-deep transition-colors cursor-pointer flex items-center gap-2"
       >
-        <span id="feedback-btn-label">Enviar a Andrés</span>
+        <span id="feedback-btn-label">Enviar mi aprobación</span>
         <span class="arrow">→</span>
       </button>
 
@@ -94,22 +80,6 @@
     </form>
   </div>
 </div>
-
-<style>
-  /* Selected button styles */
-  .btn-selected-approved {
-    border-color: var(--color-leaf) !important;
-    background-color: rgba(0, 203, 151, 0.08) !important;
-    color: var(--color-leaf-deep) !important;
-    box-shadow: 0 0 0 1px var(--color-leaf);
-  }
-  .btn-selected-changes {
-    border-color: #f87171 !important;
-    background-color: rgba(239, 68, 68, 0.08) !important;
-    color: #b91c1c !important;
-    box-shadow: 0 0 0 1px #f87171;
-  }
-</style>
 
 <script is:inline>
   (function () {
@@ -130,22 +100,125 @@
     const panel = document.getElementById("feedback-panel");
     const closeBtn = document.getElementById("feedback-close-btn");
     const form = document.getElementById("feedback-submit-form");
-    const statusInput = document.getElementById("feedback-status-input");
     const commentArea = document.getElementById("feedback-comment");
     const submitBtn = document.getElementById("feedback-submit-btn");
     const btnLabel = document.getElementById("feedback-btn-label");
     const formStatus = document.getElementById("feedback-form-status");
+    const checklistContainer = document.getElementById("checklist-container");
 
-    const statusButtons = {
-      approved: document.querySelector('[data-status-val="approved"]'),
-      changes_requested: document.querySelector('[data-status-val="changes_requested"]')
-    };
-
-    if (!triggerBtn || !panel || !closeBtn || !form || !statusInput || !commentArea || !submitBtn || !btnLabel || !formStatus) {
+    if (!triggerBtn || !panel || !closeBtn || !form || !commentArea || !submitBtn || !btnLabel || !formStatus || !checklistContainer) {
       return;
     }
 
-    // Toggle Panel
+    // List of possible changes to review, with scroll targets (CSS selectors)
+    const reviewItems = [
+      {
+        id: "hero-quote",
+        title: "Cita lateral del Héroe",
+        desc: "Mantra: 'De la tecnología a las personas...'. Comilla decorativa de fondo.",
+        selector: "blockquote",
+        page: "home"
+      },
+      {
+        id: "h2-accent",
+        title: "Resaltado de H2 Acompañamiento",
+        desc: "Cursiva continua para toda la expresión 'Una misma brújula.'",
+        selector: "span.text-deep",
+        page: "home"
+      },
+      {
+        id: "tablet-grid",
+        title: "Rejilla responsiva (Sobre mí)",
+        desc: "Corrección en tabletas del texto estrecho de definición de coaching.",
+        selector: "#sobre",
+        page: "home"
+      },
+      {
+        id: "lead-magnet-form",
+        title: "Formulario en 2 pasos",
+        desc: "Interacción de personalización (IKEA Effect) y barra de progreso.",
+        selector: "form[data-lead-magnet-form]",
+        page: "any"
+      },
+      {
+        id: "list-align",
+        title: "Alineación de lista (Lead Magnet)",
+        desc: "Nivelación de números 01-03 y corrección del salto huérfano 'para ti'.",
+        selector: "ul.divide-y",
+        page: "any"
+      },
+      {
+        id: "testimonials",
+        title: "Sección de Testimonios (Simulados)",
+        desc: "Testimonios de clientes en Madrid, Valencia y 22@ Barcelona.",
+        selector: "#testimonios",
+        page: "any"
+      },
+      {
+        id: "faq-section",
+        title: "Acordeón animado de FAQs",
+        desc: "Respuestas y transiciones fluidas de altura sin usar Javascript.",
+        selector: "details",
+        page: "services"
+      }
+    ];
+
+    // Filter and render items present on the current page
+    const activeItems = [];
+    reviewItems.forEach((item) => {
+      const element = document.querySelector(item.selector);
+      if (element) {
+        activeItems.push(item);
+
+        // Render checklist item html
+        const itemEl = document.createElement("div");
+        itemEl.className = "flex min-w-0 items-start justify-between gap-3 p-3 rounded-xl border border-rule bg-white/40 hover:bg-white transition-colors";
+        itemEl.innerHTML = `
+          <label class="flex min-w-0 cursor-pointer items-start gap-2.5 flex-1">
+            <input 
+              type="checkbox" 
+              data-item-id="${item.id}" 
+              checked 
+              class="mt-1 h-4 w-4 shrink-0 rounded border-rule text-leaf accent-leaf cursor-pointer"
+            />
+            <div class="min-w-0">
+              <p class="text-[0.85rem] font-semibold text-ink leading-tight">${item.title}</p>
+              <p class="text-[0.72rem] text-ink-muted leading-snug mt-0.5">${item.desc}</p>
+            </div>
+          </label>
+          <button 
+            type="button" 
+            data-scroll-to="${item.selector}"
+            class="shrink-0 text-[0.72rem] font-semibold text-on-dark-accent bg-leaf-deep/10 px-2 py-1 rounded hover:bg-leaf-deep/20 transition-all cursor-pointer"
+          >
+            Ver
+          </button>
+        `;
+        checklistContainer.appendChild(itemEl);
+      }
+    });
+
+    // Add scroll action to "Ver" buttons
+    checklistContainer.querySelectorAll("[data-scroll-to]").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const selector = btn.getAttribute("data-scroll-to");
+        const element = document.querySelector(selector);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "center" });
+          
+          // Micro animation highlight
+          element.style.outline = "2px solid var(--color-leaf)";
+          element.style.outlineOffset = "4px";
+          setTimeout(() => {
+            element.style.outline = "";
+            element.style.outlineOffset = "";
+          }, 1500);
+        }
+      });
+    });
+
+    // Toggle Panel Open/Close
     let isOpen = false;
     const togglePanel = () => {
       isOpen = !isOpen;
@@ -153,7 +226,6 @@
         panel.classList.remove("pointer-events-none", "scale-95", "opacity-0");
         panel.classList.add("scale-100", "opacity-100");
         triggerBtn.classList.add("scale-90", "opacity-50");
-        commentArea.focus();
       } else {
         panel.classList.remove("scale-100", "opacity-100");
         panel.classList.add("pointer-events-none", "scale-95", "opacity-0");
@@ -164,39 +236,29 @@
     triggerBtn.addEventListener("click", togglePanel);
     closeBtn.addEventListener("click", togglePanel);
 
-    // Status Selectors
-    const setStatusVal = (val) => {
-      statusInput.value = val;
-      if (val === "approved") {
-        statusButtons.approved.classList.add("btn-selected-approved");
-        statusButtons.changes_requested.classList.remove("btn-selected-changes");
-        commentArea.placeholder = "Escribe un comentario o validación si lo deseas (opcional)...";
-        commentArea.required = false;
-      } else {
-        statusButtons.approved.classList.remove("btn-selected-approved");
-        statusButtons.changes_requested.classList.add("btn-selected-changes");
-        commentArea.placeholder = "Por favor detalla qué cambios, textos o secciones consideras oportuno modificar...";
-        commentArea.required = true;
-      }
-    };
-
-    // Set initial
-    setStatusVal("approved");
-
-    statusButtons.approved.addEventListener("click", () => setStatusVal("approved"));
-    statusButtons.changes_requested.addEventListener("click", () => setStatusVal("changes_requested"));
-
     // Form Submission
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      const status = statusInput.value;
-      const comment = commentArea.value.trim();
+      const generalComment = commentArea.value.trim();
+      
+      // Collect checklist results
+      const results = [];
+      activeItems.forEach((item) => {
+        const checkbox = checklistContainer.querySelector(`[data-item-id="${item.id}"]`);
+        const checked = checkbox ? checkbox.checked : false;
+        results.push(`- [${checked ? "OK" : "REVISAR"}] ${item.title}`);
+      });
 
-      if (status === "changes_requested" && !comment) {
-        commentArea.focus();
-        return;
-      }
+      const fullComment = 
+        `RESULTADOS DE LA REVISIÓN:\n` +
+        results.join("\n") + "\n\n" +
+        `OBSERVACIONES ADICIONALES:\n` +
+        (generalComment || "Sin comentarios adicionales.");
+
+      // Calculate global status based on checks
+      const allApproved = results.every(r => r.includes("[OK]"));
+      const globalStatus = allApproved ? "approved" : "changes_requested";
 
       // Start Loading
       submitBtn.disabled = true;
@@ -204,7 +266,7 @@
       btnLabel.textContent = "Enviando...";
       formStatus.classList.remove("hidden", "text-red-500", "text-leaf-deep");
       formStatus.classList.add("text-ink-muted");
-      formStatus.textContent = "Enviando opinión a Andrés...";
+      formStatus.textContent = "Enviando opiniones a Andrés...";
 
       try {
         const response = await fetch("/api/feedback", {
@@ -212,13 +274,13 @@
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify({ status, comment: comment || "Aprobado (sin comentarios adicionales)." })
+          body: JSON.stringify({ status: globalStatus, comment: fullComment })
         });
 
         const payload = await response.json().catch(() => null);
         const message = payload && typeof payload.message === "string" 
           ? payload.message 
-          : "Opinión registrada con éxito.";
+          : "Revisión registrada con éxito.";
 
         if (!response.ok) {
           throw new Error(message);
@@ -230,7 +292,9 @@
         formStatus.textContent = message;
 
         form.reset();
-        setStatusVal("approved");
+        
+        // Reset checklist checks
+        checklistContainer.querySelectorAll("input[type='checkbox']").forEach(cb => cb.checked = true);
 
         // Close after a delay
         setTimeout(() => {
@@ -243,11 +307,11 @@
         // Error State
         formStatus.classList.remove("text-ink-muted");
         formStatus.classList.add("text-red-600", "font-medium");
-        formStatus.textContent = error instanceof Error ? error.message : "Error al enviar el feedback.";
+        formStatus.textContent = error instanceof Error ? error.message : "Error al enviar la revisión.";
       } finally {
         submitBtn.disabled = false;
         submitBtn.classList.remove("opacity-50", "cursor-not-allowed");
-        btnLabel.textContent = "Enviar a Andrés";
+        btnLabel.textContent = "Enviar mi aprobación";
       }
     });
   })();
