@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import FeedbackWidget from "../components/FeedbackWidget.astro";
 
 interface Props {
   title?: string;
@@ -56,6 +57,7 @@ const resolvedImageURL = new URL(image, Astro.site ?? "https://virtusway.com");
 
   <body>
     <slot />
+    <FeedbackWidget />
 
     <script is:inline>
       // Gentle scroll-reveal: fade-in once on entry, then disconnect.

@@ -1,0 +1,79 @@
+---
+interface Testimonial {
+  quote: string;
+  author: string;
+  role: string;
+  location: string;
+}
+
+const testimonials: Testimonial[] = [
+  {
+    quote: "Llegué al proceso buscando respuestas rápidas y me encontré con un espejo honesto. Mauricio me ayudó a quitar el ruido externo y a tomar decisiones con total coherencia y sin culpa.",
+    author: "Elena R.",
+    role: "Directora Ejecutiva",
+    location: "Madrid"
+  },
+  {
+    quote: "La fricción en comunicación estaba estancando las entregas de ingeniería. Tras 4 meses de programa híbrido en nuestras oficinas del 22@ Barcelona y online, logramos un alineamiento y propósito real.",
+    author: "Marc S.",
+    role: "CTO & Socio Fundador",
+    location: "22@ Barcelona"
+  },
+  {
+    quote: "Un acompañamiento humano e integrativo, con los pies en la tierra. Un método que no te impone nada, sino que te ayuda a construir tus propias herramientas y valores de liderazgo.",
+    author: "David M.",
+    role: "Director de RRHH",
+    location: "Valencia"
+  }
+];
+---
+
+<section id="testimonios" class="relative min-w-0 overflow-hidden bg-linear-to-b from-paper to-mist-soft/20 border-t border-rule/30">
+  <div class="max-w-310 mx-auto w-full min-w-0 px-6 md:px-10 py-20 md:py-28 relative z-10">
+    
+    <!-- Header -->
+    <div class="max-w-2xl reveal">
+      <p class="eyebrow eyebrow-with-rule">
+        <span class="w-8 h-px shrink-0 bg-leaf-deep"></span>
+        <span class="min-w-0">Opiniones</span>
+      </p>
+      <h2 class="mt-4 font-display text-[2.2rem] md:text-[3.1rem] leading-[1.05] tracking-[-0.03em] text-ink">
+        Lo que dicen <span class="font-display-italic text-deep">quienes han trabajado</span> conmigo
+      </h2>
+    </div>
+
+    <!-- Testimonials Grid -->
+    <div class="mt-16 md:mt-20 grid min-w-0 grid-cols-1 gap-px bg-rule border border-rule rounded-[28px] overflow-hidden md:grid-cols-3">
+      {testimonials.map((t, i) => (
+        <article 
+          class="min-w-0 bg-paper p-8 md:p-10 flex flex-col justify-between reveal hover:bg-mist-soft/30 transition-colors duration-500 min-h-80"
+          style={`transition-delay: ${i * 80}ms;`}
+        >
+          <!-- Quote Icon and Text -->
+          <div class="relative min-w-0 flex-1">
+            <span class="absolute -top-6 -left-2 select-none pointer-events-none text-[5rem] font-serif text-leaf-deep/8 leading-none" aria-hidden="true">
+              “
+            </span>
+            <p class="relative z-10 text-[0.98rem] leading-relaxed text-ink-muted italic">
+              {t.quote}
+            </p>
+          </div>
+
+          <!-- Divider -->
+          <div class="hairline my-6"></div>
+
+          <!-- Author Info -->
+          <div class="flex min-w-0 items-center justify-between">
+            <div class="min-w-0">
+              <p class="font-display text-[1.1rem] text-ink truncate">{t.author}</p>
+              <p class="text-[0.8rem] text-ink-muted truncate">{t.role}</p>
+            </div>
+            <span class="shrink-0 text-[0.78rem] font-semibold text-on-dark-accent bg-leaf-deep/10 px-3 py-1.5 rounded-full">
+              {t.location}
+            </span>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

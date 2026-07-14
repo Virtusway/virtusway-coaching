@@ -4,6 +4,7 @@ import Header from "../components/Header.astro";
 import LandingPage from "../components/LandingPage.astro";
 import Layout from "../layouts/Layout.astro";
 import RoadmapTIC from "../components/RoadmapTIC.astro";
+import Testimonials from "../components/Testimonials.astro";
 
 const faqItems = [
   {
@@ -48,6 +49,8 @@ const serviceSchema = {
     "description": "Sesión de exploración gratuita de 45 minutos"
   }
 };
+
+const showTestimonials = false;
 ---
 
 <Layout
@@ -98,6 +101,7 @@ const serviceSchema = {
     >
       <RoadmapTIC slot="after-approach" />
     </LandingPage>
+    {showTestimonials && <Testimonials />}
   </main>
   <Footer />
 </Layout>

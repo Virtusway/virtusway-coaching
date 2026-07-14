@@ -3,6 +3,7 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import LandingPage from "../components/LandingPage.astro";
 import Layout from "../layouts/Layout.astro";
+import Testimonials from "../components/Testimonials.astro";
 
 const approachItems = [
   {
@@ -62,6 +63,8 @@ const serviceSchema = {
     "description": "Sesión de exploración gratuita de 45 minutos"
   }
 };
+
+const showTestimonials = false;
 ---
 
 <Layout
@@ -110,6 +113,7 @@ const serviceSchema = {
       ctaLabel="Reservar sesión de exploración"
       faqItems={faqItems}
     />
+    {showTestimonials && <Testimonials />}
   </main>
   <Footer />
 </Layout>

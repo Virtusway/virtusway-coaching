@@ -24,3 +24,12 @@ export const leadMagnetRegistrations = pgTable("lead_magnet_registrations", {
     .notNull()
     .defaultNow(),
 });
+
+export const projectFeedbacks = pgTable("project_feedbacks", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  status: text("status").notNull(), // 'approved' or 'changes_requested'
+  comment: text("comment").notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true })
+    .notNull()
+    .defaultNow(),
+});
