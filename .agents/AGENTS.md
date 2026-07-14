@@ -27,3 +27,9 @@ Para garantizar que el SEO se mantenga optimizado a medida que el sitio evolucio
 
 ## 2. Nombres de Ramas (Git)
 *   Como regla de consistencia del equipo (Andrés y Marcos), todas las ramas de Git creadas deben nombrarse **siempre en inglés** (ej. `UX-UI`, `feature/seo-fixes`, `hotfix/scroll-flicker`).
+
+---
+
+## 3. Mensajes para WhatsApp
+*   Siempre que el usuario solicite un texto o mensaje redactado para enviar por WhatsApp, se debe presentar en un bloque de código Markdown sin procesar (formato raw/code block) para que el botón nativo de "Copiar" del chat de Antigravity copie el texto exacto sin formatear de manera directa. El texto debe incluir la sintaxis propia de WhatsApp (`*` para negrita, `_` para cursiva, guiones para viñetas, saltos de línea claros, etc.).
+
