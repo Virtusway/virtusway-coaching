@@ -1,3 +1,7 @@
+---
+import { BOOKING_PATH } from "../lib/constants";
+---
+
 <header class="sticky top-0 z-40 transition-all duration-300" id="site-header">
   <div class="backdrop-blur-md bg-paper/75 border-b border-rule/70 transition-all duration-300">
     <div
@@ -47,7 +51,7 @@
       </nav>
 
       <a
-        href="https://outlook.office.com/bookwithme/user/48d235d03a08496b97d4b477ea665fbb@virtusway.com/meetingtype/l9E3R2UjHUaYl4B09FL6MQ2?anonymous&ep=mlink"
+        href={BOOKING_PATH}
         class="hidden sm:inline-flex items-center gap-2 text-[0.85rem] font-semibold text-deep border-b border-deep/30 hover:border-deep pb-0.5 transition-colors"
       >
         Reservar sesión

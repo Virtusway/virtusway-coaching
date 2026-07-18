@@ -1,5 +1,6 @@
 ---
 import LegalLayout from "../../layouts/LegalLayout.astro";
+import { CONTACT_EMAIL } from "../../lib/constants";
 ---
 
 <LegalLayout
@@ -30,7 +31,7 @@ import LegalLayout from "../../layouts/LegalLayout.astro";
     </li>
     <li>
       <strong>Correo electrónico de contacto:</strong>
-      <a href="mailto:coach@virtusway.com">coach@virtusway.com</a>
+      <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
     </li>
   </ul>
 
@@ -181,7 +182,7 @@ import LegalLayout from "../../layouts/LegalLayout.astro";
   <p>
     Puedes ejercer los siguientes derechos ante el responsable del tratamiento
     enviando un correo electrónico a
-    <a href="mailto:coach@virtusway.com">coach@virtusway.com</a> acompañado de una
+    <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> acompañado de una
     copia de tu DNI o documento equivalente:
   </p>
   <ul>

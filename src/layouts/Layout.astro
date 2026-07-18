@@ -5,7 +5,8 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
-  schemaMarkup?: Record<string, any>;
+  schemaMarkup?: Record<string, unknown>;
+  noindex?: boolean;
 }
 
 const {
@@ -13,6 +14,7 @@ const {
   description = "Integradora y directa: coaching para ejecutivas conscientes y equipos TIC — claridad, valores y método. Valencia · online.",
   image = "/personal-image.jpeg",
   schemaMarkup,
+  noindex = false,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? "https://virtusway.com");
@@ -27,6 +29,22 @@ const resolvedImageURL = new URL(image, Astro.site ?? "https://virtusway.com");
     <meta name="description" content={description} />
     <meta name="theme-color" content="#0a4d7a" />
     <link rel="canonical" href={canonicalURL} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/hoss-round-wide-light.woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/nexa-regular.woff2"
+      crossorigin
+    />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -37,11 +55,11 @@ const resolvedImageURL = new URL(image, Astro.site ?? "https://virtusway.com");
     <meta property="og:locale" content="es_ES" />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={resolvedImageURL} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={resolvedImageURL} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />

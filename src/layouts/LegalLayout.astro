@@ -1,6 +1,7 @@
 ---
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import { CONTACT_EMAIL } from "../lib/constants";
 import Layout from "./Layout.astro";
 
 interface Props {
@@ -41,7 +42,7 @@ const parts = renderTitle();
 const isSplit = typeof parts !== "string";
 ---
 
-<Layout title={`${title} · VirtusWay`} description={description}>
+<Layout title={`${title} · VirtusWay`} description={description} noindex>
   <Header />
 
   <main>
@@ -148,8 +149,8 @@ const isSplit = typeof parts !== "string";
               <span class="font-display-italic text-deep"> Escríbeme. </span>
             </p>
             <div class="flex flex-wrap items-center gap-4">
-              <a href="mailto:coach@virtusway.com" class="btn btn-ghost">
-                coach@virtusway.com
+              <a href={`mailto:${CONTACT_EMAIL}`} class="btn btn-ghost">
+                {CONTACT_EMAIL}
               </a>
               <a href="/" class="btn btn-primary">
                 Volver al inicio

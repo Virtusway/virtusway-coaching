@@ -1,22 +1,32 @@
 import type { APIRoute } from "astro";
+import { EMAIL_PASS, EMAIL_USER } from "astro:env/server";
+import { eq } from "drizzle-orm";
 import { randomBytes } from "node:crypto";
 import nodemailer from "nodemailer";
 import { getDb } from "../../db/client";
 import { leadMagnetRegistrations } from "../../db/schema";
+import { EMAIL_PATTERN, jsonMessage, readField } from "../../lib/api-utils";
+import { BOOKING_PATH, SITE_ORIGIN, SOCIAL_URLS } from "../../lib/constants";
 
 export const prerender = false;
 
 const DOWNLOAD_PATH = "/descargar-guia";
 const REVOKE_CONSENT_PATH = "/revocar-consentimiento";
-const EXPLORATION_URL = "https://virtusway.com/exploracion";
+const EXPLORATION_URL = new URL(BOOKING_PATH, SITE_ORIGIN).toString();
 const SMTP_HOST = "smtp.office365.com";
 const SMTP_PORT = 587;
 
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// Hidden field: real users never fill this in, bots filling every input do.
+const HONEYPOT_FIELD = "sitio-web";
+const THROTTLE_WINDOW_MS = 10 * 60 * 1000;
 
-function readField(formData: FormData, name: string) {
-  const value = formData.get(name);
-  return typeof value === "string" ? value.trim() : "";
+const ALREADY_SENT_MESSAGE =
+  "Ya te hemos enviado la guía hace unos minutos. Revisa tu correo (también spam o promociones) antes de volver a intentarlo.";
+const SUCCESS_MESSAGE =
+  "Te hemos enviado un correo con el enlace de descarga. Revisa también spam o promociones por si acaso.";
+
+function wantsJson(request: Request) {
+  return request.headers.get("accept")?.includes("application/json") ?? false;
 }
 
 function readCheckbox(formData: FormData, name: string) {
@@ -33,12 +43,18 @@ function escapeHtml(value: string) {
     .replaceAll("'", "&#39;");
 }
 
-function jsonMessage(message: string, status: number) {
-  return Response.json({ message }, { status });
-}
-
 function createUnsubscribeToken() {
   return randomBytes(32).toString("hex");
+}
+
+async function findLastRequestedAt(email: string) {
+  const [existing] = await getDb()
+    .select({ lastRequestedAt: leadMagnetRegistrations.lastRequestedAt })
+    .from(leadMagnetRegistrations)
+    .where(eq(leadMagnetRegistrations.email, email))
+    .limit(1);
+
+  return existing?.lastRequestedAt;
 }
 
 async function registerLead(email: string, name: string) {
@@ -98,7 +114,7 @@ function buildEmail({
       "Gracias por confiar en VirtusWay.\n\n" +
       "Mauricio Magni\n" +
       "Coach Integrativo – VirtusWay\n" +
-      "www.virtusway.com\n" +
+      `${SOCIAL_URLS.website.replace("https://", "")}\n` +
       "IG: @virtuswaycoach\n" +
       "LinkedIn: linkedin.com/in/mauricio-magni-manchon\n\n" +
       "Puedes retirar tu consentimiento para comunicaciones comerciales en cualquier momento desde este enlace:\n" +
@@ -112,26 +128,15 @@ function buildEmail({
       "<p>Gracias por confiar en VirtusWay.</p>" +
       "<p>Mauricio Magni<br />" +
       "Coach Integrativo – VirtusWay<br />" +
-      '<a href="https://www.virtusway.com">www.virtusway.com</a><br />' +
-      'IG: <a href="https://www.instagram.com/virtuswaycoach">@virtuswaycoach</a><br />' +
-      'LinkedIn: <a href="https://www.linkedin.com/in/mauricio-magni-manchon">linkedin.com/in/mauricio-magni-manchon</a></p>' +
+      `<a href="${SOCIAL_URLS.website}">${SOCIAL_URLS.website.replace("https://", "")}</a><br />` +
+      `IG: <a href="${SOCIAL_URLS.instagram}">@virtuswaycoach</a><br />` +
+      `LinkedIn: <a href="${SOCIAL_URLS.linkedin}">linkedin.com/in/mauricio-magni-manchon</a></p>` +
       '<hr style="border:0;border-top:1px solid #d4e2eb;margin:24px 0;" />' +
       `<p style="color:#5c6468;font-size:13px;line-height:1.5;">Puedes retirar tu consentimiento para comunicaciones comerciales en cualquier momento desde <a href="${safeRevokeUrl}">este enlace</a>.</p>`,
   };
 }
 
 export const POST: APIRoute = async ({ request }) => {
-  const emailUser = import.meta.env.EMAIL_USER;
-  const emailPass = import.meta.env.EMAIL_PASS;
-
-  if (!emailUser || !emailPass) {
-    console.error("Lead magnet email is missing EMAIL_USER or EMAIL_PASS.");
-    return jsonMessage(
-      "El servicio de envío no está disponible ahora mismo.",
-      500,
-    );
-  }
-
   let formData: FormData;
 
   try {
@@ -140,22 +145,57 @@ export const POST: APIRoute = async ({ request }) => {
     return jsonMessage("No se pudo procesar el formulario.", 400);
   }
 
+  const acceptsJson = wantsJson(request);
+  const respond = (message: string, status: number) => {
+    if (acceptsJson) {
+      return jsonMessage(message, status);
+    }
+
+    const redirectUrl = new URL(
+      status < 400 ? DOWNLOAD_PATH : "/#guia",
+      SITE_ORIGIN,
+    );
+    return Response.redirect(redirectUrl, 303);
+  };
+
+  // Bots tend to fill every field, including ones hidden from real users.
+  // Pretend success without sending anything so scripts don't retry smarter.
+  if (readField(formData, HONEYPOT_FIELD)) {
+    return respond(SUCCESS_MESSAGE, 200);
+  }
+
   const name = readField(formData, "nombre");
   const email = readField(formData, "email").toLowerCase();
   const commercialConsent = readCheckbox(formData, "commercialConsent");
 
   if (!email) {
-    return jsonMessage("El email es obligatorio.", 400);
+    return respond("El email es obligatorio.", 400);
   }
 
   if (!EMAIL_PATTERN.test(email)) {
-    return jsonMessage("Introduce un email válido.", 400);
+    return respond("Introduce un email válido.", 400);
   }
 
   if (!commercialConsent) {
-    return jsonMessage(
+    return respond(
       "Para recibir la guía necesitamos tu consentimiento comercial explícito.",
       400,
+    );
+  }
+
+  try {
+    const lastRequestedAt = await findLastRequestedAt(email);
+    if (
+      lastRequestedAt &&
+      Date.now() - lastRequestedAt.getTime() < THROTTLE_WINDOW_MS
+    ) {
+      return respond(ALREADY_SENT_MESSAGE, 200);
+    }
+  } catch (error) {
+    console.error("Failed to check lead magnet throttle.", error);
+    return respond(
+      "No pudimos registrar tu consentimiento ahora mismo. Inténtalo de nuevo en unos minutos.",
+      500,
     );
   }
 
@@ -165,7 +205,7 @@ export const POST: APIRoute = async ({ request }) => {
     unsubscribeToken = await registerLead(email, name);
   } catch (error) {
     console.error("Failed to persist lead magnet registration.", error);
-    return jsonMessage(
+    return respond(
       "No pudimos registrar tu consentimiento ahora mismo. Inténtalo de nuevo en unos minutos.",
       500,
     );
@@ -177,13 +217,13 @@ export const POST: APIRoute = async ({ request }) => {
     secure: false,
     requireTLS: true,
     auth: {
-      user: emailUser,
-      pass: emailPass,
+      user: EMAIL_USER,
+      pass: EMAIL_PASS,
     },
   });
 
-  const downloadUrl = new URL(DOWNLOAD_PATH, request.url).toString();
-  const revokeUrl = new URL(REVOKE_CONSENT_PATH, request.url);
+  const downloadUrl = new URL(DOWNLOAD_PATH, SITE_ORIGIN).toString();
+  const revokeUrl = new URL(REVOKE_CONSENT_PATH, SITE_ORIGIN);
   revokeUrl.searchParams.set("token", unsubscribeToken);
   const emailBody = buildEmail({
     downloadUrl,
@@ -192,20 +232,17 @@ export const POST: APIRoute = async ({ request }) => {
 
   try {
     await transporter.sendMail({
-      from: `VirtusWay <${emailUser}>`,
+      from: `VirtusWay <${EMAIL_USER}>`,
       to: email,
       subject: "Tu guía gratuita de VirtusWay",
       text: emailBody.text,
       html: emailBody.html,
     });
 
-    return jsonMessage(
-      "Te hemos enviado un correo con el enlace de descarga. Revisa también spam o promociones por si acaso.",
-      200,
-    );
+    return respond(SUCCESS_MESSAGE, 200);
   } catch (error) {
     console.error("Failed to send lead magnet email.", error);
-    return jsonMessage(
+    return respond(
       "No se pudo enviar la guía ahora mismo. Inténtalo de nuevo en unos minutos.",
       500,
     );

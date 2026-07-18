@@ -93,9 +93,22 @@
         <div class="min-w-0 lg:col-span-5">
           <form
             data-lead-magnet-form
+            action="/api/lead-magnet"
+            method="post"
             class="min-w-0 rounded-3xl p-7 md:p-8 border"
             style="background: rgba(255,255,255,0.06); border-color: rgba(203,220,229,0.2); backdrop-filter: blur(6px);"
           >
+            <p class="sr-only" aria-hidden="true">
+              <label>
+                No completes este campo
+                <input
+                  type="text"
+                  name="sitio-web"
+                  tabindex="-1"
+                  autocomplete="off"
+                />
+              </label>
+            </p>
             <div class="flex min-w-0 items-center gap-3">
               <img
                 src="/brand/ISO/Web/Virtusway_ISO.svg"
@@ -160,7 +173,6 @@
               <button
                 type="submit"
                 data-submit-button
-                disabled
                 class="btn btn-primary w-full cursor-pointer justify-center bg-leaf! text-ink! hover:bg-leaf-deep! hover:text-paper! disabled:cursor-not-allowed disabled:opacity-45"
               >
                 <span data-submit-label>Descarga gratuita</span>
@@ -273,6 +285,7 @@
       try {
         const response = await fetch("/api/lead-magnet", {
           method: "POST",
+          headers: { Accept: "application/json" },
           body: new FormData(form),
         });
         const payload = await response.json().catch(() => null);

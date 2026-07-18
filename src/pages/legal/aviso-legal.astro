@@ -1,5 +1,6 @@
 ---
 import LegalLayout from "../../layouts/LegalLayout.astro";
+import { CONTACT_EMAIL } from "../../lib/constants";
 ---
 
 <LegalLayout
@@ -34,7 +35,7 @@ import LegalLayout from "../../layouts/LegalLayout.astro";
     </li>
     <li>
       <strong>Correo electrónico de contacto:</strong>
-      <a href="mailto:coach@virtusway.com">coach@virtusway.com</a>
+      <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
     </li>
     <li>
       <strong>Dominio web:</strong>
