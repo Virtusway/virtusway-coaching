@@ -1,31 +1,41 @@
 ---
-interface Testimonial {
+export interface Testimonial {
   quote: string;
-  author: string;
-  role: string;
-  location: string;
+  author?: string;
+  role?: string;
+  location?: string;
+  tag?: string;
 }
 
-const testimonials: Testimonial[] = [
+interface Props {
+  testimonials?: Testimonial[];
+}
+
+const defaultTestimonials: Testimonial[] = [
   {
-    quote: "Llegué al proceso buscando respuestas rápidas y me encontré con un espejo honesto. Mauricio me ayudó a quitar el ruido externo y a tomar decisiones con total coherencia y sin culpa.",
-    author: "Elena R.",
-    role: "Directora Ejecutiva",
-    location: "Madrid"
+    quote: "Una de las cosas que más valoro es que consigues crear un espacio de confianza en el que es fácil abrirse. Mantendría esa cercanía, porque creo que marca una gran diferencia.",
+    author: "Cliente de Coaching Individual",
+    role: "Encuesta anónima de satisfacción",
+    location: "Confidencial",
+    tag: "Espacio de confianza"
   },
   {
-    quote: "La fricción en comunicación estaba estancando las entregas de ingeniería. Tras 4 meses de programa híbrido en nuestras oficinas del 22@ Barcelona y online, logramos un alineamiento y propósito real.",
-    author: "Marc S.",
-    role: "CTO & Socio Fundador",
-    location: "22@ Barcelona"
+    quote: "Para mí fue un espacio de reflexión y de replanteos que me ayudó a ver cosas de mí misma. Quedé muy agradecida.",
+    author: "Participante Proceso 1 a 1",
+    role: "Encuesta anónima de satisfacción",
+    location: "Confidencial",
+    tag: "Reflexión y claridad"
   },
   {
-    quote: "Un acompañamiento humano e integrativo, con los pies en la tierra. Un método que no te impone nada, sino que te ayuda a construir tus propias herramientas y valores de liderazgo.",
-    author: "David M.",
-    role: "Director de RRHH",
-    location: "Valencia"
+    quote: "Estoy muy satisfecha con las sesiones. Me siento escuchada y considero que el enfoque ha sido muy útil.",
+    author: "Cliente de Coaching Individual",
+    role: "Encuesta anónima de satisfacción",
+    location: "Confidencial",
+    tag: "Sesiones individuales"
   }
 ];
+
+const { testimonials = defaultTestimonials } = Astro.props;
 ---
 
 <section id="testimonios" class="relative min-w-0 overflow-hidden bg-linear-to-b from-paper to-mist-soft/20 border-t border-rule/30">
@@ -40,6 +50,9 @@ const testimonials: Testimonial[] = [
       <h2 class="mt-4 font-display text-[2.2rem] md:text-[3.1rem] leading-[1.05] tracking-[-0.03em] text-ink">
         Lo que dicen <span class="font-display-italic text-deep">quienes han trabajado</span> conmigo
       </h2>
+      <p class="mt-3 text-sm text-ink-muted leading-relaxed">
+        Testimonios reales extraídos de encuestas anónimas de satisfacción tras completar el proceso de coaching.
+      </p>
     </div>
 
     <!-- Testimonials Grid -->
@@ -63,14 +76,16 @@ const testimonials: Testimonial[] = [
           <div class="hairline my-6"></div>
 
           <!-- Author Info -->
-          <div class="flex min-w-0 items-center justify-between">
-            <div class="min-w-0">
-              <p class="font-display text-[1.1rem] text-ink truncate">{t.author}</p>
-              <p class="text-[0.8rem] text-ink-muted truncate">{t.role}</p>
+          <div class="flex min-w-0 items-center justify-between gap-3">
+            <div class="min-w-0 flex-1">
+              <p class="font-display text-[1.02rem] text-ink truncate">{t.author || "Cliente de Coaching"}</p>
+              {t.role && <p class="text-[0.78rem] text-ink-muted truncate">{t.role}</p>}
             </div>
-            <span class="shrink-0 text-[0.78rem] font-semibold text-on-dark-accent bg-leaf-deep/10 px-3 py-1.5 rounded-full">
-              {t.location}
-            </span>
+            {(t.tag || t.location) && (
+              <span class="shrink-0 text-[0.75rem] font-semibold text-on-dark-accent bg-leaf-deep/10 px-3 py-1.5 rounded-full">
+                {t.tag || t.location}
+              </span>
+            )}
           </div>
         </article>
       ))}
