@@ -1,4 +1,6 @@
 ---
+import { BOOKING_PATH } from "../lib/constants";
+
 interface ValueItem {
   label: string;
   body: string;
@@ -64,8 +66,7 @@ const heroBackground = isTic
 const heroText = isTic ? "text-paper" : "text-ink";
 const heroMuted = isTic ? "text-on-dark-muted" : "text-ink-muted";
 const accent = isTic ? "text-on-dark-accent" : "text-leaf-deep";
-const bookingUrl =
-  "https://outlook.office.com/bookwithme/user/48d235d03a08496b97d4b477ea665fbb@virtusway.com/meetingtype/l9E3R2UjHUaYl4B09FL6MQ2?anonymous&ep=mlink";
+const bookingUrl = BOOKING_PATH;
 ---
 
 <section class="relative overflow-hidden">
@@ -127,7 +128,7 @@ const bookingUrl =
                       {parts[0]}
                     </span>
                     <span class={`block font-semibold ${accent}`}>
-                      {parts[1]}
+                      {parts.slice(1).join(" ")}
                     </span>
                   </>
                 );

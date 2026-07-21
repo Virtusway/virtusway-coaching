@@ -1,5 +1,6 @@
 ---
 import LegalLayout from "../../layouts/LegalLayout.astro";
+import { CONTACT_EMAIL } from "../../lib/constants";
 ---
 
 <LegalLayout
@@ -218,7 +219,7 @@ import LegalLayout from "../../layouts/LegalLayout.astro";
     Si en algún momento consideras que no he cumplido con estos compromisos
     éticos, te invito a comunicármelo directamente para poder aclarar la
     situación y, si es necesario, rectificar. Puedes escribirme a
-    <a href="mailto:coach@virtusway.com">coach@virtusway.com</a>.
+    <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
   </p>
   <p>
     En caso de que la respuesta no sea satisfactoria y la cuestión esté

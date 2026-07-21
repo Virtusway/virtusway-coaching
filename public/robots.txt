@@ -1,10 +1,12 @@
 User-agent: *
 Allow: /
 
-# Páginas excluidas
-Disallow: /legal/aviso-legal.html
-Disallow: /legal/compromiso-etico.html
-Disallow: /legal/politica-cookies.html
-Disallow: /legal/politica-privacidad.html
+# Páginas excluidas (ver también <meta name="robots" content="noindex"> en cada página)
+Disallow: /legal/aviso-legal
+Disallow: /legal/compromiso-etico
+Disallow: /legal/politica-cookies
+Disallow: /legal/politica-privacidad
+Disallow: /descargar-guia
+Disallow: /revocar-consentimiento
 
 Sitemap: https://virtusway.com/sitemap-index.xml

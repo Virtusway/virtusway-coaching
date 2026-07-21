@@ -1,4 +1,6 @@
 ---
+import { BOOKING_PATH, CONTACT_EMAIL } from "../lib/constants";
+
 const year = new Date().getFullYear();
 ---
 
@@ -57,7 +59,7 @@ const year = new Date().getFullYear();
             </li>
             <li>
               <a
-                href="https://outlook.office.com/bookwithme/user/48d235d03a08496b97d4b477ea665fbb@virtusway.com/meetingtype/l9E3R2UjHUaYl4B09FL6MQ2?anonymous&ep=mlink"
+                href={BOOKING_PATH}
                 class="hover:text-deep transition-colors"
                 >Sesión de exploración</a
               >
@@ -104,7 +106,7 @@ const year = new Date().getFullYear();
             </li>
           </ul>
           <p class="mt-6 text-[0.85rem] text-ink-soft">
-            coach@virtusway.com · Valencia, España
+            {CONTACT_EMAIL} · Valencia, España
           </p>
         </div>
       </div>

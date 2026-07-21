@@ -1,5 +1,6 @@
 ---
 import LegalLayout from "../../layouts/LegalLayout.astro";
+import { CONTACT_EMAIL } from "../../lib/constants";
 ---
 
 <LegalLayout
@@ -189,6 +190,6 @@ import LegalLayout from "../../layouts/LegalLayout.astro";
   <p>
     Si tienes alguna pregunta sobre el uso de cookies en este sitio web,
     escríbenos a
-    <a href="mailto:coach@virtusway.com">coach@virtusway.com</a>.
+    <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
   </p>
 </LegalLayout>

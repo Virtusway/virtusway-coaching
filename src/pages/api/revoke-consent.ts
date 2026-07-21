@@ -2,32 +2,11 @@ import type { APIRoute } from "astro";
 import { eq } from "drizzle-orm";
 import { getDb } from "../../db/client";
 import { leadMagnetRegistrations } from "../../db/schema";
+import { EMAIL_PATTERN, jsonMessage, readField } from "../../lib/api-utils";
 
 export const prerender = false;
 
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const TOKEN_PATTERN = /^[a-f0-9]{64}$/i;
-
-function readField(formData: FormData, name: string) {
-  const value = formData.get(name);
-  return typeof value === "string" ? value.trim() : "";
-}
-
-function jsonMessage(message: string, status: number) {
-  return Response.json({ message }, { status });
-}
-
-function redirectWithState(requestUrl: string, state: string) {
-  const redirectUrl = new URL("/revocar-consentimiento", requestUrl);
-  redirectUrl.searchParams.set("estado", state);
-  return Response.redirect(redirectUrl, 303);
-}
-
-function redirectWithToken(requestUrl: string, token: string) {
-  const redirectUrl = new URL("/revocar-consentimiento", requestUrl);
-  redirectUrl.searchParams.set("token", token);
-  return Response.redirect(redirectUrl, 303);
-}
 
 async function revokeByToken(token: string) {
   const now = new Date();
@@ -54,16 +33,6 @@ async function revokeByEmail(email: string) {
     .where(eq(leadMagnetRegistrations.email, email))
     .returning({ id: leadMagnetRegistrations.id });
 }
-
-export const GET: APIRoute = async ({ request, url }) => {
-  const token = (url.searchParams.get("token") ?? "").trim();
-
-  if (!TOKEN_PATTERN.test(token)) {
-    return redirectWithState(request.url, "enlace-no-valido");
-  }
-
-  return redirectWithToken(request.url, token);
-};
 
 export const POST: APIRoute = async ({ request }) => {
   let formData: FormData;
