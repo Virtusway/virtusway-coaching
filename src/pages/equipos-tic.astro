@@ -4,11 +4,59 @@ import Header from "../components/Header.astro";
 import LandingPage from "../components/LandingPage.astro";
 import Layout from "../layouts/Layout.astro";
 import RoadmapTIC from "../components/RoadmapTIC.astro";
+import Testimonials from "../components/Testimonials.astro";
+
+const faqItems = [
+  {
+    question: "¿Cómo se adapta el programa a las particularidades de nuestra empresa?",
+    answer: "Todo programa comienza con una fase de diagnóstico inicial donde entrevistamos de forma confidencial al líder, gerencia y miembros del equipo. Con base en esta información, diseñamos las dinámicas y talleres a medida.",
+  },
+  {
+    question: "¿Cuánto dura el programa?",
+    answer: "Suele extenderse entre 3 y 6 meses. Este tiempo garantiza que el equipo pueda asimilar los nuevos acuerdos de comunicación y consolidar los cambios en su día a día.",
+  },
+  {
+    question: "¿Interrumpe el ciclo de entregas o desarrollo técnico del equipo?",
+    answer: "No. El programa se integra de forma orgánica y los talleres colectivos se programan para evitar colisionar con hitos de entrega o despliegues críticos.",
+  },
+  {
+    question: "¿Cómo medimos los resultados de este acompañamiento?",
+    answer: "Evaluamos el avance mediante indicadores objetivos, como la reducción de fricciones en canales de comunicación, el alineamiento de objetivos compartidos y la satisfacción colectiva del equipo (NPS).",
+  },
+];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Coaching Integrativo para Equipos TIC",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "VirtusWay",
+    "url": "https://virtusway.com",
+    "logo": "https://virtusway.com/brand/WEB/VIrtusway_Brand_Square.svg"
+  },
+  "serviceType": "Coaching Organizacional y de Equipos",
+  "areaServed": [
+    { "@type": "City", "name": "Valencia", "sameAs": "https://es.wikipedia.org/wiki/Valencia" },
+    { "@type": "City", "name": "Barcelona", "sameAs": "https://es.wikipedia.org/wiki/Barcelona" },
+    { "@type": "City", "name": "Madrid", "sameAs": "https://es.wikipedia.org/wiki/Madrid" }
+  ],
+  "description": "Programa de coaching a medida para líderes y equipos técnicos que buscan reducir la fricción comunicativa y alinear el desarrollo con el propósito del negocio.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "EUR",
+    "description": "Sesión de exploración gratuita de 45 minutos"
+  }
+};
+
+const showTestimonials = true;
 ---
 
 <Layout
-  title="Equipos TIC de Alto Rendimiento — VirtusWay"
-  description="Coaching integrativo para líderes y equipos TIC que necesitan alinear tecnología, negocio y propósito compartido."
+  title="Coaching Equipos TIC en Barcelona, Madrid y Valencia · VirtusWay"
+  description="Coaching integrativo para líderes y equipos TIC en Barcelona, Madrid, Valencia y online. Alinea tecnología, negocio y propósito compartido."
+  schemaMarkup={serviceSchema}
 >
   <Header />
   <main>
@@ -21,9 +69,9 @@ import RoadmapTIC from "../components/RoadmapTIC.astro";
       ]}
       heroLabel="Programa a medida"
       heroHighlights={[
-        "Duración de 3 a 6 meses",
-        "Trabajo con equipo, líder y contexto organizativo",
-        "Sesión de exploración gratuita para primer diagnóstico",
+        { text: "Duración de 3 a 6 meses", iconPath: "M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z" },
+        { text: "Trabajo con equipo, líder y contexto organizativo", iconPath: "M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" },
+        { text: "Sesión de exploración gratuita para primer diagnóstico", iconPath: "M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2 M9 2h6a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z M9 13l2 2 4-4" },
       ]}
       tone="tic"
       challengeTitle="Grupo vs. <span class='font-display-italic text-deep'>equipo</span>: la diferencia que cambia los resultados"
@@ -41,16 +89,19 @@ import RoadmapTIC from "../components/RoadmapTIC.astro";
       whyTitle="Por qué este proceso puede ser <span class='font-display-italic text-deep'>diferente</span>"
       why={[
         "35 años en tecnología, liderando equipos y gestionando plazos imposibles. He estado donde estás tú. Hablo tu idioma y conozco la presión del día a día.",
-        "No vengo a enseñar a nadie a hacer su trabajo. Vengo a acompañar a todo el sistema, personas, equipo, líder y gerencia, para que funcione con coherencia.",
+        "No vengo a enseñar a nadie a hacer su trabajo. Vengo a acompañar a todo el sistema (personas, equipo, líder y gerencia) para que funcione con coherencia.",
+        "Acompaño en formato online o híbrido-presencial en centros tecnológicos de Valencia, Barcelona y Madrid, adaptándome al ritmo y cultura del equipo."
       ]}
       questionTitle="Una pregunta <span class='font-display-italic text-on-dark-accent'>sincera</span>"
       questionBody="Si tu equipo dejara de ser un conjunto de talentos individuales y se convirtiera en un equipo real… ¿cuánta fricción desaparecería?"
       ctaTitle="Reservar sesión de exploración"
       ctaBody="La sesión de exploración es una conversación de 45 minutos, online y gratuita. Escucho tu situación, hacemos un primer diagnóstico y decidimos juntos si tiene sentido diseñar un programa a medida."
       ctaLabel="Reservar sesión de exploración"
+      faqItems={faqItems}
     >
       <RoadmapTIC slot="after-approach" />
     </LandingPage>
+    {showTestimonials && <Testimonials />}
   </main>
   <Footer />
 </Layout>

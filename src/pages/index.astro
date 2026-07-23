@@ -8,6 +8,7 @@ import Hero from "../components/Hero.astro";
 import LeadMagnet from "../components/LeadMagnet.astro";
 import Method from "../components/Method.astro";
 import Layout from "../layouts/Layout.astro";
+import Testimonials from "../components/Testimonials.astro";
 
 const homeSchema = {
   "@context": "https://schema.org",
@@ -45,6 +46,8 @@ const homeSchema = {
   ],
   "description": "Coaching integrativo para mujeres profesionales y equipos TIC. Liderazgo con coherencia, claridad y método. Valencia y online."
 };
+
+const showTestimonials = true;
 ---
 
 <Layout
@@ -60,6 +63,7 @@ const homeSchema = {
     <About />
     <LeadMagnet />
     <FinalCTA />
+    {showTestimonials && <Testimonials />}
   </main>
   <Footer />
 </Layout>

@@ -3,6 +3,7 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import LandingPage from "../components/LandingPage.astro";
 import Layout from "../layouts/Layout.astro";
+import Testimonials from "../components/Testimonials.astro";
 
 const approachItems = [
   {
@@ -18,11 +19,58 @@ const approachItems = [
     body: "Una forma más ligera, coherente y alineada de liderar tu vida y tu trabajo.",
   },
 ];
+
+const faqItems = [
+  {
+    question: "¿Cómo sé si este proceso es para mí?",
+    answer: "Está diseñado para ejecutivas, directivas o emprendedoras que sienten que el esfuerzo por conciliar o cumplir con las expectativas del entorno les genera sobrecarga y culpa, y buscan liderar desde la calma y sus propios valores.",
+  },
+  {
+    question: "¿En qué consiste el proceso de 8 sesiones?",
+    answer: "Es un acompañamiento individualizado donde en cada sesión abordamos un desafío concreto de tu liderazgo o contexto profesional, utilizando herramientas de coaching ontológico y análisis transaccional para traducirlo en acciones reales.",
+  },
+  {
+    question: "¿Las sesiones son online o presenciales?",
+    answer: "El proceso puede realizarse online o de forma presencial en Valencia, Barcelona o Madrid, según prefieras y en función de la disponibilidad.",
+  },
+  {
+    question: "¿Qué diferencia este proceso de una consultoría o terapia?",
+    answer: "No es terapia porque no se enfoca en diagnósticos clínicos ni en el pasado profundo, sino en tu presente y futuro profesional. Y a diferencia de la consultoría, no te doy recetas prefabricadas; te acompaño a encontrar soluciones adaptadas a tu realidad y valores.",
+  },
+];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Coaching Integrativo para Mujeres Profesionales",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "VirtusWay",
+    "url": "https://virtusway.com",
+    "logo": "https://virtusway.com/brand/WEB/VIrtusway_Brand_Square.svg"
+  },
+  "serviceType": "Coaching y Desarrollo Personal",
+  "areaServed": [
+    { "@type": "City", "name": "Valencia", "sameAs": "https://es.wikipedia.org/wiki/Valencia" },
+    { "@type": "City", "name": "Barcelona", "sameAs": "https://es.wikipedia.org/wiki/Barcelona" },
+    { "@type": "City", "name": "Madrid", "sameAs": "https://es.wikipedia.org/wiki/Madrid" }
+  ],
+  "description": "Acompañamiento individual para ejecutivas, directivas y profesionales que buscan liderar con claridad y coherencia, reduciendo la culpa y conciliando con su vida personal.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "EUR",
+    "description": "Sesión de exploración gratuita de 45 minutos"
+  }
+};
+
+const showTestimonials = true;
 ---
 
 <Layout
-  title="Mujeres profesionales — VirtusWay"
-  description="Coaching integrativo para mujeres profesionales que quieren liderar con coherencia, claridad y menos presión interna."
+  title="Coaching Mujeres Profesionales en Madrid, Barcelona y Valencia · VirtusWay"
+  description="Coaching integrativo para mujeres profesionales en Madrid, Barcelona, Valencia y online. Lidera con coherencia, claridad y menos presión interna."
+  schemaMarkup={serviceSchema}
 >
   <Header />
   <main>
@@ -35,9 +83,9 @@ const approachItems = [
       ]}
       heroLabel="Proceso individual"
       heroHighlights={[
-        "8 sesiones a medida",
-        "Sesión de exploración online y gratuita",
-        "Coherencia, claridad y decisiones sin culpa",
+        { text: "8 sesiones a medida", iconPath: "M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z" },
+        { text: "Sesión de exploración online o presencial y gratuita", iconPath: "m22 8-6 4 6 4V8Z M2 6h14a2 2 0 012 2v8a2 2 0 01-2 2H2a2 2 0 01-2-2V8a2 2 0 012-2z" },
+        { text: "Coherencia, claridad y decisiones sin culpa", iconPath: "m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" },
       ]}
       tone="women"
       challengeTitle="Qué está pasando <span class='font-display-italic text-deep'>realmente</span>"
@@ -56,14 +104,16 @@ const approachItems = [
       why={[
         "He liderado equipos técnicos durante 35 años. He visto cómo el esfuerzo sostenido sin coherencia quema a las mejores profesionales. También he visto cómo, con el acompañamiento adecuado, esas mismas personas recuperan claridad, energía y seguridad para decidir.",
         "Acompaño desde la experiencia real, con los pies en el suelo y con la teoría de respaldo. He estado en trincheras parecidas, y he aprendido que el cambio real viene de entender qué te mueve por dentro y alinear tus decisiones con eso.",
-        "Trabajo desde un enfoque integrativo (coaching ontológico, análisis transaccional relacional, ACT). En la práctica, eso significa un espacio sin juicio, con preguntas precisas y un acompañamiento realista.",
+        "Trabajo desde un enfoque integrativo (coaching ontológico, análisis transaccional relacional, ACT). Acompaño de forma online o presencial en Valencia, Barcelona o Madrid, según prefieras."
       ]}
       questionTitle="Una pregunta <span class='font-display-italic text-on-dark-accent'>sincera</span>"
       questionBody={'Si pudieras tomar tus decisiones desde la calma y la coherencia, sin la presión de los "deberías"… ¿qué cambiaría en tu día a día?'}
       ctaTitle="Si esto te resuena, hablemos sin compromiso"
-      ctaBody="La sesión de exploración es una conversación de 45 minutos, online y gratuita. Nos conocemos, escucho tu situación, y decidimos juntos si tiene sentido caminar juntas."
+      ctaBody="La sesión de exploración es una conversación gratuita de 45 minutos, online o presencial según prefieras. Nos conocemos, escucho tu situación, y decidimos juntos si tiene sentido recorrer este camino."
       ctaLabel="Reservar sesión de exploración"
+      faqItems={faqItems}
     />
+    {showTestimonials && <Testimonials />}
   </main>
   <Footer />
 </Layout>
