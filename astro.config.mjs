@@ -6,6 +6,8 @@ import { defineConfig, envField } from "astro/config";
 
 const NOINDEX_PATHS = [
   "/descargar-guia",
+  "/exploracion",
+  "/25minutos",
   "/revocar-consentimiento",
   "/legal/aviso-legal",
   "/legal/compromiso-etico",
@@ -28,10 +30,6 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   adapter: netlify(),
-  redirects: {
-    '/exploracion': 'https://outlook.office.com/bookwithme/user/48d235d03a08496b97d4b477ea665fbb@virtusway.com/meetingtype/l9E3R2UjHUaYl4B09FL6MQ2?anonymous&ep=mlink',
-    '/25minutos': 'https://bookings.cloud.microsoft/bookwithme/user/48d235d03a08496b97d4b477ea665fbb@virtusway.com/meetingtype/hWKzwq_c6UmuE44eDgkTuA2?anonymous&ismsaljsauthenabled&ep=mlink',
-  },
   env: {
     // Not validateSecrets: true — these are only read inside on-demand API
     // routes (prerender = false), not during the static build, and Netlify

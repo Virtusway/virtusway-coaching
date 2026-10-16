@@ -1,0 +1,42 @@
+---
+import BookingBridge from "../components/BookingBridge.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+import { BOOKINGS_URLS } from "../lib/constants";
+---
+
+<Layout
+  title="Reserva 25 minutos de coaching gratuito · VirtusWay"
+  description="Reserva 25 minutos de coaching gratuito con Mauricio Magni para vivirlo en primera persona. Te contamos cómo funciona la reserva en Microsoft Bookings."
+  noindex
+>
+  <Header />
+
+  <main>
+    <BookingBridge
+      eyebrow="Reserva · Sesión de coaching"
+      title="25 minutos de"
+      titleAccent="coaching."
+      lede="Con Mauricio Magni. Antes de elegir día y hora, aquí tienes qué vas a reservar y qué pasa cuando pulses el botón."
+      facts={["25 minutos", "Gratis", "Sin compromiso"]}
+      bookingUrl={BOOKINGS_URLS.trial}
+    >
+      <p>
+        <strong>25 minutos de coaching para que lo vivas en primera persona.</strong>
+        Empezamos por lo que quieras llevarte de la sesión, y trabajamos eso: una
+        pregunta que traes, un nudo, una decisión que tienes delante.
+      </p>
+      <p>
+        Aquí se trabaja desde el primer minuto. Sales con algo tuyo y con una
+        idea clara de si esto te sirve.
+      </p>
+      <p>
+        Y si te sirve, el paso siguiente es una conversación de 45 minutos, para
+        ver si encaja un proceso.
+      </p>
+    </BookingBridge>
+  </main>
+
+  <Footer />
+</Layout>
