@@ -72,21 +72,21 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   if (!email) {
-    return jsonMessage("El email es obligatorio.", 400);
+    return jsonMessage("El correo es obligatorio.", 400);
   }
 
   if (!EMAIL_PATTERN.test(email)) {
-    return jsonMessage("Introduce un email válido.", 400);
+    return jsonMessage("Introduce un correo válido.", 400);
   }
 
   try {
     await revokeByEmail(email);
     return jsonMessage(
-      "Si ese email estaba registrado, hemos retirado el consentimiento comercial asociado.",
+      "Si ese correo estaba registrado, hemos retirado el consentimiento comercial asociado.",
       200,
     );
   } catch (error) {
-    console.error("Failed to revoke commercial consent by email.", error);
+    console.error("Failed to revoke commercial consent by correo.", error);
     return jsonMessage(
       "No pudimos procesar la revocación ahora mismo. Inténtalo de nuevo en unos minutos.",
       500,

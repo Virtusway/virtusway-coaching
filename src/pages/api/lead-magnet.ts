@@ -169,11 +169,11 @@ export const POST: APIRoute = async ({ request }) => {
   const commercialConsent = readCheckbox(formData, "commercialConsent");
 
   if (!email) {
-    return respond("El email es obligatorio.", 400);
+    return respond("El correo es obligatorio.", 400);
   }
 
   if (!EMAIL_PATTERN.test(email)) {
-    return respond("Introduce un email válido.", 400);
+    return respond("Introduce un correo válido.", 400);
   }
 
   if (!commercialConsent) {
