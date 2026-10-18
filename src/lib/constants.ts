@@ -12,6 +12,8 @@ export const BOOKINGS_URLS = {
 };
 
 export const CONTACT_EMAIL = "coach@virtusway.com";
+/** Address Microsoft Bookings sends the confirmation from. */
+export const BOOKINGS_SENDER_EMAIL = "mauricio.magni@virtusway.com";
 
 export const SOCIAL_URLS = {
   website: "https://www.virtusway.com",
