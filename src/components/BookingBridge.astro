@@ -4,7 +4,7 @@
  * is being booked and what happens after leaving the site. The default slot
  * holds the "¿Qué estás reservando?" copy.
  */
-import { CONTACT_EMAIL } from "../lib/constants";
+import { BOOKINGS_SENDER_EMAIL, CONTACT_EMAIL } from "../lib/constants";
 
 interface Props {
   eyebrow: string;
@@ -22,7 +22,7 @@ const bookingHost = new URL(bookingUrl).hostname;
 const steps = [
   {
     title: "Se abre Microsoft Bookings",
-    text: "Al pulsar «Elegir día y hora» sales a la página de Microsoft Bookings ({bookingHost}), la herramienta con la que gestiono mis citas. No necesitas una cuenta de Microsoft.",
+    text: `Al pulsar «Elegir día y hora» se abre en una pestaña nueva la página de Microsoft Bookings (${bookingHost}), la herramienta con la que gestiono mis citas. No necesitas una cuenta de Microsoft.`,
   },
   {
     title: "Eliges día y hora",
@@ -85,23 +85,40 @@ const steps = [
         </div>
 
         <div class="mt-9 flex flex-col sm:flex-row">
-          <a href={bookingUrl} target="_blank" class="btn btn-primary justify-center">
+          <a
+            href={bookingUrl}
+            target="_blank"
+            rel="noopener"
+            class="btn btn-primary justify-center"
+          >
             Elegir día y hora
             <span class="arrow" aria-hidden="true">→</span>
+            <span class="sr-only">(se abre en una pestaña nueva)</span>
           </a>
         </div>
 
-        <p
-          class="mt-6 max-w-2xl rounded-2xl border border-rule bg-paper/70 px-5 py-4 text-[0.92rem] leading-[1.65] text-ink-muted"
+        <div
+          class="mt-6 max-w-2xl overflow-hidden rounded-2xl border border-rule bg-paper/70 text-[0.92rem] leading-[1.65] text-ink-muted"
         >
-          <strong class="text-ink">Sigues reservando conmigo.</strong>
-          El calendario se abre en Microsoft Bookings,
-          la herramienta con la que gestiono las citas. Eliges día y hora,
-          y la reserva se confirma allí mismo.<br />
-          Agenda mi correo a tus contactos para que la confirmación
-          <strong>no vaya a spam</strong>:
-          <a href="mailto:mauricio.magni@virtusway.com">mauricio.magni@virtusway.com</a>
-        </p>
+          <p class="px-5 py-4">
+            <strong class="text-ink">Sigues reservando conmigo.</strong>
+            El calendario se abre en una pestaña nueva, en Microsoft Bookings, la
+            herramienta con la que gestiono las citas. Eliges día y hora, y la
+            reserva se confirma allí mismo.
+          </p>
+          <p
+            class="border-t border-rule border-l-4 border-l-leaf-deep bg-leaf/10 px-5 py-4"
+          >
+            <strong class="text-ink">Antes de reservar:</strong> agenda mi correo
+            en tus contactos para que la confirmación
+            <strong class="text-ink">no vaya a spam</strong>.
+            <a
+              href={`mailto:${BOOKINGS_SENDER_EMAIL}`}
+              class="mt-1 block w-fit break-all font-semibold text-deep underline decoration-leaf-deep decoration-1 underline-offset-4 hover:decoration-2"
+              >{BOOKINGS_SENDER_EMAIL}</a
+            >
+          </p>
+        </div>
       </div>
     </article>
 
