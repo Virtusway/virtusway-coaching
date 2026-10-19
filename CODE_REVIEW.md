@@ -2,6 +2,35 @@
 
 Reviewed: 2026-07-18 · Scope: full repo (`src/`, `public/`, config). Overall the codebase is clean, small, and well-structured: strict TypeScript, sensible Drizzle schema, HTML-escaping in emails, enumeration-safe API responses, and good accessibility touches (aria-live, sr-only labels, reduced-motion support). The findings below are ordered by priority.
 
+## Estado a 19 de octubre de 2026
+
+Verificado en local: `pnpm check` sin errores ni warnings y `pnpm build` correcto (11 rutas prerenderizadas + función SSR). El detalle de cada punto se mantiene abajo como histórico de decisiones.
+
+**Cerrado**
+
+- §1 (parte) — honeypot `sitio-web` y throttle de 10 minutos por email en `lead-magnet.ts`. Queda el rate limit por IP.
+- §2 — las URLs del correo se construyen desde `SITE_ORIGIN`, nunca desde el `Host` de la petición.
+- §3 — «and» → «y» corregido en `mujeres-profesionales.astro`.
+- §4 — `robots.txt` sin `.html`, `noindex` en páginas gated y legales, y filtro equivalente en el sitemap.
+- §5 — booking, correo de contacto y redes centralizados en `src/lib/constants.ts`.
+- §7 — `astro:env` con `envField` para los tres secretos.
+- §8 — el formulario tiene `action`/`method` y el botón ya no sale deshabilitado en el HTML.
+- §9 — woff2 con `preload` en `Layout.astro`.
+- §10 — `public/_headers` con `X-Frame-Options`, `nosniff`, `Referrer-Policy`, `Permissions-Policy` y CSP mínima.
+- §11 — helpers compartidos en `src/lib/api-utils.ts`.
+- §13 — README reescrito con env, comandos, DB y deploy.
+- §14 — `build` ejecuta `astro check`; `@astrojs/check` y `typescript` instalados.
+- §15 (parte) — `name="twitter:*"` conforme a la especificación.
+- §16 (parte) — `schemaMarkup` tipado como `Record<string, unknown>` y `GET` de `revoke-consent` eliminado.
+- **Host canónico** — desde el 19/10/2026 `virtusway.com` es el dominio primario en Netlify y `www` redirige hacia él con un solo salto. Canonical, `og:url`, JSON-LD y sitemap ya apuntan a URLs que responden 200, sin cambios de código. Verificado en vivo: apex 200, `https://www.virtusway.com/` 301 → apex.
+
+**Abierto — pendiente de decisión**
+
+- §1 (resto) — no hay rate limit por IP: el throttle actual es por correo, así que se puede disparar el envío a N direcciones distintas desde el mismo origen.
+- §6 — `revoke-consent` sigue permitiendo revocar el consentimiento de cualquier correo sin verificar propiedad.
+- §12 — el PDF del lead magnet se sirve estáticamente.
+- §15 (resto) — la imagen Open Graph sigue siendo `personal-image.jpeg` (retrato); conviene una tarjeta 1200×630.
+
 ---
 
 ## High priority

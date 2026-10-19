@@ -12,8 +12,9 @@
 *   **Andrés** trabaja en el diseño de interfaz y frontend, utilizando ramas de Git (`branches`) o repositorios paralelos (forks) para experimentar y mostrar avances al cliente antes de integrarlos a la rama principal (`main` / `master`).
 
 ## 3. Tecnologías Clave (Frontend)
-*   **Framework:** Astro 6.x.
-*   **Estilos:** Tailwind CSS v4.
+*   **Framework:** Astro 7.x (páginas estáticas + endpoints on-demand con `prerender = false`).
+*   **Estilos:** Tailwind CSS v4 (vía `@tailwindcss/vite`).
+*   **Datos:** Drizzle ORM sobre Neon Postgres (`src/db/schema.ts`, migraciones en `drizzle/`).
 *   **Despliegue/Hosting:** Netlify (detectado por `@astrojs/netlify` en `astro.config.mjs`).
 
 ## 4. Directrices de Desarrollo y Git (Decision Log)
