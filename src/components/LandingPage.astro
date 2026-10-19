@@ -73,42 +73,31 @@ const bookingUrl = BOOKING_PATH;
   <div aria-hidden="true" class="absolute inset-0 -z-10 pointer-events-none">
     <div
       class="absolute -top-40 -right-28 w-160 h-160 rounded-full opacity-40 blur-3xl drift"
-      style="background: radial-gradient(circle, rgba(82,194,230,0.42), transparent 62%);"
-    >
-    </div>
+      style="background: radial-gradient(circle, rgba(82, 194, 230, 0.42), transparent 62%)"
+    ></div>
     <div
       class="absolute top-[34%] -left-40 w-130 h-130 rounded-full opacity-25 blur-3xl"
-      style="background: radial-gradient(circle, rgba(0,203,151,0.34), transparent 62%);"
-    >
-    </div>
+      style="background: radial-gradient(circle, rgba(0, 203, 151, 0.34), transparent 62%)"
+    ></div>
   </div>
 
-  <div
-    class="max-w-310 mx-auto w-full min-w-0 px-6 md:px-10 pt-14 md:pt-22 pb-18 md:pb-28"
-  >
+  <div class="max-w-310 mx-auto w-full min-w-0 px-6 md:px-10 pt-14 md:pt-22 pb-18 md:pb-28">
     <div
       class={`relative min-w-0 overflow-hidden rounded-[38px] px-7 py-10 md:p-14 lg:p-18 ${heroText}`}
       style={`background: ${heroBackground};`}
     >
-      <div
-        class="absolute inset-0 contour opacity-35 mix-blend-overlay"
-        aria-hidden="true"
-      >
-      </div>
+      <div class="absolute inset-0 contour opacity-35 mix-blend-overlay" aria-hidden="true"></div>
       <div
         aria-hidden="true"
         class="absolute -bottom-28 -right-24 w-100 h-100 rounded-full opacity-35 blur-3xl"
-        style="background: radial-gradient(circle, rgba(0,203,151,0.48), transparent 72%);"
-      >
-      </div>
+        style="background: radial-gradient(circle, rgba(0, 203, 151, 0.48), transparent 72%)"
+      ></div>
 
       <div
         class="relative grid min-w-0 grid-cols-1 gap-y-10 items-end lg:grid-cols-12 lg:gap-x-10 lg:gap-y-10"
       >
         <div class="min-w-0 lg:col-span-8">
-          <p
-            class={`eyebrow eyebrow-with-rule rise ${isTic ? "text-on-dark-accent" : ""}`}
-          >
+          <p class={`eyebrow eyebrow-with-rule rise ${isTic ? "text-on-dark-accent" : ""}`}>
             <span
               class={`w-8 h-px shrink-0 ${isTic ? "bg-on-dark-accent" : "bg-leaf-deep"}`}
             ></span>
@@ -117,14 +106,16 @@ const bookingUrl = BOOKING_PATH;
 
           <h1
             class="mt-6 font-display text-[1.85rem] sm:text-[2.4rem] md:text-[3.1rem] lg:text-[3.6rem] leading-[1.1] tracking-[-0.03em] rise"
-            style="animation-delay: 120ms;"
+            style="animation-delay: 120ms"
           >
             {(() => {
               const parts = hook.split(/(?<=[.?!])\s+/);
               if (parts.length > 1) {
                 return (
                   <>
-                    <span class={`block text-[0.65em] font-light ${isTic ? 'text-white/70' : 'text-ink/70'} mb-3 md:mb-4 leading-tight tracking-normal`}>
+                    <span
+                      class={`block text-[0.65em] font-light ${isTic ? "text-white/70" : "text-ink/70"} mb-3 md:mb-4 leading-tight tracking-normal`}
+                    >
                       {parts[0]}
                     </span>
                     <span class={`block font-semibold ${accent}`}>
@@ -139,15 +130,12 @@ const bookingUrl = BOOKING_PATH;
 
           <div
             class={`mt-8 max-w-2xl space-y-5 text-[1.08rem] md:text-[1.2rem] leading-[1.65] ${heroMuted} rise`}
-            style="animation-delay: 260ms;"
+            style="animation-delay: 260ms"
           >
             {intro.map((paragraph) => <p>{paragraph}</p>)}
           </div>
 
-          <div
-            class="mt-9 flex flex-wrap items-center gap-4 rise"
-            style="animation-delay: 390ms;"
-          >
+          <div class="mt-9 flex flex-wrap items-center gap-4 rise" style="animation-delay: 390ms">
             <a
               href={bookingUrl}
               class="btn btn-primary bg-leaf! text-ink! hover:bg-paper! hover:text-deep!"
@@ -165,48 +153,44 @@ const bookingUrl = BOOKING_PATH;
 
           <p
             class={`mt-5 max-w-xl text-[0.9rem] leading-relaxed ${heroMuted} rise`}
-            style="animation-delay: 500ms;"
+            style="animation-delay: 500ms"
           >
-            Sesión de exploración online, gratuita y sin compromiso para
-            entender tu situación y decidir si tiene sentido avanzar.
+            Sesión de exploración online, gratuita y sin compromiso para entender tu situación y
+            decidir si tiene sentido avanzar.
           </p>
         </div>
 
         <aside
           class="min-w-0 lg:col-span-4 lg:pl-6 lg:border-l border-white/20 rise"
-          style="animation-delay: 340ms;"
+          style="animation-delay: 340ms"
         >
           <p class={`eyebrow ${isTic ? "text-on-dark-muted" : ""}`}>
             {heroLabel}
           </p>
-          <p
-            class="mt-4 font-display text-[1.45rem] md:text-[1.7rem] leading-[1.3]"
-          >
+          <p class="mt-4 font-display text-[1.45rem] md:text-[1.7rem] leading-[1.3]">
             Un acompañamiento
             <span class={`font-display-italic ${accent}`}> a medida</span>
             para alinear decisiones, liderazgo y contexto.
           </p>
           <div class="hairline mt-7 opacity-70"></div>
           <ul class={`mt-6 space-y-3.5 text-[0.94rem] ${heroMuted}`}>
-            {heroHighlights.map((item) => (
-              <li class="flex items-start gap-3.5 leading-snug">
-                <svg 
-                  width="18" 
-                  height="18" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  stroke-width="1.8" 
-                  stroke-linecap="round" 
-                  stroke-linejoin="round"
-                  class={`mt-0.5 shrink-0 ${isTic ? 'text-on-dark-accent' : 'text-leaf-deep'}`}
-                  aria-hidden="true"
-                >
-                  <path d={item.iconPath} />
-                </svg>
-                <span class="min-w-0">{item.text}</span>
-              </li>
-            ))}
+            {heroHighlights.map((item) => <li class="flex items-start gap-3.5 leading-snug">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class={`mt-0.5 shrink-0 ${isTic ? "text-on-dark-accent" : "text-leaf-deep"}`}
+                aria-hidden="true"
+              >
+                <path d={item.iconPath} />
+              </svg>
+              <span class="min-w-0">{item.text}</span>
+            </li>)}
           </ul>
         </aside>
       </div>
@@ -229,9 +213,7 @@ const bookingUrl = BOOKING_PATH;
       </div>
     </div>
 
-    <div
-      class="mt-10 max-w-4xl space-y-5 text-[1.02rem] leading-[1.72] text-ink-muted reveal"
-    >
+    <div class="mt-10 max-w-4xl space-y-5 text-[1.02rem] leading-[1.72] text-ink-muted reveal">
       {challenge.map((paragraph) => <p>{paragraph}</p>)}
     </div>
   </div>
@@ -251,50 +233,36 @@ const bookingUrl = BOOKING_PATH;
           class="mt-4 font-display text-[2rem] md:text-[2.85rem] leading-[1.08] tracking-[-0.03em] text-ink"
           set:html={approachTitle}
         />
-        <div
-          class="mt-8 space-y-5 text-[1.02rem] leading-[1.72] text-ink-muted max-w-2xl"
-        >
+        <div class="mt-8 space-y-5 text-[1.02rem] leading-[1.72] text-ink-muted max-w-2xl">
           <p>{approachLead}</p>
           {approachParagraphs.map((paragraph) => <p>{paragraph}</p>)}
         </div>
       </div>
 
-      <div
-        class="min-w-0 lg:col-span-5 reveal"
-        style="transition-delay: 100ms;"
-      >
-        <div
-          class="rounded-4xl p-8 md:p-10 border border-rule bg-white/65 min-w-0"
-        >
+      <div class="min-w-0 lg:col-span-5 reveal" style="transition-delay: 100ms">
+        <div class="rounded-4xl p-8 md:p-10 border border-rule bg-white/65 min-w-0">
           <p class="eyebrow">Qué incluye</p>
-          {
-            approachItems.length ? (
-              <ul class="mt-6 space-y-4 text-[0.97rem] leading-[1.65] text-ink-muted">
-                {approachItems.map((item) => (
-                  <li>
-                    <span class="text-ink font-semibold">{item.label}:</span>{" "}
-                    {item.body}
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p class="mt-6 text-[0.97rem] leading-[1.65] text-ink-muted">
-                Un proceso diseñado para traducir reflexión profunda en
-                decisiones y acciones sostenibles, desde tu experiencia y tu
-                contexto real.
+          {approachItems.length ? (
+            <ul class="mt-6 space-y-4 text-[0.97rem] leading-[1.65] text-ink-muted">
+              {approachItems.map((item) => <li>
+                <span class="text-ink font-semibold">{item.label}:</span>{" "}
+                {item.body}
+              </li>)}
+            </ul>
+          ) : (
+            <p class="mt-6 text-[0.97rem] leading-[1.65] text-ink-muted">
+              Un proceso diseñado para traducir reflexión profunda en decisiones y acciones
+              sostenibles, desde tu experiencia y tu contexto real.
+            </p>
+          )}
+          {approachFootnote && (
+            <>
+              <div class="hairline mt-8" />
+              <p class="mt-6 text-[0.95rem] leading-[1.65] text-ink-muted">
+                {approachFootnote}
               </p>
-            )
-          }
-          {
-            approachFootnote && (
-              <>
-                <div class="hairline mt-8" />
-                <p class="mt-6 text-[0.95rem] leading-[1.65] text-ink-muted">
-                  {approachFootnote}
-                </p>
-              </>
-            )
-          }
+            </>
+          )}
         </div>
       </div>
     </div>
@@ -314,13 +282,14 @@ const bookingUrl = BOOKING_PATH;
           <div
             aria-hidden="true"
             class="absolute -top-12 -right-12 w-48 h-48 rounded-full opacity-20 blur-2xl pointer-events-none"
-            style="background: radial-gradient(circle, rgba(0,203,151,0.4), transparent 70%);"
-          >
-          </div>
+            style="background: radial-gradient(circle, rgba(0, 203, 151, 0.4), transparent 70%)"
+          ></div>
 
           <!-- Coach Author -->
           <div class="flex items-center gap-3.5 mb-6 relative">
-            <div class="w-12 h-12 rounded-full overflow-hidden border border-leaf-deep/20 shadow-sm shrink-0">
+            <div
+              class="w-12 h-12 rounded-full overflow-hidden border border-leaf-deep/20 shadow-sm shrink-0"
+            >
               <img
                 src="/personal-image.jpeg"
                 alt="Mauricio Magni Manchón"
@@ -330,29 +299,26 @@ const bookingUrl = BOOKING_PATH;
             </div>
             <div class="min-w-0">
               <p class="font-display text-[0.98rem] text-ink truncate">Mauricio Magni Manchón</p>
-              <p class="text-[0.72rem] eyebrow tracking-[0.15em] text-ink-muted mt-0.5">Coach integrativo</p>
+              <p class="text-[0.72rem] eyebrow tracking-[0.15em] text-ink-muted mt-0.5">
+                Coach integrativo
+              </p>
             </div>
           </div>
 
           <p class="eyebrow">Base del acompañamiento</p>
-          <p
-            class="mt-4 font-display text-[1.45rem] md:text-[1.7rem] leading-[1.3] text-ink"
-          >
-            35 años en tecnología y una práctica de coaching centrada en
-            coherencia, comunicación y propósito.
+          <p class="mt-4 font-display text-[1.45rem] md:text-[1.7rem] leading-[1.3] text-ink">
+            35 años en tecnología y una práctica de coaching centrada en coherencia, comunicación y
+            propósito.
           </p>
           <div class="hairline mt-6"></div>
           <p class="mt-6 text-[0.95rem] leading-[1.65] text-ink-muted">
-            Una mirada integrativa para acompañar decisiones complejas sin
-            perder profundidad ni sentido práctico.
+            Una mirada integrativa para acompañar decisiones complejas sin perder profundidad ni
+            sentido práctico.
           </p>
         </div>
       </div>
 
-      <div
-        class="min-w-0 lg:col-span-7 reveal"
-        style="transition-delay: 100ms;"
-      >
+      <div class="min-w-0 lg:col-span-7 reveal" style="transition-delay: 100ms">
         <p class="eyebrow eyebrow-with-rule">
           <span class="w-8 h-px shrink-0 bg-leaf-deep"></span>
           <span class="min-w-0">Por qué este proceso</span>
@@ -361,9 +327,7 @@ const bookingUrl = BOOKING_PATH;
           class="mt-4 font-display text-[2rem] md:text-[2.85rem] leading-[1.08] tracking-[-0.03em] text-ink"
           set:html={whyTitle}
         />
-        <div
-          class="mt-8 space-y-5 text-[1.02rem] leading-[1.72] text-ink-muted max-w-2xl"
-        >
+        <div class="mt-8 space-y-5 text-[1.02rem] leading-[1.72] text-ink-muted max-w-2xl">
           {why.map((paragraph) => <p>{paragraph}</p>)}
         </div>
       </div>
@@ -375,19 +339,17 @@ const bookingUrl = BOOKING_PATH;
   <div class="max-w-310 mx-auto w-full min-w-0 px-6 md:px-10 py-20 md:py-28">
     <div
       class="relative min-w-0 overflow-hidden rounded-[36px] reveal"
-      style="background: linear-gradient(160deg, #0a4d7a 0%, #082438 70%, #061a28 100%);"
+      style="background: linear-gradient(160deg, #0a4d7a 0%, #082438 70%, #061a28 100%)"
     >
       <div
         aria-hidden="true"
         class="absolute -top-32 -right-24 w-115 h-115 rounded-full opacity-50 blur-3xl"
-        style="background: radial-gradient(circle, rgba(0,203,151,0.5), transparent 70%);"
-      >
-      </div>
+        style="background: radial-gradient(circle, rgba(0, 203, 151, 0.5), transparent 70%)"
+      ></div>
       <div
         aria-hidden="true"
         class="absolute inset-0 contour opacity-[0.4] mix-blend-overlay"
-      >
-      </div>
+      ></div>
 
       <div
         class="relative grid min-w-0 grid-cols-1 gap-y-10 p-8 text-paper md:p-14 lg:grid-cols-12 lg:gap-x-10 lg:gap-y-0 lg:p-18"
@@ -401,19 +363,21 @@ const bookingUrl = BOOKING_PATH;
             class="mt-5 font-display text-[2rem] md:text-[3.1rem] leading-[1.04] tracking-[-0.03em]"
             set:html={questionTitle}
           />
-          {
-            questionBody && (
-              <p class="mt-7 text-[1.38rem] sm:text-[1.55rem] md:text-[1.72rem] leading-[1.5] max-w-2xl text-on-dark-muted font-light italic">
-                {questionBody}
-              </p>
-            )
-          }
+          {questionBody && <p
+            class="mt-7 text-[1.38rem] sm:text-[1.55rem] md:text-[1.72rem] leading-[1.5] max-w-2xl text-on-dark-muted font-light italic"
+          >
+            {questionBody}
+          </p>}
         </div>
 
         <div class="min-w-0 lg:col-span-5">
           <div
             class="min-w-0 rounded-3xl p-7 md:p-8 border"
-            style="background: rgba(255,255,255,0.06); border-color: rgba(203,220,229,0.2); backdrop-filter: blur(6px);"
+            style="
+              background: rgba(255, 255, 255, 0.06);
+              border-color: rgba(203, 220, 229, 0.2);
+              backdrop-filter: blur(6px);
+            "
           >
             <p class="font-display text-[1.2rem]">{ctaTitle}</p>
             <p class="mt-5 text-[0.98rem] leading-[1.7] text-on-dark-muted">
@@ -437,10 +401,16 @@ const bookingUrl = BOOKING_PATH;
                     : "¿Buscas acompañamiento para tu equipo?"}
                 </span>
                 <span class="inline-flex items-center gap-1.5">
-                  <span class="group-hover:underline underline-offset-4 decoration-white/20 group-hover:decoration-current">
+                  <span
+                    class="group-hover:underline underline-offset-4 decoration-white/20 group-hover:decoration-current"
+                  >
                     {isTic ? "Ver Mujeres profesionales" : "Ver Equipos TIC"}
                   </span>
-                  <span aria-hidden="true" class="inline-block transition-transform duration-300 group-hover:translate-x-0.5">→</span>
+                  <span
+                    aria-hidden="true"
+                    class="inline-block transition-transform duration-300 group-hover:translate-x-0.5"
+                    >→</span
+                  >
                 </span>
               </a>
             </div>
@@ -451,44 +421,53 @@ const bookingUrl = BOOKING_PATH;
   </div>
 </section>
 
-{faqItems && faqItems.length > 0 && (
-  <section id="faq" class="relative overflow-hidden bg-paper-warm/40 border-t border-rule/70">
-    <div aria-hidden="true" class="absolute inset-0 -z-10 pointer-events-none">
-      <div
-        class="absolute -top-32 -left-24 w-110 h-110 rounded-full opacity-15 blur-3xl"
-        style="background: radial-gradient(circle, rgba(0,203,151,0.3), transparent 70%);"
-      >
-      </div>
-    </div>
-    
-    <div class="max-w-310 mx-auto w-full min-w-0 px-6 md:px-10 py-18 md:py-26 reveal">
-      <div class="text-center max-w-2xl mx-auto mb-14">
-        <p class="eyebrow eyebrow-with-rule justify-center">
-          <span class="w-8 h-px shrink-0 bg-leaf-deep"></span>
-          <span class="min-w-0">Preguntas Frecuentes</span>
-          <span class="w-8 h-px shrink-0 bg-leaf-deep"></span>
-        </p>
-        <h2 class="mt-5 font-display text-[2.1rem] md:text-[2.85rem] leading-[1.08] tracking-[-0.03em] text-ink">
-          Resolver tus <span class="font-display-italic text-deep">dudas</span>
-        </h2>
-      </div>
+{faqItems && faqItems.length > 0 && <section
+  id="faq"
+  class="relative overflow-hidden bg-paper-warm/40 border-t border-rule/70"
+>
+  <div aria-hidden="true" class="absolute inset-0 -z-10 pointer-events-none">
+    <div
+      class="absolute -top-32 -left-24 w-110 h-110 rounded-full opacity-15 blur-3xl"
+      style="background: radial-gradient(circle, rgba(0, 203, 151, 0.3), transparent 70%)"
+    ></div>
+  </div>
 
-      <div class="space-y-4 max-w-3xl mx-auto">
-        {faqItems.map((item) => (
-          <details class="group rounded-3xl border border-rule/80 bg-white/60 p-5 md:p-6 transition-all duration-300 hover:border-leaf/40 hover:bg-white/80 [&_summary::-webkit-details-marker]:hidden">
-            <summary class="flex justify-between items-center cursor-pointer font-display text-[1.05rem] md:text-[1.12rem] text-ink font-medium select-none list-none">
-              <span>{item.question}</span>
-              <span class="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-rule text-[1.3rem] font-light text-ink-soft transition-transform duration-300 group-open:rotate-45">+</span>
-            </summary>
-            <p class="mt-4 text-[0.96rem] md:text-[1rem] leading-relaxed text-ink-muted border-t border-rule/50 pt-4">
-              {item.answer}
-            </p>
-          </details>
-        ))}
-      </div>
+  <div class="max-w-310 mx-auto w-full min-w-0 px-6 md:px-10 py-18 md:py-26 reveal">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <p class="eyebrow eyebrow-with-rule justify-center">
+        <span class="w-8 h-px shrink-0 bg-leaf-deep"></span>
+        <span class="min-w-0">Preguntas Frecuentes</span>
+        <span class="w-8 h-px shrink-0 bg-leaf-deep"></span>
+      </p>
+      <h2
+        class="mt-5 font-display text-[2.1rem] md:text-[2.85rem] leading-[1.08] tracking-[-0.03em] text-ink"
+      >
+        Resolver tus <span class="font-display-italic text-deep">dudas</span>
+      </h2>
     </div>
-  </section>
-)}
+
+    <div class="space-y-4 max-w-3xl mx-auto">
+      {faqItems.map((item) => <details
+        class="group rounded-3xl border border-rule/80 bg-white/60 p-5 md:p-6 transition-all duration-300 hover:border-leaf/40 hover:bg-white/80 [&_summary::-webkit-details-marker]:hidden"
+      >
+        <summary
+          class="flex justify-between items-center cursor-pointer font-display text-[1.05rem] md:text-[1.12rem] text-ink font-medium select-none list-none"
+        >
+          <span>{item.question}</span>
+          <span
+            class="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-rule text-[1.3rem] font-light text-ink-soft transition-transform duration-300 group-open:rotate-45"
+            >+</span
+          >
+        </summary>
+        <p
+          class="mt-4 text-[0.96rem] md:text-[1rem] leading-relaxed text-ink-muted border-t border-rule/50 pt-4"
+        >
+          {item.answer}
+        </p>
+      </details>)}
+    </div>
+  </div>
+</section>}
 
 <style>
   /* Habilitar la transición de tamaños dinámicos (auto) en CSS moderno */
@@ -501,9 +480,9 @@ const bookingUrl = BOOKING_PATH;
     opacity: 0;
     block-size: 0;
     overflow: hidden;
-    transition: 
-      content-visibility 300ms allow-discrete, 
-      opacity 300ms ease, 
+    transition:
+      content-visibility 300ms allow-discrete,
+      opacity 300ms ease,
       block-size 300ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 

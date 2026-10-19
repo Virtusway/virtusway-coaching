@@ -48,20 +48,20 @@ const isSplit = typeof parts !== "string";
   <main>
     <!-- Hero -->
     <section class="relative overflow-hidden">
-      <div
-        aria-hidden="true"
-        class="absolute inset-0 -z-10 pointer-events-none"
-      >
+      <div aria-hidden="true" class="absolute inset-0 -z-10 pointer-events-none">
         <div
           class="absolute -top-32 -right-24 w-130 h-130 rounded-full opacity-30 blur-3xl"
-          style="background: radial-gradient(circle at 50% 50%, rgba(143,198,223,0.5), transparent 60%);"
-        >
-        </div>
+          style="
+            background: radial-gradient(
+              circle at 50% 50%,
+              rgba(143, 198, 223, 0.5),
+              transparent 60%
+            );
+          "
+        ></div>
       </div>
 
-      <div
-        class="max-w-275 mx-auto w-full min-w-0 px-6 md:px-10 pt-12 md:pt-16 pb-10 md:pb-14"
-      >
+      <div class="max-w-275 mx-auto w-full min-w-0 px-6 md:px-10 pt-12 md:pt-16 pb-10 md:pb-14">
         <a
           href="/"
           class="inline-flex items-center gap-2 eyebrow hover:text-deep transition-colors"
@@ -82,35 +82,29 @@ const isSplit = typeof parts !== "string";
             <h1
               class="mt-5 font-display text-[2.4rem] md:text-[3.6rem] leading-[1.04] tracking-[-0.035em] text-ink rise"
             >
-              {
-                isSplit ? (
-                  <>
-                    {parts.before}
-                    <span class="font-display-italic text-deep">
-                      {parts.accent}
-                    </span>
-                    {parts.after}
-                  </>
-                ) : (
-                  parts
-                )
-              }
+              {isSplit ? (
+                <>
+                  {parts.before}
+                  <span class="font-display-italic text-deep">
+                    {parts.accent}
+                  </span>
+                  {parts.after}
+                </>
+              ) : (
+                parts
+              )}
             </h1>
 
-            {
-              lead && (
-                <p class="mt-6 max-w-2xl text-[1.05rem] md:text-[1.12rem] leading-[1.65] text-ink-muted">
-                  {lead}
-                </p>
-              )
-            }
+            {lead && <p
+              class="mt-6 max-w-2xl text-[1.05rem] md:text-[1.12rem] leading-[1.65] text-ink-muted"
+            >
+              {lead}
+            </p>}
           </div>
 
           <div class="min-w-0 lg:col-span-3 lg:text-right">
             <p class="eyebrow">Última actualización</p>
-            <p
-              class="mt-2 font-sans text-leaf-deep text-[1.05rem] font-semibold"
-            >
+            <p class="mt-2 font-sans text-leaf-deep text-[1.05rem] font-semibold">
               {lastUpdated}
             </p>
           </div>
@@ -122,12 +116,8 @@ const isSplit = typeof parts !== "string";
 
     <!-- Document body -->
     <section class="relative">
-      <div
-        class="max-w-275 mx-auto w-full min-w-0 px-6 md:px-10 pb-20 md:pb-28"
-      >
-        <article
-          class="grid min-w-0 grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-x-10"
-        >
+      <div class="max-w-275 mx-auto w-full min-w-0 px-6 md:px-10 pb-20 md:pb-28">
+        <article class="grid min-w-0 grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-x-10">
           <div class="hidden lg:block lg:col-span-1">
             <!-- left margin gutter for breathing room / future TOC -->
           </div>
@@ -139,9 +129,7 @@ const isSplit = typeof parts !== "string";
         <!-- Closing strip -->
         <div class="mt-20 md:mt-28">
           <div class="hairline"></div>
-          <div
-            class="mt-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6"
-          >
+          <div class="mt-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <p
               class="font-display text-[1.35rem] md:text-[1.55rem] leading-snug text-ink max-w-2xl"
             >
@@ -160,43 +148,34 @@ const isSplit = typeof parts !== "string";
           </div>
 
           <!-- Cross-links -->
-          <nav
-            class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 text-[0.9rem]"
-          >
+          <nav class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 text-[0.9rem]">
             <a
               href="/legal/aviso-legal"
               class="block rounded-2xl border border-rule px-5 py-4 hover:border-deep transition-colors"
             >
               <span class="eyebrow">01</span>
-              <span class="block mt-2 font-display text-[1.05rem]"
-                >Aviso legal</span
-              >
+              <span class="block mt-2 font-display text-[1.05rem]">Aviso legal</span>
             </a>
             <a
               href="/legal/politica-privacidad"
               class="block rounded-2xl border border-rule px-5 py-4 hover:border-deep transition-colors"
             >
               <span class="eyebrow">02</span>
-              <span class="block mt-2 font-display text-[1.05rem]"
-                >Privacidad</span
-              >
+              <span class="block mt-2 font-display text-[1.05rem]">Privacidad</span>
             </a>
             <a
               href="/legal/politica-cookies"
               class="block rounded-2xl border border-rule px-5 py-4 hover:border-deep transition-colors"
             >
               <span class="eyebrow">03</span>
-              <span class="block mt-2 font-display text-[1.05rem]">Cookies</span
-              >
+              <span class="block mt-2 font-display text-[1.05rem]">Cookies</span>
             </a>
             <a
               href="/legal/compromiso-etico"
               class="block rounded-2xl border border-rule px-5 py-4 hover:border-deep transition-colors"
             >
               <span class="eyebrow">04</span>
-              <span class="block mt-2 font-display text-[1.05rem]"
-                >Ética · EMCC</span
-              >
+              <span class="block mt-2 font-display text-[1.05rem]">Ética · EMCC</span>
             </a>
           </nav>
         </div>

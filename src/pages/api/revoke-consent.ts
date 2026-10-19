@@ -58,10 +58,7 @@ export const POST: APIRoute = async ({ request }) => {
         return jsonMessage("El enlace de revocación no es válido.", 404);
       }
 
-      return jsonMessage(
-        "Tu consentimiento comercial ha sido revocado correctamente.",
-        200,
-      );
+      return jsonMessage("Tu consentimiento comercial ha sido revocado correctamente.", 200);
     } catch (error) {
       console.error("Failed to revoke commercial consent by token.", error);
       return jsonMessage(

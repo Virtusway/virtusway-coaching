@@ -38,13 +38,7 @@ const resolvedImageURL = new URL(image, Astro.site ?? "https://virtusway.com");
       href="/fonts/hoss-round-wide-light.woff2"
       crossorigin
     />
-    <link
-      rel="preload"
-      as="font"
-      type="font/woff2"
-      href="/fonts/nexa-regular.woff2"
-      crossorigin
-    />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/nexa-regular.woff2" crossorigin />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -66,11 +60,8 @@ const resolvedImageURL = new URL(image, Astro.site ?? "https://virtusway.com");
 
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    {schemaMarkup && (
-      <script type="application/ld+json" set:html={JSON.stringify(schemaMarkup)} />
-    )}
+    {schemaMarkup && <script type="application/ld+json" set:html={JSON.stringify(schemaMarkup)} />}
   </head>
-
 
   <body>
     <slot />
