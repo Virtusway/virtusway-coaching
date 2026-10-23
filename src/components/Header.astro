@@ -24,9 +24,7 @@ import { BOOKING_PATH } from "../lib/constants";
           decoding="async"
         />
         <span class="hidden lg:flex min-w-0 flex-col justify-center py-1">
-          <span
-            class="truncate text-[0.82rem] font-medium leading-[1.35] text-ink"
-          >
+          <span class="truncate text-[0.82rem] font-medium leading-[1.35] text-ink">
             Mauricio Magni Manchón
           </span>
           <span
@@ -37,17 +35,11 @@ import { BOOKING_PATH } from "../lib/constants";
         </span>
       </a>
 
-      <nav
-        class="hidden min-w-0 md:flex items-center gap-9 text-[0.92rem] text-ink"
-      >
-        <a href="/#audiencia" class="hover:text-deep transition-colors"
-          >Acompañamiento</a
-        >
+      <nav class="hidden min-w-0 md:flex items-center gap-9 text-[0.92rem] text-ink">
+        <a href="/#audiencia" class="hover:text-deep transition-colors">Acompañamiento</a>
         <a href="/#metodo" class="hover:text-deep transition-colors">Método</a>
         <a href="/#sobre" class="hover:text-deep transition-colors">Sobre mí</a>
-        <a href="/#contacto" class="hover:text-deep transition-colors"
-          >Contacto</a
-        >
+        <a href="/#contacto" class="hover:text-deep transition-colors">Contacto</a>
       </nav>
 
       <a
@@ -88,21 +80,20 @@ import { BOOKING_PATH } from "../lib/constants";
 </style>
 
 <script>
-  const header = document.getElementById('site-header');
-  
+  const header = document.getElementById("site-header");
+
   const handleScroll = () => {
     const currentScroll = window.scrollY;
     // Hysteresis: Shrink when scrolling past 80px, expand when scrolling back below 30px
     if (currentScroll > 80) {
-      header?.classList.add('scrolled');
+      header?.classList.add("scrolled");
     } else if (currentScroll < 30) {
-      header?.classList.remove('scrolled');
+      header?.classList.remove("scrolled");
     }
   };
 
   // Run immediately to set initial state on page load (e.g. if loaded mid-page)
   handleScroll();
 
-  window.addEventListener('scroll', handleScroll, { passive: true });
+  window.addEventListener("scroll", handleScroll, { passive: true });
 </script>
-

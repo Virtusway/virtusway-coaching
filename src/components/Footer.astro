@@ -7,12 +7,12 @@ const year = new Date().getFullYear();
 <footer class="relative">
   <div
     class="border-t border-rule/70"
-    style="background: linear-gradient(180deg, rgba(244,247,249,0) 0%, rgba(232,241,246,0.6) 100%);"
+    style="
+      background: linear-gradient(180deg, rgba(244, 247, 249, 0) 0%, rgba(232, 241, 246, 0.6) 100%);
+    "
   >
     <div class="max-w-310 mx-auto w-full min-w-0 px-6 md:px-10 pt-16 pb-10">
-      <div
-        class="grid min-w-0 grid-cols-1 gap-10 md:grid-cols-12 md:gap-x-10 md:gap-y-10"
-      >
+      <div class="grid min-w-0 grid-cols-1 gap-10 md:grid-cols-12 md:gap-x-10 md:gap-y-10">
         <!-- Brand -->
         <div class="min-w-0 md:col-span-5">
           <a href="/" class="flex items-center gap-3 group">
@@ -27,9 +27,9 @@ const year = new Date().getFullYear();
             />
           </a>
           <p class="mt-5 max-w-md text-[0.96rem] leading-[1.65] text-ink-muted">
-            VirtusWay es coaching integrativo para profesionales con trayectoria
-            y equipos TIC. Fundado por Mauricio Magni Manchón, con una mirada
-            práctica, humana y sin recetas prefabricadas.
+            VirtusWay es coaching integrativo para profesionales con trayectoria y equipos TIC.
+            Fundado por Mauricio Magni Manchón, con una mirada práctica, humana y sin recetas
+            prefabricadas.
           </p>
         </div>
 
@@ -41,26 +41,18 @@ const year = new Date().getFullYear();
               <a href="/" class="hover:text-deep transition-colors">Inicio</a>
             </li>
             <li>
-              <a
-                href="/mujeres-profesionales"
-                class="hover:text-deep transition-colors"
+              <a href="/mujeres-profesionales" class="hover:text-deep transition-colors"
                 >Mujeres profesionales</a
               >
             </li>
             <li>
-              <a href="/equipos-tic" class="hover:text-deep transition-colors"
-                >Equipos TIC</a
-              >
+              <a href="/equipos-tic" class="hover:text-deep transition-colors">Equipos TIC</a>
             </li>
             <li>
-              <a href="/#guia" class="hover:text-deep transition-colors"
-                >Guía gratuita</a
-              >
+              <a href="/#guia" class="hover:text-deep transition-colors">Guía gratuita</a>
             </li>
             <li>
-              <a
-                href={BOOKING_PATH}
-                class="hover:text-deep transition-colors"
+              <a href={BOOKING_PATH} class="hover:text-deep transition-colors"
                 >Sesión de exploración</a
               >
             </li>
@@ -72,42 +64,30 @@ const year = new Date().getFullYear();
           <p class="eyebrow">Legal &amp; ética</p>
           <ul class="mt-4 space-y-2.5 text-[0.95rem]">
             <li>
-              <a
-                href="/legal/aviso-legal"
-                class="hover:text-deep transition-colors">Aviso legal</a
-              >
+              <a href="/legal/aviso-legal" class="hover:text-deep transition-colors">Aviso legal</a>
             </li>
             <li>
-              <a
-                href="/legal/politica-privacidad"
-                class="hover:text-deep transition-colors"
+              <a href="/legal/politica-privacidad" class="hover:text-deep transition-colors"
                 >Política de privacidad</a
               >
             </li>
             <li>
-              <a
-                href="/legal/politica-cookies"
-                class="hover:text-deep transition-colors">Política de cookies</a
+              <a href="/legal/politica-cookies" class="hover:text-deep transition-colors"
+                >Política de cookies</a
               >
             </li>
             <li>
-              <a
-                href="/legal/compromiso-etico"
-                class="hover:text-deep transition-colors"
+              <a href="/legal/compromiso-etico" class="hover:text-deep transition-colors"
                 >Compromiso ético · EMCC</a
               >
             </li>
             <li>
-              <a
-                href="/revocar-consentimiento"
-                class="hover:text-deep transition-colors"
+              <a href="/revocar-consentimiento" class="hover:text-deep transition-colors"
                 >Revocar consentimiento</a
               >
             </li>
           </ul>
-          <p class="mt-6 text-[0.85rem] text-ink-soft">
-            {CONTACT_EMAIL} · Valencia, España
-          </p>
+          <p class="mt-6 text-[0.85rem] text-ink-soft">{CONTACT_EMAIL} · Valencia, España</p>
         </div>
       </div>
 
@@ -116,9 +96,7 @@ const year = new Date().getFullYear();
       <div
         class="mt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-[0.82rem] text-ink-soft"
       >
-        <p>
-          © {year} VirtusWay · Mauricio Magni Manchón. Todos los derechos reservados.
-        </p>
+        <p>© {year} VirtusWay · Mauricio Magni Manchón. Todos los derechos reservados.</p>
         <p class="font-display-italic">VirtusWay® es marca registrada</p>
       </div>
     </div>

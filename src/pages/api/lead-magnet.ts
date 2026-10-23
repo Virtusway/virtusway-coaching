@@ -93,13 +93,7 @@ async function registerLead(email: string, name: string) {
   return registration.unsubscribeToken;
 }
 
-function buildEmail({
-  downloadUrl,
-  revokeUrl,
-}: {
-  downloadUrl: string;
-  revokeUrl: string;
-}) {
+function buildEmail({ downloadUrl, revokeUrl }: { downloadUrl: string; revokeUrl: string }) {
   const safeDownloadUrl = escapeHtml(downloadUrl);
   const safeRevokeUrl = escapeHtml(revokeUrl);
 
@@ -151,10 +145,7 @@ export const POST: APIRoute = async ({ request }) => {
       return jsonMessage(message, status);
     }
 
-    const redirectUrl = new URL(
-      status < 400 ? DOWNLOAD_PATH : "/#guia",
-      SITE_ORIGIN,
-    );
+    const redirectUrl = new URL(status < 400 ? DOWNLOAD_PATH : "/#guia", SITE_ORIGIN);
     return Response.redirect(redirectUrl, 303);
   };
 
@@ -177,18 +168,12 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   if (!commercialConsent) {
-    return respond(
-      "Para recibir la guía necesitamos tu consentimiento comercial explícito.",
-      400,
-    );
+    return respond("Para recibir la guía necesitamos tu consentimiento comercial explícito.", 400);
   }
 
   try {
     const lastRequestedAt = await findLastRequestedAt(email);
-    if (
-      lastRequestedAt &&
-      Date.now() - lastRequestedAt.getTime() < THROTTLE_WINDOW_MS
-    ) {
+    if (lastRequestedAt && Date.now() - lastRequestedAt.getTime() < THROTTLE_WINDOW_MS) {
       return respond(ALREADY_SENT_MESSAGE, 200);
     }
   } catch (error) {

@@ -2,9 +2,7 @@ import "dotenv/config";
 import { defineConfig } from "drizzle-kit";
 
 if (!process.env.DATABASE_URL) {
-  throw new Error(
-    "DATABASE_URL is required to run drizzle-kit. Set it in your .env file.",
-  );
+  throw new Error("DATABASE_URL is required to run drizzle-kit. Set it in your .env file.");
 }
 
 export default defineConfig({

@@ -83,16 +83,8 @@ html {
 body {
   min-width: 0;
   background:
-    radial-gradient(
-      1100px 600px at 88% -10%,
-      rgba(82, 194, 230, 0.2),
-      transparent 60%
-    ),
-    radial-gradient(
-      900px 500px at -10% 30%,
-      rgba(0, 203, 151, 0.07),
-      transparent 60%
-    ),
+    radial-gradient(1100px 600px at 88% -10%, rgba(82, 194, 230, 0.2), transparent 60%),
+    radial-gradient(900px 500px at -10% 30%, rgba(0, 203, 151, 0.07), transparent 60%),
     var(--color-paper);
 }
 
@@ -151,7 +143,6 @@ main {
 .eyebrow.text-ink-muted {
   color: var(--color-ink-muted);
 }
-
 
 /* Hairline + label: grid (not flex) so the label can shrink-wrap on narrow screens */
 .eyebrow-with-rule {
@@ -376,11 +367,7 @@ main {
   padding: 1rem 1.1rem 1.05rem;
   border: 1px solid rgba(159, 243, 204, 0.26);
   border-radius: 1.1rem;
-  background: linear-gradient(
-    145deg,
-    rgba(7, 33, 49, 0.94),
-    rgba(11, 56, 76, 0.96)
-  );
+  background: linear-gradient(145deg, rgba(7, 33, 49, 0.94), rgba(11, 56, 76, 0.96));
   box-shadow: 0 20px 45px rgba(4, 14, 22, 0.3);
   backdrop-filter: blur(18px);
   color: #f5fbfd;
@@ -390,11 +377,7 @@ main {
 
 .lead-toast[data-state="error"] {
   border-color: rgba(255, 210, 207, 0.28);
-  background: linear-gradient(
-    145deg,
-    rgba(59, 20, 24, 0.96),
-    rgba(96, 34, 41, 0.96)
-  );
+  background: linear-gradient(145deg, rgba(59, 20, 24, 0.96), rgba(96, 34, 41, 0.96));
 }
 
 .lead-toast__eyebrow {
