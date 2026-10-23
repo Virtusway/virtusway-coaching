@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "check": "vp check && astro check",
+    "check": "vp check && vp lint --deny-warnings && astro check",
     "lint": "vp lint --deny-warnings",
     "lint:fix": "vp lint --fix --deny-warnings",
     "format": "vp fmt",

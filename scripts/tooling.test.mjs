@@ -1,16 +1,18 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
-import { basename, dirname, join } from "node:path";
+import { mkdtempSync, readFileSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { basename, delimiter, dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { test } from "node:test";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 const vp = join(dirname(fileURLToPath(import.meta.resolve("vite-plus/package.json"))), "bin/vp");
 
-function runVp(args) {
+/** Runs the project-local CLI with a timeout and returns its status and diagnostics. */
+function runVp(args, { cwd = root } = {}) {
   const result = spawnSync(process.execPath, [vp, ...args], {
-    cwd: root,
+    cwd,
     encoding: "utf8",
     timeout: 30_000,
   });
@@ -72,6 +74,51 @@ test("Vite+ rejects lint errors and formatting drift, then accepts formatted fil
       formattedContents,
       "Formatting must be idempotent",
     );
+  } finally {
+    rmSync(fixtureDir, { recursive: true, force: true });
+  }
+});
+
+test("the project check script rejects warning-only lint results", () => {
+  const fixtureDir = mkdtempSync(join(tmpdir(), "virtusway-tooling-warning-"));
+  const { scripts } = JSON.parse(readFileSync(join(root, "package.json"), "utf8"));
+
+  try {
+    symlinkSync(join(root, "node_modules"), join(fixtureDir, "node_modules"), "junction");
+    writeFileSync(join(fixtureDir, ".gitignore"), "node_modules/\n.astro/\n");
+    writeFileSync(join(fixtureDir, "package.json"), '{"type":"module"}\n');
+    writeFileSync(
+      join(fixtureDir, "vite.config.ts"),
+      'import { defineConfig } from "vite-plus";\n\n' +
+        'export default defineConfig({ lint: { categories: { correctness: "warn" } }, fmt: {} });\n',
+    );
+    writeFileSync(join(fixtureDir, "warning.ts"), "debugger;\n");
+
+    const format = runVp(["fmt"], { cwd: fixtureDir });
+    assert.equal(format.status, 0, format.output);
+
+    const lint = runVp(["lint"], { cwd: fixtureDir });
+    assert.equal(lint.status, 0, lint.output);
+    assert.match(lint.output, /warning/i);
+    assert.match(lint.output, /no-debugger/);
+
+    // Execute the actual package script without invoking a package-manager install.
+    const check = spawnSync(scripts.check, {
+      cwd: fixtureDir,
+      shell: true,
+      encoding: "utf8",
+      timeout: 30_000,
+      env: {
+        ...process.env,
+        PATH: `${join(root, "node_modules/.bin")}${delimiter}${process.env.PATH}`,
+      },
+    });
+    assert.ifError(check.error);
+    assert.equal(check.signal, null, check.stderr);
+    const output = check.stdout + check.stderr;
+    assert.equal(check.status, 1, output);
+    assert.match(output, /warning/i);
+    assert.match(output, /no-debugger/);
   } finally {
     rmSync(fixtureDir, { recursive: true, force: true });
   }

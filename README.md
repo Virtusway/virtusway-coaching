@@ -47,6 +47,9 @@ pinned versions of Oxlint and Oxfmt. No global `vp` installation is required: us
 above or `pnpm exec vp check`, `pnpm exec vp lint`, and `pnpm exec vp fmt`.
 Run `pnpm exec vp toolchain` to inspect the installed tool versions.
 
+`pnpm check` also runs `vp lint --deny-warnings` before the Astro type check so lint
+warnings fail the check and CI.
+
 The `lint` and `fmt` blocks in `vite.config.ts` are the shared configuration. Formatting
 covers TypeScript, JavaScript, Astro templates (including frontmatter, scripts, and styles),
 CSS, JSON, YAML, and Markdown. Astro formatting uses `@astrojs/compiler-rs` and matches
@@ -74,8 +77,9 @@ pnpm build
 GitHub Actions runs the same checks on Node 22 and 24 for every PR and push to `main`.
 `test:tooling` creates temporary TypeScript, Astro, and CSS fixtures, confirms deliberate
 lint/format violations fail, formats them, verifies they pass, and checks a second format
-does not change them. The fixtures are removed afterward. Neither CI nor the static build
-requires database or SMTP credentials.
+does not change them. An isolated warning-only fixture also verifies that the actual
+`package.json` check script rejects lint warnings. The fixtures are removed afterward.
+Neither CI nor the static build requires database or SMTP credentials.
 
 ## Database
 
