@@ -21,13 +21,11 @@ const homeSchema = {
   priceRange: "$$",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Valencia",
+    streetAddress: "Calle Giacomo Puccini, 21",
+    addressLocality: "Puerto de Sagunto",
+    addressRegion: "Valencia",
+    postalCode: "46520",
     addressCountry: "ES",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 39.4699,
-    longitude: -0.3763,
   },
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
@@ -35,7 +33,21 @@ const homeSchema = {
     opens: "09:00",
     closes: "18:00",
   },
-  sameAs: ["https://www.linkedin.com/in/mauricio-magni-manchon/"],
+  founder: {
+    "@type": "Person",
+    name: "Mauricio Magni Manchón",
+    jobTitle: "Coach integrativo",
+    sameAs: ["https://www.linkedin.com/in/mauricio-magni-manchon/"],
+  },
+  knowsAbout: [
+    "Coaching ejecutivo",
+    "Liderazgo de equipos TIC",
+    "Coaching para mujeres directivas",
+  ],
+  sameAs: [
+    "https://www.linkedin.com/in/mauricio-magni-manchon/",
+    "https://www.instagram.com/virtuswaycoach",
+  ],
   description:
     "Coaching integrativo para mujeres profesionales y equipos TIC. Liderazgo con coherencia, claridad y método. Valencia y online.",
 };
@@ -44,7 +56,7 @@ const showTestimonials = true;
 ---
 
 <Layout
-  title="VirtusWay — Coaching integrativo para mujeres profesionales y equipos TIC"
+  title="VirtusWay — Coaching para mujeres y equipos TIC"
   description="Liderar con coherencia y claridad. Coaching integrativo para mujeres profesionales y equipos TIC, con una gestión más armónica, tranquilidad y eficiencia."
   schemaMarkup={homeSchema}
 >
