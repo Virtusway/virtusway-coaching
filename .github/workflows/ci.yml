@@ -34,5 +34,7 @@ jobs:
         run: pnpm check
       - name: Verify lint and format failure detection
         run: pnpm test:tooling
+      - name: Verify booking links open as guest
+        run: pnpm test:links
       - name: Build for Netlify
         run: pnpm build

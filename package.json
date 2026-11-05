@@ -10,6 +10,7 @@
     "format": "vp fmt",
     "format:check": "vp fmt --check",
     "test:tooling": "node --test scripts/tooling.test.mjs",
+    "test:links": "node --test scripts/booking-urls.test.mjs",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
