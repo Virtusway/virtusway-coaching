@@ -1,5 +1,5 @@
 ---
-import { BOOKING_PATH, CONTACT_EMAIL } from "../lib/constants";
+import { CONTACT_EMAIL, SOCIAL_URLS, TALK_PATH, WHATSAPP_CHANNEL_URL } from "../lib/constants";
 
 const year = new Date().getFullYear();
 ---
@@ -27,10 +27,41 @@ const year = new Date().getFullYear();
             />
           </a>
           <p class="mt-5 max-w-md text-[0.96rem] leading-[1.65] text-ink-muted">
-            VirtusWay es coaching integrativo para profesionales con trayectoria y equipos TIC.
-            Fundado por Mauricio Magni Manchón, con una mirada práctica, humana y sin recetas
-            prefabricadas.
+            VirtusWay es coaching integrativo para <strong class="text-ink">quien lidera</strong>:
+            mujeres profesionales con trayectoria y personas que dirigen equipos TIC. Una mirada
+            práctica y humana, sin recetas prefabricadas.
           </p>
+
+          <p class="mt-6 eyebrow">Sígueme</p>
+          <ul class="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-[0.92rem]">
+            <li>
+              <a
+                href={SOCIAL_URLS.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-deep underline decoration-leaf-deep/40 underline-offset-4 hover:decoration-leaf-deep"
+                >LinkedIn</a
+              >
+            </li>
+            <li>
+              <a
+                href={SOCIAL_URLS.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-deep underline decoration-leaf-deep/40 underline-offset-4 hover:decoration-leaf-deep"
+                >Instagram</a
+              >
+            </li>
+            <li>
+              <a
+                href={WHATSAPP_CHANNEL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-deep underline decoration-leaf-deep/40 underline-offset-4 hover:decoration-leaf-deep"
+                >Canal de WhatsApp</a
+              >
+            </li>
+          </ul>
         </div>
 
         <!-- Navigation -->
@@ -52,9 +83,7 @@ const year = new Date().getFullYear();
               <a href="/#guia" class="hover:text-deep transition-colors">Guía gratuita</a>
             </li>
             <li>
-              <a href={BOOKING_PATH} class="hover:text-deep transition-colors"
-                >Sesión de exploración</a
-              >
+              <a href={TALK_PATH} class="hover:text-deep transition-colors">Hablemos</a>
             </li>
           </ul>
         </div>

@@ -212,12 +212,12 @@
                   style="accent-color: var(--color-leaf)"
                 />
                 <span class="min-w-0">
-                  Doy mi consentimiento para recibir la guía y suscribirme al boletín mensual de
-                  coherencia. Puedo revocarlo en cualquier momento en la
+                  Doy mi consentimiento para recibir la guía en mi correo. El tratamiento de tus
+                  datos está en la
                   <a
-                    href="/revocar-consentimiento"
+                    href="/legal/politica-privacidad"
                     class="text-on-dark-accent underline decoration-on-dark-accent/50 underline-offset-3 hover:decoration-on-dark-accent"
-                    >página de revocación</a
+                    >política de privacidad</a
                   >.
                 </span>
               </label>
@@ -227,7 +227,7 @@
                 data-submit-button
                 class="btn btn-primary w-full cursor-pointer justify-center bg-leaf! text-ink! hover:bg-leaf-deep! hover:text-paper! disabled:cursor-not-allowed disabled:opacity-45"
               >
-                <span data-submit-label>Descargar guía y suscribirme</span>
+                <span data-submit-label>Descargar la guía</span>
                 <span class="arrow" aria-hidden="true">→</span>
               </button>
 
@@ -250,8 +250,7 @@
             ></p>
 
             <p class="mt-3 text-[0.78rem] leading-relaxed text-on-dark-soft" data-form-footnote>
-              Al completar la descarga, te daremos de alta en el boletín de coherencia de Mauricio
-              Magni (sin spam, baja en 1 clic).
+              Al completar la descarga, recibirás la guía en tu correo y nada más.
             </p>
           </form>
         </div>
@@ -303,7 +302,7 @@
       return;
     }
 
-    const defaultLabel = label.textContent ?? "Descargar guía y suscribirme";
+    const defaultLabel = label.textContent ?? "Descargar la guía";
     let toastTimer;
     let isSubmitting = false;
 

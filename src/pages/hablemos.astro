@@ -1,0 +1,153 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+import { BOOKINGS_URLS, CONTACT_EMAIL } from "../lib/constants";
+
+const pasos = [
+  {
+    num: "01",
+    title: "Me cuentas",
+    text: "Dónde estás, qué quieres que cambie y qué has intentado hasta ahora. Una charla para conocer la situación.",
+  },
+  {
+    num: "02",
+    title: "Respondo a tus dudas",
+    text: "Te comento cómo trabajo y qué puedes esperar de un proceso de coaching.",
+  },
+  {
+    num: "03",
+    title: "Decidimos",
+    text: "Con lo anterior ya podemos tomar una decisión sobre los pasos siguientes.",
+  },
+];
+---
+
+<Layout
+  title="Hablemos: 20 minutos para ver si esto te sirve · VirtusWay"
+  description="Una primera conversación de 20 minutos para presentarnos y ver qué posibilidades hay de colaboración. Me cuentas tu situación y decidimos juntos."
+>
+  <Header />
+
+  <main>
+    <section class="relative overflow-hidden">
+      <div aria-hidden="true" class="absolute inset-0 -z-10 pointer-events-none">
+        <div
+          class="absolute -top-28 -right-24 h-120 w-120 rounded-full opacity-30 blur-3xl"
+          style="background: radial-gradient(circle at 50% 50%, rgba(82, 194, 230, 0.5), transparent 62%);"
+        >
+        </div>
+        <div
+          class="absolute bottom-0 -left-24 h-110 w-110 rounded-full opacity-20 blur-3xl"
+          style="background: radial-gradient(circle at 50% 50%, rgba(0, 203, 151, 0.42), transparent 64%);"
+        >
+        </div>
+      </div>
+
+      <div class="max-w-275 mx-auto w-full min-w-0 px-6 md:px-10 pt-16 md:pt-24 pb-14 md:pb-20">
+        <p class="eyebrow eyebrow-with-rule">
+          <span class="w-8 h-px shrink-0 bg-leaf-deep"></span>
+          <span class="min-w-0">Primera conversación</span>
+        </p>
+
+        <h1
+          class="mt-6 font-display text-[2.6rem] sm:text-[3.4rem] md:text-[4.4rem] leading-[0.98] tracking-[-0.035em] text-ink"
+        >
+          Hablemos.
+          <span class="block">
+            <span class="font-display-italic text-deep">20 minutos.</span>
+          </span>
+        </h1>
+
+        <p class="mt-8 max-w-2xl text-[1.08rem] md:text-[1.18rem] leading-[1.65] text-ink-muted">
+          Una primera conversación para presentarnos y evaluar qué posibilidades hay de colaboración.
+          Me cuentas tu situación, te pregunto lo que necesito y decidimos juntos.
+        </p>
+
+        <div class="mt-10 flex flex-wrap items-center gap-4">
+          <a
+            href={BOOKINGS_URLS.hablar}
+            class="btn btn-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Reservar los 20 minutos
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+          <a href="#que-pasa" class="btn btn-ghost">Qué pasa en esos 20 minutos</a>
+        </div>
+
+        <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-[0.82rem] text-ink-soft">
+          <span class="tick">20 minutos</span>
+          <span class="tick">Sin coste</span>
+          <span class="tick">Sin compromiso</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="que-pasa" class="relative">
+      <div class="max-w-275 mx-auto w-full min-w-0 px-6 md:px-10 py-14 md:py-20">
+        <h2
+          class="font-display text-[2rem] md:text-[2.85rem] leading-[1.08] tracking-[-0.03em] text-ink max-w-3xl"
+        >
+          Qué pasa en esos <span class="font-display-italic text-deep">veinte minutos</span>
+        </h2>
+
+        <div class="mt-10 grid min-w-0 grid-cols-1 gap-6 lg:grid-cols-3">
+          {
+            pasos.map((paso) => (
+              <article class="min-w-0 rounded-4xl border border-rule bg-white/65 p-8">
+                <span class="eyebrow text-deep">{paso.num}</span>
+                <h3 class="mt-4 font-display text-[1.35rem] leading-[1.2] text-ink">{paso.title}</h3>
+                <p class="mt-3 text-[0.97rem] leading-[1.65] text-ink-muted">{paso.text}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="relative">
+      <div class="max-w-275 mx-auto w-full min-w-0 px-6 md:px-10 pb-16 md:pb-24">
+        <div class="max-w-3xl">
+          <h2
+            class="font-display text-[2rem] md:text-[2.85rem] leading-[1.08] tracking-[-0.03em] text-ink"
+          >
+            Y después, la <span class="font-display-italic text-deep">sesión de exploración</span>
+          </h2>
+          <p class="mt-6 text-[1.02rem] leading-[1.72] text-ink-muted">
+            Cuarenta y cinco minutos. Es el siguiente paso en los dos casos, con dos objetivos
+            distintos.
+          </p>
+        </div>
+
+        <div class="mt-10 grid min-w-0 grid-cols-1 gap-6 lg:grid-cols-2">
+          <article class="min-w-0 rounded-4xl border border-rule bg-white/65 p-8">
+            <h3 class="font-display text-[1.35rem] leading-[1.2] text-ink">Si es un proyecto de empresa</h3>
+            <p class="mt-3 text-[0.97rem] leading-[1.65] text-ink-muted">
+              Sirve para entender con más detalle qué buscáis y hasta dónde puede llegar el proyecto.
+              Puede participar alguien más de la empresa: quien decide, una persona de personal o un
+              líder de equipo.
+            </p>
+          </article>
+          <article class="min-w-0 rounded-4xl border border-rule bg-white/65 p-8">
+            <h3 class="font-display text-[1.35rem] leading-[1.2] text-ink">Si es un proceso personal</h3>
+            <p class="mt-3 text-[0.97rem] leading-[1.65] text-ink-muted">
+              Es el primer paso del proceso: ahí firmamos la alianza de coaching, cerramos la
+              logística de las sesiones y cómo se paga.
+            </p>
+          </article>
+        </div>
+
+        <p class="mt-10 max-w-2xl text-[1.02rem] leading-[1.72] text-ink-muted">
+          Si no encaja, te quedas con lo que hayamos hablado. Y si prefieres escribir antes de
+          reservar, escríbeme a
+          <a class="underline decoration-leaf-deep/40" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a
+          >.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
