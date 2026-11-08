@@ -121,7 +121,7 @@ function buildEmail({ downloadUrl, revokeUrl }: { downloadUrl: string; revokeUrl
       `${SOCIAL_URLS.website.replace("https://", "")}\n` +
       "IG: @virtuswaycoach\n" +
       "LinkedIn: linkedin.com/in/mauricio-magni-manchon\n\n" +
-      "Puedes retirar tu consentimiento o pedir que borre tus datos en cualquier momento desde este enlace:\n" +
+      "Puedes retirar tu consentimiento en cualquier momento desde este enlace. Para que borre tus datos, escríbeme a coach@virtusway.com:\n" +
       revokeUrl,
     html:
       '<p>Gracias por descargar <strong>"5 preguntas para conectar con tus valores y tomar decisiones con claridad"</strong>.</p>' +
@@ -140,7 +140,7 @@ function buildEmail({ downloadUrl, revokeUrl }: { downloadUrl: string; revokeUrl
       "Coach Integrativo – VirtusWay<br />" +
       `<a href="${SOCIAL_URLS.website}">${SOCIAL_URLS.website.replace("https://", "")}</a></p>` +
       '<hr style="border:0;border-top:1px solid #d4e2eb;margin:24px 0;" />' +
-      `<p style="color:#5c6468;font-size:13px;line-height:1.5;">Puedes retirar tu consentimiento o pedir que borre tus datos en cualquier momento desde <a href="${safeRevokeUrl}">este enlace</a>.</p>`,
+      `<p style="color:#5c6468;font-size:13px;line-height:1.5;">Puedes retirar tu consentimiento en cualquier momento desde <a href="${safeRevokeUrl}">este enlace</a>. Para que borre tus datos, escríbeme a <a href="mailto:coach@virtusway.com">coach@virtusway.com</a>.</p>`,
   };
 }
 
