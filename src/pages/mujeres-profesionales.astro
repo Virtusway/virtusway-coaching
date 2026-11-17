@@ -8,14 +8,14 @@ import Testimonials from "../components/Testimonials.astro";
 const approachItems = [
   {
     label: "Proceso",
-    body: "8 sesiones diseñadas para que, desde tu experiencia, tus valores y tu contexto real, encuentres tus propias respuestas.",
+    body: "Ocho sesiones de 75 minutos, una a una.",
   },
   {
     label: "Ritmo",
     body: "Paso a paso, sin atajos, con espacio para reflexionar, evaluar y traducir lo que aparece en cambios reales.",
   },
   {
-    label: "Resultado",
+    label: "Qué te llevas",
     body: "Una forma más ligera, coherente y alineada de liderar tu vida y tu trabajo.",
   },
 ];
@@ -34,12 +34,17 @@ const faqItems = [
   {
     question: "¿Las sesiones son online o presenciales?",
     answer:
-      "El proceso puede realizarse online o de forma presencial en Valencia, Barcelona o Madrid, según prefieras y en función de la disponibilidad.",
+      "El proceso es online. Así cabe en una agenda como la tuya y no hay desplazamientos. Si en algún momento necesitas vernos en persona, lo valoramos; no es lo habitual, y no tengo consulta abierta.",
   },
   {
     question: "¿Qué diferencia este proceso de una consultoría o terapia?",
     answer:
       "No es terapia porque no se enfoca en diagnósticos clínicos ni en el pasado profundo, sino en tu presente y futuro profesional. Y a diferencia de la consultoría, no te doy recetas prefabricadas; te acompaño a encontrar soluciones adaptadas a tu realidad y valores.",
+  },
+  {
+    question: "¿Y si mi caso no encaja en ocho sesiones?",
+    answer:
+      "Lo vemos antes de empezar. Si lo que necesitas es otra cosa —unas sesiones puntuales, un acompañamiento más largo o un trabajo con tu equipo—, te lo digo y buscamos la forma que encaje.",
   },
 ];
 
@@ -67,7 +72,7 @@ const showTestimonials = true;
 
 <Layout
   title="Coaching Mujeres Profesionales en Madrid, Barcelona y Valencia · VirtusWay"
-  description="Coaching integrativo para mujeres profesionales en Madrid, Barcelona, Valencia y online. Conciliar vida profesional y personal, con coherencia y claridad."
+  description="Coaching integrativo para mujeres profesionales, online. Conciliar vida profesional y personal con coherencia y claridad."
   schemaMarkup={serviceSchema}
 >
   <Header />
@@ -87,7 +92,7 @@ const showTestimonials = true;
             "M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z",
         },
         {
-          text: "Sesión de exploración online o presencial y gratuita",
+          text: "Sesión de exploración online y gratuita",
           iconPath:
             "m22 8-6 4 6 4V8Z M2 6h14a2 2 0 012 2v8a2 2 0 01-2 2H2a2 2 0 01-2-2V8a2 2 0 012-2z",
         },
@@ -126,7 +131,7 @@ const showTestimonials = true;
       why={[
         "He liderado equipos técnicos durante 35 años. He visto cómo el esfuerzo sostenido sin coherencia quema a las mejores profesionales. También he visto cómo, con el acompañamiento adecuado, esas mismas personas recuperan claridad, energía y seguridad para decidir.",
         "Acompaño desde la experiencia real, con los pies en el suelo y con la teoría de respaldo. He estado en trincheras parecidas, y he aprendido que el cambio real viene de entender qué te mueve por dentro y alinear tus decisiones con eso.",
-        "Trabajo desde un enfoque integrativo (coaching ontológico, análisis transaccional relacional, ACT). Acompaño de forma online o presencial en Valencia, Barcelona o Madrid, según prefieras.",
+        "Trabajo desde un enfoque integrativo (coaching ontológico, análisis transaccional relacional, ACT), y acompaño online: es así como el proceso cabe en una agenda exigente.",
       ]}
       questionTitle="Una pregunta <span class='font-display-italic text-on-dark-accent'>sincera</span>"
       questionBody={
